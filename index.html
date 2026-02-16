@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VIC TORR — Official</title>
+  <meta name="description" content="VIC TORR — Minsk • Edinburgh • Moscow. Links to Spotify, YouTube, Yandex Music, Instagram." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="VIC TORR" />
+  <meta property="og:description" content="Music from Behind the Iron Curtain. Minsk • Edinburgh • Moscow." />
+  <meta property="og:image" content="vic.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <style>
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body{
+      margin:0;
+      min-height:100vh;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:#f3f4f6;
+      overflow-x:hidden;
+      background:#07080b;
+    }
+
+    /* Photo-driven ambient background */
+    .bg{
+      position:fixed;
+      inset:0;
+      z-index:-2;
+      background:
+        radial-gradient(1200px 700px at 50% 20%, rgba(255,255,255,.10), transparent 60%),
+        radial-gradient(900px 500px at 15% 80%, rgba(255,255,255,.07), transparent 60%),
+        url("vic.webp");
+      background-size:cover;
+      background-position:center;
+      filter: blur(22px) saturate(1.05) contrast(1.05);
+      transform: scale(1.08);
+      opacity:.38;
+    }
+    .vignette{
+      position:fixed;
+      inset:0;
+      z-index:-1;
+      background:
+        radial-gradient(1000px 800px at 50% 20%, rgba(0,0,0,.30), rgba(0,0,0,.78) 70%),
+        linear-gradient(to bottom, rgba(0,0,0,.40), rgba(0,0,0,.86));
+    }
+
+    .wrap{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 28px 16px;
+    }
+
+    .card{
+      width:min(980px, 100%);
+      border-radius: 22px;
+      overflow:hidden;
+      background: rgba(10,12,16,.62);
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow: 0 26px 80px rgba(0,0,0,.65);
+      backdrop-filter: blur(10px);
+      display:grid;
+      grid-template-columns: 1fr 1.15fr;
+    }
+
+    /* Left poster panel */
+    .poster{
+      position:relative;
+      min-height: 420px;
+      background-image: url("vic.webp");
+      background-size: cover;
+      background-position: 20% 20%;
+      filter: grayscale(1) contrast(1.05);
+    }
+    .poster::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(800px 500px at 30% 25%, rgba(255,255,255,.10), transparent 60%),
+        linear-gradient(to right, rgba(0,0,0,.20), rgba(0,0,0,.82));
+    }
+    .poster::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background-image: linear-gradient(transparent 0, rgba(0,0,0,.16) 100%);
+      pointer-events:none;
+    }
+
+    /* Right content panel */
+    .content{
+      padding: 30px 28px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap: 14px;
+    }
+
+    h1{
+      margin:0;
+      font-size: clamp(32px, 4.2vw, 54px);
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      line-height:1.05;
+    }
+    /* Increased distance above and below this line */
+    .sub{
+      margin: 18px 0 18px 0;   /* <- more space before & after */
+      font-size: 13px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      opacity:.86;
+    }
+    .cities{
+      margin:0;
+      font-size: 12px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      opacity:.72;
+    }
+    .tagline{
+      margin: 10px 0 0 0;
+      font-size: 14px;
+      line-height: 1.75;
+      opacity:.84;
+      max-width: 46ch;
+    }
+
+    .btns{
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+    a.btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: #f3f4f6;
+      text-decoration:none;
+      font-weight: 800;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      font-size: 11.5px;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      min-width: 210px;
+    }
+    a.btn:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.10);
+      border-color: rgba(255,255,255,.24);
+    }
+    a.btn:active{ transform: translateY(0px); }
+
+    .quote{
+      margin: 10px 0 0 0;
+      font-size: 14px;
+      line-height: 1.7;
+      opacity:.90;
+    }
+
+    .footer{
+      margin-top: 6px;
+      font-size: 12px;
+      opacity:.62;
+      letter-spacing: .06em;
+    }
+
+    /* Mobile */
+    @media (max-width: 860px){
+      .card{ grid-template-columns: 1fr; }
+      .poster{
+        min-height: 320px;
+        background-position: 18% 18%;
+      }
+      .poster::before{
+        background:
+          radial-gradient(700px 480px at 30% 25%, rgba(255,255,255,.10), transparent 60%),
+          linear-gradient(to bottom, rgba(0,0,0,.18), rgba(0,0,0,.86));
+      }
+      .content{ padding: 22px 18px; }
+      a.btn{ min-width: 100%; }
+      .sub{ margin: 16px 0 16px 0; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <main class="card" role="main">
+      <section class="poster" aria-label="Vic Torr photo"></section>
+
+      <section class="content">
+        <header>
+          <h1>VIC TORR</h1>
+          <p class="sub">Music from Behind the Iron Curtain</p>
+          <p class="cities">Minsk · Edinburgh · Moscow</p>
+          <p class="tagline">hip-tronic rock • alt-pop • post-punk</p>
+        </header>
+
+        <nav class="btns" aria-label="Links">
+          <a class="btn" href="https://open.spotify.com/artist/14MVZPlVW6Degg2ysmU5Xh" target="_blank" rel="noopener">Spotify</a>
+          <a class="btn" href="https://music.yandex.com/artist/14641074" target="_blank" rel="noopener">Yandex Music</a>
+          <a class="btn" href="https://www.youtube.com/@vic_torr" target="_blank" rel="noopener">YouTube</a>
+          <a class="btn" href="https://www.instagram.com/vic_torr_live/" target="_blank" rel="noopener">Instagram</a>
+        </nav>
+
+        <p class="quote">“Я не пишу музыку — я создаю звуковые миры.”</p>
+        <p class="footer">© <span id="y"></span> Vic Torr</p>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
