@@ -303,6 +303,21 @@
       .icon-row{ justify-content: center; }
       .sub{ margin: 16px 0 16px 0; }
     }
+
+    /* Very small screens (iPhone) - allow wrap with 3 per row */
+    @media (max-width: 600px){
+      .icon-row{
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        max-width: 162px;
+        margin-left: auto !important;
+        margin-right: auto !important;
+      }
+      .icon{
+        flex: 0 0 46px;
+      }
+    }
   </style>
 </head>
 
