@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>VIC TORR — Official</title>
-  <meta name="description" content="VIC TORR — Minsk • Edinburgh • Moscow. Links to Spotify, YouTube, Yandex Music, Instagram." />
+  <meta name="description" content="VIC TORR — Minsk • Edinburgh • Moscow. Links to Spotify, Yandex Music, YouTube, Instagram, Apple Music, Zvuk, KION, VK." />
 
   <!-- Open Graph -->
   <meta property="og:title" content="VIC TORR" />
@@ -110,14 +110,16 @@
       text-transform: uppercase;
       line-height:1.05;
     }
+
     /* Increased distance above and below this line */
     .sub{
-      margin: 18px 0 18px 0;   /* <- more space before & after */
+      margin: 18px 0 18px 0;
       font-size: 13px;
       letter-spacing: .18em;
       text-transform: uppercase;
       opacity:.86;
     }
+
     .cities{
       margin:0;
       font-size: 12px;
@@ -125,6 +127,7 @@
       text-transform: uppercase;
       opacity:.72;
     }
+
     .tagline{
       margin: 10px 0 0 0;
       font-size: 14px;
@@ -137,7 +140,7 @@
       display:flex;
       gap: 12px;
       flex-wrap: wrap;
-      margin-top: 10px;
+      margin-top: 0; /* moved spacing to wrapper */
     }
     a.btn{
       display:inline-flex;
@@ -163,11 +166,104 @@
     }
     a.btn:active{ transform: translateY(0px); }
 
+    /* Streaming icon row (circular monochrome logos) */
+    /* container that groups the square buttons and the circular icons
+       and decides a shared intrinsic width so both rows align */
+    .links{
+      margin-top: 18px; /* increased spacing between square and circular buttons */
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+      transition: width .12s ease;
+    }
+
+    .icon-row{
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 36px; /* increased vertical spacing after square buttons (user requested larger gap) */
+      align-items:center;
+      justify-content: space-between; /* spread to the container edges */
+      width: 100%; /* fill the wrapper's intrinsic width */
+    }
+
+    .icon{
+      width: 46px;
+      height: 46px;
+      border-radius: 12px; /* rounded rectangle like the large square buttons */
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      text-decoration:none;
+
+      /* refined background (darker than before for better contrast) */
+      background: radial-gradient(120% 120% at 30% 20%,
+          rgba(255,255,255,.58),
+          rgba(150,150,150,.30));
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: 0 10px 24px rgba(0,0,0,.35);
+
+      transition: transform .12s ease, filter .12s ease, opacity .12s ease;
+      overflow:hidden;
+      opacity: .92;
+    }
+
+    .icon:hover{
+      transform: translateY(-1px);
+      filter: brightness(1.02);
+      opacity: 1;
+    }
+    .icon:active{ transform: translateY(0px); }
+
+    .icon img{
+      width: 26px;
+      height: 26px;
+      display:block;
+      object-fit: contain;
+    }
+
+    /* for wider marks */
+    .icon.wide img{ width: 30px; }
+
     .quote{
       margin: 10px 0 0 0;
       font-size: 14px;
       line-height: 1.7;
       opacity:.90;
+    }
+
+    /* Wider quote block for multilingual lines — upgraded styling */
+    .quotes{
+      max-width: 68ch;
+      margin-top: 12px;
+      padding: 14px 18px;
+      border-left: 3px solid rgba(255,255,255,.06);
+      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,0));
+      border-radius: 10px;
+      position: relative;
+    }
+    .quotes .quote{
+      margin: 8px 0;
+      color: rgba(243,244,246,.92);
+      letter-spacing: .01em;
+    }
+    /* Belarusian — slightly italic */
+    .quotes .quote:nth-child(1){
+      font-style: italic;
+      opacity: .92;
+      color: rgba(243,244,246,.88);
+    }
+    /* English — prominent and bold */
+    .quotes .quote:nth-child(2){
+      font-size: 15px;
+      margin-top: 6px;
+    }
+    .quotes .quote:nth-child(2) strong{ font-weight: 900; color: #ffffff; }
+    /* Russian — keep as original but slightly muted */
+    .quotes .quote:nth-child(3){
+      opacity: .9;
+      color: rgba(243,244,246,.8);
+      margin-top: 8px;
     }
 
     .footer{
@@ -191,6 +287,10 @@
       }
       .content{ padding: 22px 18px; }
       a.btn{ min-width: 100%; }
+      /* on small screens let the wrapper expand to full width and
+        keep the circular icons centered */
+      .links{ width: 100%; }
+      .icon-row{ justify-content: center; }
       .sub{ margin: 16px 0 16px 0; }
     }
   </style>
@@ -212,14 +312,46 @@
           <p class="tagline">hip-tronic rock • alt-pop • post-punk</p>
         </header>
 
-        <nav class="btns" aria-label="Links">
-          <a class="btn" href="https://open.spotify.com/artist/14MVZPlVW6Degg2ysmU5Xh" target="_blank" rel="noopener">Spotify</a>
-          <a class="btn" href="https://music.yandex.com/artist/14641074" target="_blank" rel="noopener">Yandex Music</a>
-          <a class="btn" href="https://www.youtube.com/@vic_torr" target="_blank" rel="noopener">YouTube</a>
-          <a class="btn" href="https://www.instagram.com/vic_torr_live/" target="_blank" rel="noopener">Instagram</a>
-        </nav>
+        <div class="links">
+          <nav class="btns" aria-label="Links">
+            <a class="btn" href="https://open.spotify.com/artist/14MVZPlVW6Degg2ysmU5Xh" target="_blank" rel="noopener">Spotify</a>
+            <a class="btn" href="https://music.yandex.com/artist/14641074" target="_blank" rel="noopener">Yandex Music</a>
+            <a class="btn" href="https://www.youtube.com/@vic_torr" target="_blank" rel="noopener">YouTube</a>
+            <a class="btn" href="https://www.instagram.com/vic_torr_live/" target="_blank" rel="noopener">Instagram</a>
+          </nav>
 
-        <p class="quote">“Я не пишу музыку — я создаю звуковые миры.”</p>
+          <div class="icon-row" aria-label="More platforms">
+          <a class="icon" href="https://music.apple.com/ru/artist/vic-torr/1812423510" target="_blank" rel="noopener" aria-label="Apple Music">
+            <img src="_images/logo-apple-music.svg" alt="Apple Music">
+          </a>
+
+          <a class="icon" href="https://zvuk.com/artist/212249377" target="_blank" rel="noopener" aria-label="Звук / СберЗвук">
+            <img src="_images/logo-zvuk.svg" alt="Звук">
+          </a>
+
+          <a class="icon wide" href="https://music.mts.ru/search?text=Vic%20Torr" target="_blank" rel="noopener" aria-label="КИОН">
+            <img src="_images/logo-kion.svg" alt="КИОН">
+          </a>
+
+          <a class="icon" href="https://vk.ru/vic_torr_808" target="_blank" rel="noopener" aria-label="VK">
+            <img src="_images/logo-vk.svg" alt="VK">
+          </a>
+
+          <a class="icon" href="https://music.yandex.com/artist/14641074" target="_blank" rel="noopener" aria-label="Yandex Music">
+            <img src="_images/logo-yandex-music.svg" alt="Yandex Music">
+          </a>
+
+          <a class="icon" href="https://open.spotify.com/artist/14MVZPlVW6Degg2ysmU5Xh" target="_blank" rel="noopener" aria-label="Spotify">
+            <img src="_images/logo-spotify.svg" alt="Spotify">
+          </a>
+          </div>
+        </div>
+
+        <div class="quotes">
+          <p class="quote">“Я не пішу музыку — я ствараю гукавыя прасторы.”</p>
+          <p class="quote"><strong>“I don’t make music — I create soundscapes.”</strong></p>
+          <p class="quote">“Я не пишу музыку — я создаю звуковые миры.”</p>
+        </div>
         <p class="footer">© <span id="y"></span> Vic Torr</p>
       </section>
     </main>
@@ -227,6 +359,52 @@
 
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+  <script>
+    // Ensure the .links wrapper width matches the computed width of .btns
+    (function(){
+      function syncLinksWidth(){
+        var btns = document.querySelector('.btns');
+        var links = document.querySelector('.links');
+        var iconRow = document.querySelector('.icon-row');
+        if(!btns || !links || !iconRow) return;
+        // On small screens let CSS handle full-width layout
+        if(window.matchMedia('(max-width: 860px)').matches){
+          links.style.width = '';
+          iconRow.style.width = '';
+          iconRow.style.marginLeft = '';
+          return;
+        }
+
+        var buttons = btns.querySelectorAll('.btn');
+        var first = buttons[0];
+        var second = buttons[1] || buttons[0];
+        var cs = getComputedStyle(btns);
+        var gapVal = cs.getPropertyValue('column-gap') || cs.getPropertyValue('gap') || '12px';
+        if(gapVal.indexOf(' ')>-1) gapVal = gapVal.split(' ')[0];
+        var gapPx = parseFloat(gapVal) || 12;
+
+        var firstRect = first.getBoundingClientRect();
+        var secondRect = second.getBoundingClientRect();
+        var linksRect = links.getBoundingClientRect();
+
+        // Desired width: two button widths + horizontal gap between them
+        var total = Math.ceil(firstRect.width + secondRect.width + gapPx);
+
+        links.style.width = total + 'px';
+        links.style.marginLeft = 'auto';
+        links.style.marginRight = 'auto';
+
+        iconRow.style.width = total + 'px';
+        var offset = Math.round(firstRect.left - linksRect.left);
+        iconRow.style.marginLeft = offset + 'px';
+      }
+      window.addEventListener('resize', syncLinksWidth);
+      window.addEventListener('orientationchange', syncLinksWidth);
+      document.addEventListener('DOMContentLoaded', syncLinksWidth);
+      // run shortly after load to allow webfonts/layout to settle
+      window.setTimeout(syncLinksWidth, 160);
+    })();
   </script>
 </body>
 </html>
