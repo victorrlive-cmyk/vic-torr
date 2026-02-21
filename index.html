@@ -180,11 +180,13 @@
     .icon-row{
       display:flex;
       gap: 12px;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       margin-top: 36px; /* increased vertical spacing after square buttons (user requested larger gap) */
       align-items:center;
       justify-content: space-between; /* spread to the container edges */
       width: 100%; /* fill the wrapper's intrinsic width */
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
     }
 
     .icon{
