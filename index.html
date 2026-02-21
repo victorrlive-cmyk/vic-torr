@@ -206,14 +206,22 @@
       transition: transform .12s ease, filter .12s ease, opacity .12s ease;
       overflow:hidden;
       opacity: .92;
+      filter: grayscale(1) contrast(3.0);
     }
 
     .icon:hover{
       transform: translateY(-1px);
-      filter: brightness(1.02);
+      filter: grayscale(0.3) contrast(3.5);
       opacity: 1;
     }
     .icon:active{ transform: translateY(0px); }
+
+    .icon.high-contrast{
+      filter: grayscale(1) contrast(5.0) brightness(3);
+    }
+    .icon.high-contrast:hover{
+      filter: grayscale(0.3) contrast(5.5) brightness(1.4);
+    }
 
     .icon img{
       width: 26px;
@@ -337,7 +345,7 @@
             <img src="./images/logo-vk.svg" alt="VK">
           </a>
 
-          <a class="icon" href="https://music.yandex.com/artist/14641074" target="_blank" rel="noopener" aria-label="Yandex Music">
+          <a class="icon high-contrast" href="https://music.yandex.com/artist/14641074" target="_blank" rel="noopener" aria-label="Yandex Music">
             <img src="./images/logo-yandex-music.svg" alt="Yandex Music">
           </a>
 
