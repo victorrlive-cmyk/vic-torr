@@ -281,6 +281,29 @@
       margin-top: 8px;
     }
 
+    .tourlink{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 16px;
+      padding: 14px 18px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      max-width: 68ch;
+      color: #f3f4f6;
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: .02em;
+      text-transform: none;
+      transition: background .16s ease, border-color .16s ease, transform .12s ease;
+    }
+    .tourlink:hover{
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.14);
+      transform: translateY(-1px);
+    }
+
     .footer{
       margin-top: 6px;
       font-size: 12px;
@@ -382,6 +405,7 @@
           <p class="quote"><strong>“I don’t make music — I create soundscapes.”</strong></p>
           <p class="quote">Говорят, что при прослушивании музыки вырабатывается окситоцин, как при объятиях. Поэтому — позволь мне тебя обнять, мой друг. </p>
         </div>
+        <a class="tourlink" href="https://victorr.ticketscloud.org/" target="_blank" rel="noopener">концерты → victorr.ticketscloud.org</a>
         <p class="footer">© <span id="y"></span> Vic Torr</p>
       </section>
     </main>
