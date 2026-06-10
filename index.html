@@ -18,7 +18,10 @@
   <link rel="manifest" href="/favicon/site.webmanifest">
 
   <style>
-    :root { color-scheme: dark; }
+    :root {
+      color-scheme: dark;
+      --accent-links: #FF2D2D;
+    }
     * { box-sizing: border-box; }
     html, body { height: 100%; }
     body{
@@ -116,6 +119,21 @@
       line-height:1.05;
     }
 
+    .brand-mark{
+      display:flex;
+      align-items:center;
+      justify-content:flex-start;
+      margin: 0;
+      max-width: 260px;
+    }
+
+    .brand-mark img{
+      display:block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
     /* Increased distance above and below this line */
     .sub{
       margin: 18px 0 18px 0;
@@ -182,11 +200,28 @@
       transition: width .12s ease;
     }
 
+    .section-title{
+      margin: 22px 0 8px;
+      text-align: center;
+      font-size: 11px;
+      line-height: 1.4;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      opacity: .78;
+      color: #f3f4f6;
+    }
+
+    .accent-links{
+      color: var(--accent-links);
+      font-weight: 700;
+      letter-spacing: .02em;
+    }
+
     .icon-row{
       display:flex;
       gap: 12px;
       flex-wrap: nowrap;
-      margin-top: 36px; /* increased vertical spacing after square buttons (user requested larger gap) */
+      margin-top: 18px;
       align-items:center;
       justify-content: space-between; /* spread to the container edges */
       width: 100%; /* fill the wrapper's intrinsic width */
@@ -372,6 +407,8 @@
             <a class="btn" href="https://www.youtube.com/@vic_torr" target="_blank" rel="noopener">YouTube</a>
             <a class="btn" href="https://www.instagram.com/vic_torr_live/" target="_blank" rel="noopener">Instagram</a>
           </nav>
+
+          <p class="section-title">↑ <span class="accent-links">ссылки</span> на стриминги и соцсети ↓</p>
 
           <div class="icon-row" aria-label="More platforms">
           <a class="icon" href="https://music.apple.com/ru/artist/vic-torr/1812423510" target="_blank" rel="noopener" aria-label="Apple Music">
