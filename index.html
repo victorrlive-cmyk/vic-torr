@@ -20,7 +20,8 @@
   <style>
     :root {
       color-scheme: dark;
-      --accent-links: #FF2D2D;
+      --accent-links: #ff2d2d;
+      --accent-links-soft: rgba(255,45,45,.16);
     }
     * { box-sizing: border-box; }
     html, body { height: 100%; }
@@ -215,6 +216,7 @@
       color: var(--accent-links);
       font-weight: 700;
       letter-spacing: .02em;
+      text-shadow: 0 0 16px rgba(255,45,45,.18);
     }
 
     .icon-row{
@@ -274,6 +276,43 @@
 
     /* for wider marks */
     .icon.wide img{ width: 30px; }
+
+    .video-block{
+      margin-top: 12px;
+      padding: 12px;
+      border-radius: 16px;
+      background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.02));
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
+    }
+
+    .video-label{
+      margin: 0 0 8px;
+      font-size: 10px;
+      line-height: 1.4;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      opacity: .72;
+      color: #f3f4f6;
+    }
+
+    .video-frame{
+      position: relative;
+      overflow: hidden;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.32);
+      aspect-ratio: 16 / 9;
+      box-shadow: 0 16px 36px rgba(0,0,0,.32);
+    }
+
+    .video-frame iframe{
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
 
     .quote{
       margin: 10px 0 0 0;
@@ -434,6 +473,18 @@
           <a class="icon" href="https://open.spotify.com/artist/14MVZPlVW6Degg2ysmU5Xh" target="_blank" rel="noopener" aria-label="Spotify">
             <img src="./images/logo-spotify.svg" alt="Spotify">
           </a>
+          </div>
+        </div>
+
+        <div class="video-block" aria-label="Featured video">
+          <p class="video-label">featured video</p>
+          <div class="video-frame">
+            <iframe
+              src="https://www.youtube.com/embed/fTBCnhixcIw?rel=0&modestbranding=1"
+              title="Vic Torr featured video"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
           </div>
         </div>
 
