@@ -212,6 +212,68 @@
       color: #f3f4f6;
     }
 
+    .promo-card{
+      margin: 14px auto 0;
+      padding: 14px;
+      width: min(100%, 520px);
+      min-height: 150px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.10);
+      background:
+        linear-gradient(180deg, rgba(7,8,11,.40), rgba(7,8,11,.78)),
+        url("photo/vic_torr_zero_hero.png") center/cover no-repeat;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.05), 0 10px 28px rgba(0,0,0,.30);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .promo-link{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 11px 16px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-size: 10.5px;
+      color: #fff;
+      background: linear-gradient(135deg, rgba(255,255,255,.24), rgba(7,8,11,.62));
+      border: 1px solid rgba(255,255,255,.22);
+      box-shadow:
+        0 10px 24px rgba(0,0,0,.38),
+        inset 0 1px 0 rgba(255,255,255,.16);
+      transition: transform .12s ease, background .12s ease, border-color .12s ease, box-shadow .12s ease;
+      min-width: min(100%, 290px);
+    }
+
+    .promo-link .promo-word{
+      display: inline-block;
+      color: #ffffff;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-shadow:
+        0 0 16px rgba(0,0,0,.95),
+        0 0 30px rgba(0,0,0,.84),
+        0 0 48px rgba(0,0,0,.68),
+        0 0 70px rgba(0,0,0,.55);
+    }
+
+    .promo-link:hover{
+      transform: translateY(-1px);
+      background: linear-gradient(135deg, rgba(255,255,255,.30), rgba(7,8,11,.68));
+      border-color: rgba(255,255,255,.32);
+      box-shadow:
+        0 12px 28px rgba(0,0,0,.44),
+        inset 0 1px 0 rgba(255,255,255,.18);
+    }
+
     .accent-links{
       color: var(--accent-links);
       font-weight: 700;
@@ -446,6 +508,10 @@
             <a class="btn" href="https://www.youtube.com/@vic_torr" target="_blank" rel="noopener">YouTube</a>
             <a class="btn" href="https://www.instagram.com/vic_torr_live/" target="_blank" rel="noopener">Instagram</a>
           </nav>
+
+          <div class="promo-card" aria-label="Pre-save promotion">
+            <a class="promo-link" href="https://link.1mp.ru/vtng" target="_blank" rel="noopener"><span class="promo-word">НЕ ГЕРОЙ ► pre-save</span></a>
+          </div>
 
           <p class="section-title">↑ <span class="accent-links">ссылки</span> на стриминги и соцсети ↓</p>
 
