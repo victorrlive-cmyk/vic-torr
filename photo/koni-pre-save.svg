@@ -1,0 +1,37 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="130" y1="40" x2="1120" y2="660" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0B5DFF"/>
+      <stop offset="0.4" stop-color="#0B4AC6"/>
+      <stop offset="1" stop-color="#040B15"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(600 300) rotate(90) scale(420 760)">
+      <stop offset="0" stop-color="#8ED8FF" stop-opacity="0.9"/>
+      <stop offset="0.35" stop-color="#2C7BFF" stop-opacity="0.65"/>
+      <stop offset="1" stop-color="#030911" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="line" x1="336" y1="518" x2="848" y2="518" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F7E570"/>
+      <stop offset="1" stop-color="#F7E570"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="700" fill="url(#bg)"/>
+  <ellipse cx="600" cy="300" rx="660" ry="280" fill="url(#glow)"/>
+
+  <g opacity="0.32" filter="blur(14px)">
+    <circle cx="250" cy="150" r="110" fill="#7DE2FF"/>
+    <circle cx="980" cy="180" r="140" fill="#1E5BFF"/>
+    <circle cx="760" cy="560" r="180" fill="#0A1A38"/>
+  </g>
+
+  <g opacity="0.07">
+    <path d="M86 510C240 430 398 420 500 458C600 495 736 520 1112 480V700H86V510Z" fill="#071B2F"/>
+  </g>
+
+  <g>
+    <text x="600" y="430" text-anchor="middle" font-size="210" font-weight="900" letter-spacing="-10" font-family="Arial, Helvetica, sans-serif" fill="#F5F7FA">КОНИ</text>
+    <rect x="335" y="465" width="530" height="8" rx="4" fill="url(#line)"/>
+    <text x="600" y="540" text-anchor="middle" font-size="46" font-weight="800" letter-spacing="8" font-family="Arial, Helvetica, sans-serif" fill="#F5F7FA" opacity="0.9">PRE-SAVE</text>
+  </g>
+</svg>
