@@ -1,619 +1,248 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ru">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>VIC TORR — Official</title>
-  <meta name="description" content="VIC TORR — Minsk • Edinburgh • Moscow. Links to Spotify, Yandex Music, YouTube, Instagram, Apple Music, Zvuk, KION, VK." />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vic Torr — постпанк · альтернатива · рок</title>
+  <meta name="description" content="Vic Torr — пишу песни, под которые хочется жить. Постпанк · альтернатива · рок, под который танцуют. Minsk · Edinburgh · Moscow.">
+  <meta name="theme-color" content="#111111">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="VIC TORR" />
-  <meta property="og:description" content="Music from Behind the Iron Curtain. Minsk • Edinburgh • Moscow." />
-  <meta property="og:image" content="vic.webp" />
-  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.vic-torr.com/">
+  <meta property="og:site_name" content="Vic Torr">
+  <meta property="og:title" content="Vic Torr">
+  <meta property="og:description" content="пишу песни, под которые хочется жить. Постпанк · альтернатива · рок, под который танцуют.">
+  <meta property="og:image" content="https://www.vic-torr.com/images/vic-hero-mono.webp">
+  <meta property="og:locale" content="ru_RU">
+  <meta name="twitter:card" content="summary_large_image">
 
   <link rel="icon" href="/favicon/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" href="/favicon/favicon-32.png">
   <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
   <link rel="manifest" href="/favicon/site.webmanifest">
 
-  <style>
-    :root {
-      color-scheme: dark;
-      --accent-links: #ff2d2d;
-      --accent-links-soft: rgba(255,45,45,.16);
-    }
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
-    body{
-      margin:0;
-      min-height:100vh;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      color:#f3f4f6;
-      overflow-x:hidden;
-      background:#07080b;
-    }
-
-    /* Photo-driven ambient background */
-    .bg{
-      position:fixed;
-      inset:0;
-      z-index:-2;
-      background:
-        radial-gradient(1200px 700px at 50% 20%, rgba(255,255,255,.10), transparent 60%),
-        radial-gradient(900px 500px at 15% 80%, rgba(255,255,255,.07), transparent 60%),
-        url("vic.webp");
-      background-size:cover;
-      background-position:center;
-      filter: blur(22px) saturate(1.05) contrast(1.05);
-      transform: scale(1.08);
-      opacity:.38;
-    }
-    .vignette{
-      position:fixed;
-      inset:0;
-      z-index:-1;
-      background:
-        radial-gradient(1000px 800px at 50% 20%, rgba(0,0,0,.30), rgba(0,0,0,.78) 70%),
-        linear-gradient(to bottom, rgba(0,0,0,.40), rgba(0,0,0,.86));
-    }
-
-    .wrap{
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding: 28px 16px;
-    }
-
-    .card{
-      width:min(980px, 100%);
-      border-radius: 22px;
-      overflow:hidden;
-      background: rgba(10,12,16,.62);
-      border: 1px solid rgba(255,255,255,.10);
-      box-shadow: 0 26px 80px rgba(0,0,0,.65);
-      backdrop-filter: blur(10px);
-      display:grid;
-      grid-template-columns: 1fr 1.15fr;
-    }
-
-    /* Left poster panel */
-    .poster{
-      position:relative;
-      min-height: 420px;
-      background-image: url("vic.webp");
-      background-size: cover;
-      background-position: 20% 20%;
-      filter: grayscale(1) contrast(1.05);
-    }
-    .poster::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        radial-gradient(800px 500px at 30% 25%, rgba(255,255,255,.10), transparent 60%),
-        linear-gradient(to right, rgba(0,0,0,.20), rgba(0,0,0,.82));
-    }
-    .poster::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background-image: linear-gradient(transparent 0, rgba(0,0,0,.16) 100%);
-      pointer-events:none;
-    }
-
-    /* Right content panel */
-    .content{
-      padding: 30px 28px;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      gap: 14px;
-    }
-
-    h1{
-      margin:0;
-      font-size: clamp(32px, 4.2vw, 54px);
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      line-height:1.05;
-    }
-
-    .brand-mark{
-      display:flex;
-      align-items:center;
-      justify-content:flex-start;
-      margin: 0;
-      max-width: 260px;
-    }
-
-    .brand-mark img{
-      display:block;
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-    }
-
-    /* Increased distance above and below this line */
-    .sub{
-      margin: 18px 0 18px 0;
-      font-size: 13px;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      opacity:.86;
-    }
-
-    .cities{
-      margin:0;
-      font-size: 12px;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      opacity:.72;
-    }
-
-    .tagline{
-      margin: 10px 0 0 0;
-      font-size: 14px;
-      line-height: 1.75;
-      opacity:.84;
-      max-width: 46ch;
-    }
-
-    .btns{
-      display:flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 0; /* moved spacing to wrapper */
-    }
-    a.btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding: 12px 14px;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
-      color: #f3f4f6;
-      text-decoration:none;
-      font-weight: 800;
-      letter-spacing: .10em;
-      text-transform: uppercase;
-      font-size: 11.5px;
-      transition: transform .12s ease, background .12s ease, border-color .12s ease;
-      min-width: 210px;
-    }
-    a.btn:hover{
-      transform: translateY(-1px);
-      background: rgba(255,255,255,.10);
-      border-color: rgba(255,255,255,.24);
-    }
-    a.btn:active{ transform: translateY(0px); }
-
-    /* Streaming icon row (circular monochrome logos) */
-    /* container that groups the square buttons and the circular icons
-       and decides a shared intrinsic width so both rows align */
-    .links{
-      margin-top: 18px; /* increased spacing between square and circular buttons */
-      width: fit-content;
-      margin-left: auto;
-      margin-right: auto;
-      transition: width .12s ease;
-    }
-
-    .section-title{
-      margin: 22px 0 8px;
-      text-align: center;
-      font-size: 11px;
-      line-height: 1.4;
-      letter-spacing: .22em;
-      text-transform: uppercase;
-      opacity: .78;
-      color: #f3f4f6;
-    }
-
-    .promo-card{
-      margin: 14px auto 0;
-      padding: 14px;
-      width: min(100%, 520px);
-      min-height: 150px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.10);
-      /* Use the artwork as the visible background with a subtle dark overlay */
-      background:
-        linear-gradient(180deg, rgba(7,8,11,.18), rgba(7,8,11,.48)),
-        url("photo/koni-pre-save.webp") center/cover no-repeat;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.05), 0 10px 28px rgba(0,0,0,.30);
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .promo-link{
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      padding: 11px 16px;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 800;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      font-size: 10.5px;
-      color: #fff;
-      background: linear-gradient(135deg, rgba(255,255,255,.24), rgba(7,8,11,.62));
-      border: 1px solid rgba(255,255,255,.22);
-      box-shadow:
-        0 10px 24px rgba(0,0,0,.38),
-        inset 0 1px 0 rgba(255,255,255,.16);
-      transition: transform .12s ease, background .12s ease, border-color .12s ease, box-shadow .12s ease;
-      min-width: min(100%, 290px);
-    }
-
-    .promo-link .promo-word{
-      display: inline-block;
-      color: #ffffff;
-      font-weight: 900;
-      letter-spacing: .12em;
-      text-shadow:
-        0 0 16px rgba(0,0,0,.95),
-        0 0 30px rgba(0,0,0,.84),
-        0 0 48px rgba(0,0,0,.68),
-        0 0 70px rgba(0,0,0,.55);
-    }
-
-    .promo-link:hover{
-      transform: translateY(-1px);
-      background: linear-gradient(135deg, rgba(255,255,255,.30), rgba(7,8,11,.68));
-      border-color: rgba(255,255,255,.32);
-      box-shadow:
-        0 12px 28px rgba(0,0,0,.44),
-        inset 0 1px 0 rgba(255,255,255,.18);
-    }
-
-    .accent-links{
-      color: var(--accent-links);
-      font-weight: 700;
-      letter-spacing: .02em;
-      text-shadow: 0 0 16px rgba(255,45,45,.18);
-    }
-
-    .icon-row{
-      display:flex;
-      gap: 12px;
-      flex-wrap: nowrap;
-      margin-top: 18px;
-      align-items:center;
-      justify-content: space-between; /* spread to the container edges */
-      width: 100%; /* fill the wrapper's intrinsic width */
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    .icon{
-      width: 46px;
-      height: 46px;
-      border-radius: 12px; /* rounded rectangle like the large square buttons */
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      text-decoration:none;
-
-      /* refined background (darker than before for better contrast) */
-      background: radial-gradient(120% 120% at 30% 20%,
-          rgba(255,255,255,.58),
-          rgba(150,150,150,.30));
-      border: 1px solid rgba(255,255,255,.12);
-      box-shadow: 0 10px 24px rgba(0,0,0,.35);
-
-      transition: transform .12s ease, filter .12s ease, opacity .12s ease;
-      overflow:hidden;
-      opacity: .92;
-      filter: grayscale(1) contrast(3.0);
-    }
-
-    .icon:hover{
-      transform: translateY(-1px);
-      filter: grayscale(0.3) contrast(3.5);
-      opacity: 1;
-    }
-    .icon:active{ transform: translateY(0px); }
-
-    .icon.high-contrast{
-      filter: grayscale(1) contrast(5.0) brightness(3);
-    }
-    .icon.high-contrast:hover{
-      filter: grayscale(0.3) contrast(5.5) brightness(1.4);
-    }
-
-    .icon img{
-      width: 26px;
-      height: 26px;
-      display:block;
-      object-fit: contain;
-    }
-
-    /* for wider marks */
-    .icon.wide img{ width: 30px; }
-
-    .video-block{
-      margin-top: 12px;
-      padding: 12px;
-      border-radius: 16px;
-      background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.02));
-      border: 1px solid rgba(255,255,255,.10);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
-    }
-
-    .video-label{
-      margin: 0 0 8px;
-      font-size: 10px;
-      line-height: 1.4;
-      letter-spacing: .22em;
-      text-transform: uppercase;
-      opacity: .72;
-      color: #f3f4f6;
-    }
-
-    .video-frame{
-      position: relative;
-      overflow: hidden;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.32);
-      aspect-ratio: 16 / 9;
-      box-shadow: 0 16px 36px rgba(0,0,0,.32);
-    }
-
-    .video-frame iframe{
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-
-    .quote{
-      margin: 10px 0 0 0;
-      font-size: 14px;
-      line-height: 1.7;
-      opacity:.90;
-    }
-
-    /* Wider quote block for multilingual lines — upgraded styling */
-    .quotes{
-      max-width: 68ch;
-      margin-top: 12px;
-      padding: 14px 18px;
-      border-left: 3px solid rgba(255,255,255,.06);
-      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,0));
-      border-radius: 10px;
-      position: relative;
-    }
-    .quotes .quote{
-      margin: 8px 0;
-      color: rgba(243,244,246,.92);
-      letter-spacing: .01em;
-    }
-    /* Belarusian — slightly italic */
-    .quotes .quote:nth-child(1){
-      font-style: italic;
-      opacity: .92;
-      color: rgba(243,244,246,.88);
-    }
-    /* English — prominent and bold */
-    .quotes .quote:nth-child(2){
-      font-size: 15px;
-      margin-top: 6px;
-    }
-    .quotes .quote:nth-child(2) strong{ font-weight: 900; color: #ffffff; }
-    /* Russian — keep as original but slightly muted */
-    .quotes .quote:nth-child(3){
-      opacity: .9;
-      color: rgba(243,244,246,.8);
-      margin-top: 8px;
-    }
-
-    .tourlink{
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 16px;
-      padding: 14px 18px;
-      border-radius: 10px;
-      border: 1px solid rgba(255,59,48,.3);
-      background: rgba(255,59,48,.1);
-      max-width: 68ch;
-      color: #f3f4f6;
-      text-decoration: none;
-      font-weight: 700;
-      letter-spacing: .02em;
-      text-transform: none;
-      transition: background .16s ease, border-color .16s ease, transform .12s ease;
-    }
-    .tourlink:hover{
-      background: rgba(255,59,48,.2);
-      border-color: rgba(255,59,48,.5);
-      transform: translateY(-1px);
-    }
-
-    .footer{
-      margin-top: 6px;
-      font-size: 12px;
-      opacity:.62;
-      letter-spacing: .06em;
-    }
-
-    /* Mobile */
-    @media (max-width: 860px){
-      .card{ grid-template-columns: 1fr; }
-      .poster{
-        min-height: 320px;
-        background-position: 18% 18%;
-      }
-      .poster::before{
-        background:
-          radial-gradient(700px 480px at 30% 25%, rgba(255,255,255,.10), transparent 60%),
-          linear-gradient(to bottom, rgba(0,0,0,.18), rgba(0,0,0,.86));
-      }
-      .content{ padding: 22px 18px; }
-      a.btn{ min-width: 100%; }
-      /* on small screens let the wrapper expand to full width and
-        keep the circular icons centered */
-      .links{ width: 100%; }
-      .icon-row{ justify-content: center; }
-      .sub{ margin: 16px 0 16px 0; }
-    }
-
-    /* Very small screens (iPhone) - allow wrap with 3 per row */
-    @media (max-width: 600px){
-      .icon-row{
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 12px;
-        max-width: 162px;
-        margin-left: auto !important;
-        margin-right: auto !important;
-      }
-      .icon{
-        flex: 0 0 46px;
-      }
-    }
-  </style>
+  <link rel="preload" href="fonts/fira-sans-extra-condensed-900-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/fira-sans-400-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <div class="bg" aria-hidden="true"></div>
-  <div class="vignette" aria-hidden="true"></div>
 
-  <div class="wrap">
-    <main class="card" role="main">
-      <section class="poster" aria-label="Vic Torr photo"></section>
+  <!-- 1. Первый экран -->
+  <header class="hero">
+    <div class="hero__photo" aria-hidden="true"></div>
+    <div class="hero__shade" aria-hidden="true"></div>
+    <div class="hero__side" aria-hidden="true"></div>
+    <div class="hero__inner">
+      <p class="hero__cities"><span class="mark"></span><span>Minsk · Edinburgh · Moscow</span></p>
+      <h1 class="hero__logo"><img src="images/logo-yellow.svg" alt="Vic Torr"></h1>
+      <p class="hero__punch">пишу песни, под которые хочется жить</p>
+      <p class="hero__genre">постпанк · альтернатива · рок, под который танцуют</p>
+      <div class="hero__btns">
+        <a class="btn btn--yellow" href="#platforms" data-scroll-to="platforms">Слушать</a>
+        <a class="btn btn--ghost" href="https://t.me/vic_torr_808" target="_blank" rel="noopener">Telegram</a>
+      </div>
+    </div>
+  </header>
 
-      <section class="content">
-        <header>
-          <h1>VIC TORR</h1>
-          <p class="sub">Music from Behind the Iron Curtain</p>
-          <p class="cities">Minsk · Edinburgh · Moscow</p>
-          <p class="tagline">hip-tronic rock • alt-pop • post-punk</p>
-        </header>
-
-        <div class="links">
-          <nav class="btns" aria-label="Links">
-            <a class="btn" href="https://open.spotify.com/artist/14MVZPlVW6Degg2ysmU5Xh" target="_blank" rel="noopener">Spotify</a>
-            <a class="btn" href="https://music.yandex.com/artist/14641074" target="_blank" rel="noopener">Yandex Music</a>
-            <a class="btn" href="https://www.youtube.com/@vic_torr" target="_blank" rel="noopener">YouTube</a>
-            <a class="btn" href="https://www.instagram.com/vic_torr_live/" target="_blank" rel="noopener">Instagram</a>
-          </nav>
-
-          <div class="promo-card" aria-label="Pre-save promotion for Koni">
-            <a class="promo-link" href="https://link.1mp.ru/knsv" target="_blank" rel="noopener"><span class="promo-word">КОНИ ► слушать</span></a>
+  <main>
+    <!-- 2. 01 — слушать -->
+    <section id="listen" class="wrap listen">
+      <div class="eyebrow"><span class="mark"></span><span>01 — слушать</span></div>
+      <div class="releases">
+        <article class="release">
+          <div class="cover">
+            <img src="images/cover-koni.webp" alt="Обложка сингла «Кони»" width="1200" height="1200">
+            <div class="release__badge"><span class="mark"></span><span>новый релиз</span></div>
           </div>
+          <div class="release__meta">
+            <h2 class="release__title">Кони</h2>
+            <div class="release__type">сингл</div>
+          </div>
+          <a class="btn btn--yellow" href="https://link.1mp.ru/knsv" target="_blank" rel="noopener">Слушать везде</a>
+        </article>
 
-          <p class="section-title">↑ <span class="accent-links">ссылки</span> на стриминги и соцсети ↓</p>
+        <div class="catalog">
+          <a class="tile" href="http://link.1mp.ru/vtnp" target="_blank" rel="noopener">
+            <div class="cover"><img src="images/cover-ne-pyanitsa.webp" alt="" width="1200" height="1200" loading="lazy"></div>
+            <div class="tile__title">Не пьяница</div>
+            <div class="tile__type">сингл</div>
+          </a>
+          <a class="tile" href="http://link.1mp.ru/vctb" target="_blank" rel="noopener">
+            <div class="cover"><img src="images/cover-dubai.webp" alt="" width="1200" height="1200" loading="lazy"></div>
+            <div class="tile__title">Дубай</div>
+            <div class="tile__type">сингл</div>
+          </a>
+          <a class="tile" href="https://link.1mp.ru/vtng" target="_blank" rel="noopener">
+            <div class="cover"><img src="images/cover-ne-geroy.webp" alt="" width="1200" height="1200" loading="lazy"></div>
+            <div class="tile__title">Не герой</div>
+            <div class="tile__type">сингл</div>
+          </a>
+        </div>
+      </div>
 
-          <div class="icon-row" aria-label="More platforms">
-          <a class="icon" href="https://music.apple.com/ru/artist/vic-torr/1812423510" target="_blank" rel="noopener" aria-label="Apple Music">
-            <img src="./images/logo-apple-music.svg" alt="Apple Music">
+      <!-- 3. Слушать на платформах -->
+      <div id="platforms" class="platforms">
+        <div class="platforms__head">
+          <h2 class="platforms__title">Слушать на платформах<span class="mark"></span></h2>
+          <p class="platforms__sub">Выбери свой стриминг — вся музыка Vic Torr там.</p>
+        </div>
+        <div class="platforms__grid">
+          <a class="platform" href="https://music.apple.com/ru/artist/vic-torr/1812423510" target="_blank" rel="noopener" aria-label="Apple Music"><img src="images/logo-apple-music.svg" alt=""></a>
+          <a class="platform" href="https://zvuk.com/artist/212249377" target="_blank" rel="noopener" aria-label="Звук"><img src="images/logo-zvuk.svg" alt=""></a>
+          <a class="platform" href="https://music.mts.ru/search?text=Vic%20Torr" target="_blank" rel="noopener" aria-label="КИОН"><img src="images/logo-kion.svg" alt=""></a>
+          <a class="platform" href="https://vk.ru/vic_torr_808" target="_blank" rel="noopener" aria-label="VK Музыка"><img src="images/logo-vk.svg" alt=""></a>
+          <a class="platform" href="https://music.yandex.com/artist/14641074" target="_blank" rel="noopener" aria-label="Яндекс Музыка"><img src="images/logo-yandex-music.svg" alt=""></a>
+          <a class="platform" href="https://open.spotify.com/artist/14MVZPlVW6Degg2ysmU5Xh" target="_blank" rel="noopener" aria-label="Spotify"><img src="images/logo-spotify.svg" alt=""></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. 02 — live show -->
+    <section id="live" class="live">
+      <div class="wrap">
+        <div class="eyebrow"><span class="mark"></span><span>02 — live show</span></div>
+        <h2 class="h2 live__title">Хай-тек оркестр из одного человека</h2>
+
+        <div class="live__grid">
+          <a class="video" href="https://www.youtube.com/watch?v=fTBCnhixcIw" target="_blank" rel="noopener" aria-label="Смотреть Live Show на YouTube">
+            <img src="images/vic-hero-mono.webp" alt="кадр со сцены" loading="lazy">
+            <span class="video__play" aria-hidden="true"></span>
           </a>
 
-          <a class="icon" href="https://zvuk.com/artist/212249377" target="_blank" rel="noopener" aria-label="Звук / СберЗвук">
-            <img src="./images/logo-zvuk.svg" alt="Звук">
-          </a>
-
-          <a class="icon wide" href="https://music.mts.ru/search?text=Vic%20Torr" target="_blank" rel="noopener" aria-label="КИОН">
-            <img src="./images/logo-kion.svg" alt="КИОН">
-          </a>
-
-          <a class="icon" href="https://vk.ru/vic_torr_808" target="_blank" rel="noopener" aria-label="VK">
-            <img src="./images/logo-vk.svg" alt="VK">
-          </a>
-
-          <a class="icon high-contrast" href="https://music.yandex.com/artist/14641074" target="_blank" rel="noopener" aria-label="Yandex Music">
-            <img src="./images/logo-yandex-music.svg" alt="Yandex Music">
-          </a>
-
-          <a class="icon" href="https://open.spotify.com/artist/14MVZPlVW6Degg2ysmU5Xh" target="_blank" rel="noopener" aria-label="Spotify">
-            <img src="./images/logo-spotify.svg" alt="Spotify">
-          </a>
+          <div class="live__text">
+            <p class="live__lead">Голос, гитара, две клавиши, лэптоп, футсвитч. Live-секвенции записываются слой за слоем прямо на сцене — сет рождается с нуля в реальном времени. Над залом — воздушный театр «Летающие люди».</p>
+            <p class="live__big live__big--spaced">Начинается с тишины и темноты. Заканчивается оркестром и воздушным театром.</p>
+            <p class="live__big">Лайв, сыгранный одними руками. Мгновение, которое не повторится. В этом и смысл. <span class="feel">FEEL ALIVE</span></p>
           </div>
         </div>
 
-        <div class="video-block" aria-label="Featured video">
-          <p class="video-label">featured video</p>
-          <div class="video-frame">
-            <iframe
-              src="https://www.youtube.com/embed/fTBCnhixcIw?rel=0&modestbranding=1"
-              title="Vic Torr featured video"
-              loading="lazy"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen></iframe>
+        <div id="booking" class="booking">
+          <div class="booking__row">
+            <button type="button" class="btn btn--yellow" id="booking-toggle" aria-expanded="false" aria-controls="booking-form">Booking</button>
+            <a class="btn btn--line" href="docs/Vic_Torr_EPK_v14_Dmitriy_light.pdf" target="_blank" rel="noopener">EPK · PDF</a>
+            <a class="btn btn--line" href="docs/Vic_Torr_Technical_Rider_RU.pdf" target="_blank" rel="noopener">Техрайдер · PDF</a>
+            <a class="btn btn--line" href="https://t.me/dgugu" target="_blank" rel="noopener">Написать директору</a>
+          </div>
+          <p class="note">Букинг и райдер — Дмитрий Гугучкин</p>
+
+          <form class="form" id="booking-form" novalidate hidden>
+            <div class="form__head">
+              <div class="form__title">Заявка на концерт</div>
+              <p class="form__hint">Оставьте хотя бы один контакт. Заявка придёт Vic Torr и Дмитрию одновременно.</p>
+            </div>
+            <div class="form__fields">
+              <label class="field"><span class="field__label">Телефон</span><input name="phone" type="tel" autocomplete="tel" placeholder="+7 900 000-00-00"></label>
+              <label class="field"><span class="field__label">Telegram</span><input name="telegram" type="text" autocomplete="off" placeholder="@username"></label>
+              <label class="field"><span class="field__label">Почта</span><input name="email" type="email" autocomplete="email" placeholder="name@mail.com"></label>
+            </div>
+            <label class="field"><span class="field__label">Сообщение</span><textarea name="message" rows="4" placeholder="Город, дата, площадка, формат"></textarea></label>
+            <p class="form__error" role="alert" hidden></p>
+            <div class="form__foot">
+              <button type="submit" class="form__submit">Отправить заявку</button>
+              <span class="note">или напрямую: <a href="mailto:vic.torr.live@gmail.com">vic.torr.live@gmail.com</a></span>
+            </div>
+          </form>
+          <div class="sent" id="booking-sent" role="status" hidden>Заявка отправлена. Ответим в течение дня.</div>
+        </div>
+
+        <div class="divider"></div>
+        <div class="dates-label">ближайшие даты</div>
+        <div class="dates-empty">
+          <div class="dates-empty__text">
+            <p class="dates-empty__title">Ближайшие даты объявляются в Telegram</p>
+            <p class="dates-empty__sub">Там они появляются раньше, чем где-либо ещё.</p>
+          </div>
+          <a class="btn btn--ghost" href="https://t.me/vic_torr_808" target="_blank" rel="noopener">Узнать первым</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. 03 — регалии -->
+    <section class="wrap section">
+      <div class="eyebrow"><span class="mark"></span><span>03 — регалии</span></div>
+      <div class="awards">
+        <div class="award"><div class="award__fact">50 городов</div><div class="award__note">тур по Китаю, разогрев R3hab</div></div>
+        <div class="award"><div class="award__fact">UK</div><div class="award__note">Эдинбург · Глазго · Данди</div></div>
+        <div class="award"><div class="award__fact">ADE</div><div class="award__note">Amsterdam Dance Event</div></div>
+        <div class="award"><div class="award__fact">Прорыв года</div><div class="award__note">«Песня года»</div></div>
+        <div class="award"><div class="award__fact">Финалист</div><div class="award__note">LIRA · Must Be the Music · нацотбор Евровидения</div></div>
+        <div class="award"><div class="award__fact">ЧМ по хоккею</div><div class="award__note">часовое живое выступление Vic Torr + ROSTANY</div></div>
+        <div class="award"><div class="award__fact">Телеканалы <span>viju</span></div><div class="award__note">оригинальная музыка для 15-и каналов viju компании VIASAT</div></div>
+      </div>
+    </section>
+
+    <!-- 6. 04 — мой дневник -->
+    <section id="diary" class="diary">
+      <div class="wrap diary__inner">
+        <div class="diary__col">
+          <div class="eyebrow"><span class="mark"></span><span>04 — остаться</span></div>
+          <h2 class="h2 diary__title">мой дневник</h2>
+          <p class="diary__lead">здесь мысли, черновики, злость, нежность и то, что не проходит в ленту</p>
+        </div>
+        <div class="diary__col diary__col--cta">
+          <ul class="perks">
+            <li>Ранний доступ к датам</li>
+            <li>Будильник релиза</li>
+            <li>Стемы для DJ, ремиксов и коллаб</li>
+          </ul>
+          <a class="btn btn--yellow" href="https://t.me/vic_torr_808" target="_blank" rel="noopener">Открыть Telegram</a>
+          <p class="diary__legal">Подписка не передаёт ваши данные третьим лицам — <a href="#privacy" data-privacy>политика обработки данных</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. 05 — об этом человеке -->
+    <section class="wrap section">
+      <div class="eyebrow"><span class="mark"></span><span>05 — об этом человеке</span></div>
+      <p class="bio">Vic Torr пишет постпанк и альтернативу и играет их живьём. За плечами тур по Китаю на 50 городов с разогревом R3hab, тур по Великобритании, Amsterdam Dance Event, live на Чемпионате мира по хоккею и вся музыка + саундизайн 15-и каналов viju+. На сцене всё собирается в реальном времени — без подложек и без нейросетей.</p>
+      <div class="quotes">
+        <p class="quote--be" lang="be">“Я не пішу музыку — я ствараю гукавыя прасторы.”</p>
+        <p class="quote--en" lang="en">“I don’t make music — I create soundscapes.”</p>
+        <p class="quote--ru">Говорят, что при прослушивании музыки вырабатывается окситоцин, как при объятиях. Поэтому — позволь мне тебя обнять, мой друг.</p>
+      </div>
+      <div class="divider"></div>
+
+      <!-- 8. Подвал -->
+      <footer class="footer">
+        <div class="footer__brand">
+          <img src="images/logo-yellow.svg" alt="Vic Torr">
+          <div class="socials">
+            <a class="social" href="https://www.instagram.com/vic_torr_live/" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4.2"></circle><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"></circle></svg>
+            </a>
+            <a class="social" href="https://t.me/vic_torr_808" target="_blank" rel="noopener" aria-label="Telegram">
+              <svg viewBox="0 0 24 24" width="21" height="21" aria-hidden="true"><path d="M21.9 3.6 2.6 11.2c-.8.3-.8 1.4 0 1.7l4.6 1.5 1.8 5.4c.2.7 1.1.9 1.6.3l2.4-3 4.5 3.3c.6.4 1.5.1 1.7-.7l3.6-14.5c.2-.9-.7-1.6-1.5-1.3Zm-3 3.7-8.4 7.1c-.2.2-.3.4-.3.6l-.3 2.4-1.2-3.6 10-6.7c.3-.2.6.2.2.5Z" fill="currentColor"></path></svg>
+            </a>
+            <a class="social" href="https://www.youtube.com/@vic_torr" target="_blank" rel="noopener" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><rect x="2" y="5.2" width="20" height="13.6" rx="4.2" fill="currentColor"></rect><path d="M10.2 8.9 15.8 12l-5.6 3.1V8.9Z" fill="#111111"></path></svg>
+            </a>
+            <a class="social" href="https://vk.com/vic_torr_808" target="_blank" rel="noopener" aria-label="VK">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5.2" fill="currentColor"></rect><text x="12" y="16.3" text-anchor="middle" fill="#111111" font-family="'Fira Sans Extra Condensed'" font-weight="900" font-size="11.4" letter-spacing=".3">VK</text></svg>
+            </a>
           </div>
         </div>
-
-        <div class="quotes">
-          <p class="quote">“Я не пішу музыку — я ствараю гукавыя прасторы.”</p>
-          <p class="quote"><strong>“I don’t make music — I create soundscapes.”</strong></p>
-          <p class="quote">Говорят, что при прослушивании музыки вырабатывается окситоцин, как при объятиях. Поэтому — позволь мне тебя обнять, мой друг. </p>
+        <div class="footer__info">
+          <div>Букинг: <a href="mailto:vic.torr.live@gmail.com">vic.torr.live@gmail.com</a></div>
+          <div>© 2026 Vic Torr · <a href="#privacy" data-privacy>политика обработки данных</a></div>
         </div>
-        <!-- <a class="tourlink" href="https://victorr.ticketscloud.org/" target="_blank" rel="noopener">концерты → victorr.ticketscloud.org</a> -->
-        <p class="footer">© <span id="y"></span> Vic Torr</p>
-      </section>
-    </main>
-  </div>
+      </footer>
+    </section>
+  </main>
 
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-  </script>
-  <script>
-    // Ensure the .links wrapper width matches the computed width of .btns
-    (function(){
-      function syncLinksWidth(){
-        var btns = document.querySelector('.btns');
-        var links = document.querySelector('.links');
-        var iconRow = document.querySelector('.icon-row');
-        if(!btns || !links || !iconRow) return;
-        // On small screens let CSS handle full-width layout
-        if(window.matchMedia('(max-width: 860px)').matches){
-          links.style.width = '';
-          iconRow.style.width = '';
-          iconRow.style.marginLeft = '';
-          return;
-        }
+  <!-- Политика обработки данных (открывается из ссылок data-privacy) -->
+  <dialog class="privacy" id="privacy" aria-labelledby="privacy-title">
+    <div class="privacy__body">
+      <button type="button" class="privacy__close" data-privacy-close aria-label="Закрыть">×</button>
+      <h2 class="h2 privacy__title" id="privacy-title">Политика обработки данных</h2>
+      <p>Этот сайт не использует cookies, счётчики и системы аналитики и не собирает данные посетителей автоматически.</p>
+      <p>Персональные данные — телефон, имя пользователя Telegram, адрес электронной почты и текст сообщения — обрабатываются только в том случае, если вы сами отправляете заявку через форму BOOKING или пишете нам напрямую.</p>
+      <p>Данные используются исключительно для того, чтобы связаться с вами и обсудить концерт или сотрудничество. Мы не продаём, не публикуем и не передаём их третьим лицам, за исключением случаев, предусмотренных законодательством. Для доставки заявки используются Telegram и электронная почта.</p>
+      <p>Отправляя форму, вы соглашаетесь на обработку указанных данных для этой цели. Данные хранятся не дольше, чем это необходимо для ответа и дальнейшего общения по заявке.</p>
+      <p>Подписка на Telegram-канал происходит на стороне Telegram — сайт не получает и не хранит данные подписчиков.</p>
+      <p>Чтобы уточнить, изменить или удалить свои данные, напишите на <a href="mailto:vic.torr.live@gmail.com">vic.torr.live@gmail.com</a>.</p>
+    </div>
+  </dialog>
 
-        var buttons = btns.querySelectorAll('.btn');
-        var first = buttons[0];
-        var second = buttons[1] || buttons[0];
-        var cs = getComputedStyle(btns);
-        var gapVal = cs.getPropertyValue('column-gap') || cs.getPropertyValue('gap') || '12px';
-        if(gapVal.indexOf(' ')>-1) gapVal = gapVal.split(' ')[0];
-        var gapPx = parseFloat(gapVal) || 12;
-
-        var firstRect = first.getBoundingClientRect();
-        var secondRect = second.getBoundingClientRect();
-        var linksRect = links.getBoundingClientRect();
-
-        // Desired width: two button widths + horizontal gap between them
-        var total = Math.ceil(firstRect.width + secondRect.width + gapPx);
-
-        links.style.width = total + 'px';
-        links.style.marginLeft = 'auto';
-        links.style.marginRight = 'auto';
-
-        iconRow.style.width = total + 'px';
-        var offset = Math.round(firstRect.left - linksRect.left);
-        iconRow.style.marginLeft = offset + 'px';
-      }
-      window.addEventListener('resize', syncLinksWidth);
-      window.addEventListener('orientationchange', syncLinksWidth);
-      document.addEventListener('DOMContentLoaded', syncLinksWidth);
-      // run shortly after load to allow webfonts/layout to settle
-      window.setTimeout(syncLinksWidth, 160);
-    })();
-  </script>
+  <script src="main.js"></script>
 </body>
 </html>

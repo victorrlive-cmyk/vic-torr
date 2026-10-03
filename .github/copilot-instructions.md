@@ -1,8 +1,12 @@
-# Vic Torr landing — rules
+# Vic Torr — правила для Copilot
+(Положить в `.github/copilot-instructions.md` репозитория. Те же пункты добавить в `CLAUDE.md` — его читает Claude Code.)
 
-- This is a single-page static site (index.html + local assets).
-- Keep it minimal, dark, poster-like, no frameworks.
-- Preserve existing layout and typography unless asked.
-- Always keep buttons and streaming icon row centered and responsive.
-- Prefer small, surgical edits; do not rewrite the whole file.
-- Never break GitHub Pages (relative paths, no build steps).
+- Сайт статический, GitHub Pages: `index.html`, `style.css`, `main.js`. Без фреймворков и npm.
+- Цвета: фон #111111, текст #F4F4F2, единственный акцент #F2E900 (не больше двух жёлтых пятен на экран). Серые: #9A9AA0, #6E6E74, #2B2B2B.
+- Красный #E8332A — только маленькие квадратные маркеры 6–10px (перед номерами разделов, у городов на первом экране, у заголовка «Слушать на платформах») и точка на плашке «новый релиз». Больше нигде.
+- Маджента и красные заливки — только в фото и видео.
+- Шрифты: Fira Sans Extra Condensed (900 italic — заголовки; 900/700 — кнопки и капс), Fira Sans 400/500 — текст. Моноширинный не использовать.
+- Логотип VIC TORR — только файлом `images/logo-yellow.svg`, не набирать шрифтом.
+- Внешние ссылки: `target="_blank" rel="noopener"`; mailto без target.
+- Тексты Vic не переписывать без запроса.
+- Макет-референс: `_handoff/`.

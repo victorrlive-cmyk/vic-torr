@@ -1,0 +1,663 @@
+/* Vic Torr — vic-torr.com. Статика для GitHub Pages, без сборки. */
+
+/* ---------- Шрифты: локальные woff2, Google Fonts — запасной источник ---------- */
+@font-face { font-family: 'Fira Sans'; font-style: italic; font-weight: 400; font-display: swap;
+  src: url('fonts/fira-sans-400i-cyrillic.woff2') format('woff2'), url('https://fonts.gstatic.com/s/firasans/v18/va9C4kDNxMZdWfMOD5VvkrjNYTLVdlTOr0s.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+@font-face { font-family: 'Fira Sans'; font-style: italic; font-weight: 400; font-display: swap;
+  src: url('fonts/fira-sans-400i-latin.woff2') format('woff2'), url('https://fonts.gstatic.com/s/firasans/v18/va9C4kDNxMZdWfMOD5VvkrjJYTLVdlTO.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Fira Sans'; font-style: normal; font-weight: 400; font-display: swap;
+  src: url('fonts/fira-sans-400-cyrillic.woff2') format('woff2'), url('https://fonts.gstatic.com/s/firasans/v18/va9E4kDNxMZdWfMOD5Vvk4jLazX3dGTP.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+@font-face { font-family: 'Fira Sans'; font-style: normal; font-weight: 400; font-display: swap;
+  src: url('fonts/fira-sans-400-latin.woff2') format('woff2'), url('https://fonts.gstatic.com/s/firasans/v18/va9E4kDNxMZdWfMOD5Vvl4jLazX3dA.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Fira Sans'; font-style: normal; font-weight: 500; font-display: swap;
+  src: url('fonts/fira-sans-500-cyrillic.woff2') format('woff2'), url('https://fonts.gstatic.com/s/firasans/v18/va9B4kDNxMZdWfMOD5VnZKveQhf6Xl7Gl3LX.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+@font-face { font-family: 'Fira Sans'; font-style: normal; font-weight: 500; font-display: swap;
+  src: url('fonts/fira-sans-500-latin.woff2') format('woff2'), url('https://fonts.gstatic.com/s/firasans/v18/va9B4kDNxMZdWfMOD5VnZKveRhf6Xl7Glw.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Fira Sans Extra Condensed'; font-style: italic; font-weight: 900; font-display: swap;
+  src: url('fonts/fira-sans-extra-condensed-900i-cyrillic.woff2') format('woff2'), url('https://fonts.gstatic.com/s/firasansextracondensed/v11/NaPxcYDaAO5dirw6IaFn7lPJFqXmS-M9Atn3wgda1fqWO3iOp256WWe_JM8A.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+@font-face { font-family: 'Fira Sans Extra Condensed'; font-style: italic; font-weight: 900; font-display: swap;
+  src: url('fonts/fira-sans-extra-condensed-900i-latin.woff2') format('woff2'), url('https://fonts.gstatic.com/s/firasansextracondensed/v11/NaPxcYDaAO5dirw6IaFn7lPJFqXmS-M9Atn3wgda1fqWO3iOo256WWe_JA.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Fira Sans Extra Condensed'; font-style: normal; font-weight: 700; font-display: swap;
+  src: url('fonts/fira-sans-extra-condensed-700-cyrillic.woff2') format('woff2'), url('https://fonts.gstatic.com/s/firasansextracondensed/v11/NaPPcYDaAO5dirw6IaFn7lPJFqXmS-M9Atn3wgda3USLr3y-oWR9e2WPJQ.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+@font-face { font-family: 'Fira Sans Extra Condensed'; font-style: normal; font-weight: 700; font-display: swap;
+  src: url('fonts/fira-sans-extra-condensed-700-latin.woff2') format('woff2'), url('https://fonts.gstatic.com/s/firasansextracondensed/v11/NaPPcYDaAO5dirw6IaFn7lPJFqXmS-M9Atn3wgda3USLr3i-oWR9e2U.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Fira Sans Extra Condensed'; font-style: normal; font-weight: 900; font-display: swap;
+  src: url('fonts/fira-sans-extra-condensed-900-cyrillic.woff2') format('woff2'), url('https://fonts.gstatic.com/s/firasansextracondensed/v11/NaPPcYDaAO5dirw6IaFn7lPJFqXmS-M9Atn3wgda3XyJr3y-oWR9e2WPJQ.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+@font-face { font-family: 'Fira Sans Extra Condensed'; font-style: normal; font-weight: 900; font-display: swap;
+  src: url('fonts/fira-sans-extra-condensed-900-latin.woff2') format('woff2'), url('https://fonts.gstatic.com/s/firasansextracondensed/v11/NaPPcYDaAO5dirw6IaFn7lPJFqXmS-M9Atn3wgda3XyJr3i-oWR9e2U.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+/* ---------- Токены ---------- */
+:root {
+  --bg: #111111;
+  --text: #F4F4F2;
+  --accent: #F2E900;
+  --gray: #9A9AA0;
+  --gray-3: #6E6E74;
+  --plate: #2B2B2B;
+  --surface: #161616;
+  --surface-2: #1A1A1A;
+  --red: #E8332A;
+  --line: rgba(244,244,242,.12);
+  --cond: 'Fira Sans Extra Condensed', 'Arial Narrow', system-ui, sans-serif;
+  --sans: 'Fira Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --pad: clamp(20px, 3vw, 40px);
+  --ease: 120ms ease;
+}
+
+/* ---------- База ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.55;
+  overflow-x: hidden;
+}
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+p { margin: 0; }
+a { color: var(--accent); }
+a:hover { color: var(--text); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+.wrap { max-width: 1120px; margin: 0 auto; padding-left: var(--pad); padding-right: var(--pad); }
+
+/* Красные маркеры — только квадратики 6–10px и точка «новый релиз» */
+.mark {
+  display: inline-block;
+  flex: none;
+  width: 6px; height: 6px;
+  background: var(--red);
+  box-shadow: 0 0 8px rgba(232,51,42,.55);
+}
+
+/* Номер раздела: «01 — слушать» */
+.eyebrow {
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--cond);
+  font-size: 11px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--gray);
+}
+
+/* ---------- Кнопки ---------- */
+.btn {
+  display: flex; align-items: center; justify-content: center;
+  height: 54px;
+  border-radius: 12px;
+  font-family: var(--cond);
+  font-weight: 900;
+  font-size: 21px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--ease);
+}
+.btn:active { transform: translateY(0) scale(.99); }
+
+.btn--yellow { background: var(--accent); color: var(--bg); border: 0; }
+.btn--yellow:hover { color: var(--bg); transform: translateY(-1px); box-shadow: 0 8px 28px rgba(242,233,0,.28); }
+.btn--yellow:focus-visible { outline-color: var(--text); }
+
+.btn--ghost { background: rgba(255,255,255,.04); border: 1px solid rgba(244,244,242,.24); color: var(--text); }
+.btn--ghost:hover { color: var(--text); transform: translateY(-1px); background: rgba(255,255,255,.09); border-color: rgba(244,244,242,.45); }
+
+/* Второстепенные кнопки с тонкой обводкой (EPK, райдер, директор) */
+.btn--line {
+  min-height: 48px; height: auto;
+  border: 1px solid rgba(244,244,242,.2);
+  color: var(--text);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: .1em;
+}
+.btn--line:hover { color: var(--text); background: rgba(255,255,255,.06); transform: translateY(-1px); }
+
+/* ---------- 1. Первый экран (мобильный < 640px) ---------- */
+.hero { position: relative; display: flex; flex-direction: column; justify-content: flex-end; }
+.hero__photo, .hero__shade, .hero__side {
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 445px;
+}
+.hero__photo {
+  background: url('images/vic-hero-stage3.webp') 50% 50% / cover no-repeat;
+  filter: contrast(1.12);
+}
+.hero__shade {
+  background: linear-gradient(180deg, rgba(17,17,17,.22) 0%, rgba(17,17,17,0) 28%, rgba(17,17,17,.04) 54%, rgba(17,17,17,.5) 72%, rgba(17,17,17,.9) 92%, #111111 100%);
+}
+.hero__side { display: none; }
+.hero__inner {
+  position: relative;
+  padding: 322px 20px 40px;
+  display: flex; flex-direction: column; gap: 16px;
+}
+.hero__cities {
+  margin: 0 -10px;
+  padding: 7px 10px;
+  width: fit-content;
+  border-radius: 4px;
+  background: linear-gradient(90deg, rgba(17,17,17,.9) 0%, rgba(17,17,17,.88) 88%, rgba(17,17,17,.62) 100%);
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--cond);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+.hero__cities .mark { width: 8px; height: 8px; box-shadow: 0 0 12px rgba(232,51,42,.65); }
+.hero__logo { margin: 0; line-height: 0; }
+.hero__logo img { display: block; height: 150px; width: auto; }
+.hero__punch {
+  font-family: var(--cond);
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1.08;
+  text-wrap: pretty;
+}
+.hero__genre { font-size: 14px; line-height: 1.5; color: var(--gray); }
+.hero__btns { display: flex; flex-direction: column; gap: 10px; margin-top: 6px; }
+
+/* ---------- 1. Первый экран (широкий ≥ 640px) ---------- */
+@media (min-width: 640px) {
+  .hero {
+    min-height: 620px;
+    height: 62vw;
+    max-height: 760px;
+    flex-direction: row;
+    align-items: flex-end;
+    overflow: hidden;
+  }
+  .hero__photo, .hero__shade, .hero__side { height: auto; inset: 0; }
+  .hero__photo {
+    background-image: url('images/vic-hero-mono.webp');
+    background-position: 38% 42%;
+  }
+  .hero__shade {
+    background: linear-gradient(180deg, rgba(17,17,17,.28) 0%, rgba(17,17,17,0) 34%, rgba(17,17,17,.5) 72%, rgba(17,17,17,.94) 96%, #111111 100%);
+  }
+  .hero__side {
+    display: block;
+    background: linear-gradient(90deg, rgba(17,17,17,.72) 0%, rgba(17,17,17,.28) 42%, rgba(17,17,17,0) 70%);
+  }
+  .hero__inner {
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 clamp(24px, 3vw, 40px) clamp(40px, 4vw, 64px);
+    gap: 18px;
+  }
+  .hero__cities {
+    margin: 0; padding: 0;
+    background: none;
+    gap: 12px;
+    font-size: 12px;
+  }
+  .hero__cities .mark { width: 9px; height: 9px; }
+  .hero__logo img { height: clamp(180px, 20vw, 260px); }
+  .hero__punch { max-width: 16ch; font-size: 3.4vw; line-height: 1.04; }
+  .hero__genre { font-size: 15px; }
+  .hero__btns { flex-direction: row; gap: 12px; }
+  .hero__btns .btn { min-width: 220px; height: 58px; font-size: 22px; }
+}
+
+/* ---------- 2. 01 — слушать ---------- */
+.listen {
+  padding-top: clamp(48px, 6vw, 104px);
+  display: flex; flex-direction: column; gap: 22px;
+}
+.releases {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  gap: 20px;
+  align-items: start;
+}
+
+/* Обложки круглые с прозрачными углами: без фона, без скругления, целиком */
+.cover {
+  position: relative;
+  aspect-ratio: 1 / 1;
+}
+.cover img {
+  display: block;
+  width: 100%; height: 100%;
+  object-fit: contain;
+}
+
+.release {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 16px;
+  display: flex; flex-direction: column; gap: 14px;
+}
+.release__badge {
+  position: absolute; top: 14px; left: 14px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: var(--text);
+  color: var(--bg);
+  font-family: var(--cond);
+  font-weight: 900;
+  font-size: 11px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  display: flex; align-items: center; gap: 7px;
+}
+.release__badge .mark { width: 7px; height: 7px; border-radius: 50%; box-shadow: none; }
+.release__meta { display: flex; flex-direction: column; gap: 4px; }
+.release__title {
+  font-family: var(--cond);
+  font-weight: 900;
+  font-size: 44px;
+  line-height: .95;
+  letter-spacing: -.01em;
+  text-transform: uppercase;
+}
+.release__type { font-size: 14px; color: var(--gray); }
+.release .btn { height: 52px; font-size: 20px; }
+
+.catalog {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 14px;
+  align-content: start;
+}
+.tile {
+  text-decoration: none;
+  color: var(--text);
+  display: flex; flex-direction: column; gap: 8px;
+  transition: var(--ease);
+}
+.tile:hover { color: var(--text); transform: translateY(-1px); }
+.tile:focus-visible { outline-offset: 4px; }
+.tile__title {
+  font-family: var(--cond);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.05;
+  text-transform: uppercase;
+  text-wrap: pretty;
+}
+.tile__type { font-size: 13px; color: var(--gray); margin-top: -6px; }
+
+/* ---------- 3. Слушать на платформах ---------- */
+.platforms {
+  display: flex; flex-direction: column; gap: 18px;
+  padding-top: clamp(18px, 2.4vw, 32px);
+  scroll-margin-top: 24px;
+}
+.platforms__head { display: flex; flex-direction: column; gap: 6px; }
+.platforms__title {
+  margin: 0;
+  font-family: var(--cond);
+  font-weight: 900;
+  font-style: italic;
+  font-size: clamp(34px, 4.4vw, 56px);
+  line-height: .95;
+  letter-spacing: -.005em;
+  text-transform: uppercase;
+  text-wrap: pretty;
+}
+.platforms__title .mark {
+  width: 10px; height: 10px;
+  margin-left: 10px;
+  vertical-align: baseline;
+  box-shadow: 0 0 12px rgba(232,51,42,.6);
+}
+.platforms__sub { font-size: 15px; line-height: 1.5; color: var(--gray); }
+.platforms__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  max-width: 760px;
+}
+@media (min-width: 640px) {
+  .platforms__grid { grid-template-columns: repeat(3, 1fr); }
+}
+.platform {
+  display: flex; align-items: center; justify-content: center;
+  min-height: 72px;
+  padding: 0 14px;
+  border-radius: 14px;
+  border: 1.5px solid rgba(244,244,242,.32);
+  background: var(--surface-2);
+  text-decoration: none;
+  transition: 140ms ease;
+}
+.platform:hover { border-color: var(--text); background: var(--plate); transform: translateY(-2px); filter: brightness(1.3); }
+.platform img { display: block; height: 28px; width: auto; max-width: 110px; }
+
+/* ---------- 4. 02 — live show ---------- */
+.live {
+  margin-top: clamp(48px, 6vw, 104px);
+  padding: clamp(40px, 5vw, 88px) 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.live > .wrap { display: flex; flex-direction: column; gap: 22px; }
+.h2 {
+  margin: 0;
+  font-family: var(--cond);
+  font-weight: 900;
+  font-style: italic;
+  text-transform: uppercase;
+}
+.live__title { max-width: 22ch; font-size: clamp(38px, 5.6vw, 72px); line-height: .94; letter-spacing: -.01em; }
+.live__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+  gap: 24px;
+  align-items: start;
+}
+.video {
+  position: relative;
+  display: block;
+  width: 100%;
+  border: 1px solid rgba(244,244,242,.16);
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--bg);
+  transition: var(--ease);
+}
+.video:hover { transform: translateY(-1px); border-color: rgba(244,244,242,.4); }
+.video img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: 46% 45%;
+  filter: contrast(1.05);
+  opacity: .82;
+}
+.video__play {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.video__play::before {
+  content: '';
+  width: 64px; height: 64px;
+  border-radius: 999px;
+  background: var(--accent);
+}
+.video__play::after {
+  content: '';
+  position: absolute;
+  width: 0; height: 0;
+  margin-left: 5px;
+  border-left: 20px solid var(--bg);
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+}
+.live__text { display: flex; flex-direction: column; gap: 16px; }
+.live__text p { text-wrap: pretty; }
+.live__lead { font-size: 16px; line-height: 1.55; }
+.live__big {
+  font-family: var(--cond);
+  font-weight: 700;
+  font-size: clamp(20px, 2.4vw, 28px);
+  line-height: 1.12;
+}
+.live__big--spaced { margin: 14px 0; }
+.feel { font-weight: 900; font-style: italic; letter-spacing: .01em; color: var(--accent); }
+
+/* Букинг */
+.booking { display: flex; flex-direction: column; gap: 12px; scroll-margin-top: 24px; }
+.booking__row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.booking__row .btn--yellow { flex: 1 1 240px; }
+.booking__row .btn--line { flex: 1 1 150px; }
+.note { font-size: 13px; line-height: 1.45; color: var(--gray); }
+
+.form, .sent {
+  margin-top: 6px;
+  border-radius: 16px;
+  border: 1px solid rgba(244,244,242,.14);
+  background: var(--surface);
+}
+.form {
+  display: flex; flex-direction: column; gap: 14px;
+  padding: clamp(18px, 2.4vw, 28px);
+}
+.form__head { display: flex; flex-direction: column; gap: 4px; }
+.form__title {
+  font-family: var(--cond);
+  font-weight: 900;
+  font-style: italic;
+  font-size: clamp(24px, 2.6vw, 30px);
+  line-height: 1;
+  text-transform: uppercase;
+}
+.form__hint { font-size: 14px; line-height: 1.5; color: var(--gray); }
+.form__fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+.field { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.field__label {
+  font-family: var(--cond);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--gray);
+}
+.field input, .field textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(244,244,242,.2);
+  background: var(--surface-2);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 16px;
+  outline: none;
+  transition: var(--ease);
+}
+.field textarea { resize: vertical; line-height: 1.5; }
+.field input:focus, .field textarea:focus { border-color: var(--text); background: var(--plate); }
+.field input::placeholder, .field textarea::placeholder { color: var(--gray-3); }
+.form__error { font-size: 14px; }
+.form__foot { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; }
+.form__submit {
+  min-width: 200px;
+  height: 52px;
+  padding: 0 24px;
+  border: 1.5px solid var(--text);
+  border-radius: 12px;
+  background: var(--text);
+  color: var(--bg);
+  font-family: var(--cond);
+  font-weight: 900;
+  font-size: 17px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: var(--ease);
+}
+.form__submit:hover { transform: translateY(-1px); }
+.form__submit:disabled { opacity: .6; cursor: progress; transform: none; }
+.form__foot .note a { color: var(--text); }
+.sent { padding: 18px 20px; font-size: 15px; line-height: 1.5; }
+
+/* Ближайшие даты */
+.divider { height: 1px; background: var(--line); }
+.live .divider { margin-top: 8px; }
+.dates-label {
+  font-family: var(--cond);
+  font-size: 11px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--gray);
+}
+.dates-empty {
+  padding: 18px;
+  border-radius: 16px;
+  border: 1px dashed rgba(244,244,242,.22);
+  display: flex; flex-wrap: wrap; gap: 14px;
+  align-items: center; justify-content: space-between;
+}
+.dates-empty__text { flex: 1 1 260px; display: flex; flex-direction: column; gap: 6px; }
+.dates-empty__title {
+  font-family: var(--cond);
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.1;
+  text-transform: uppercase;
+  text-wrap: pretty;
+}
+.dates-empty__sub { font-size: 14px; color: var(--gray); }
+.dates-empty .btn { flex: 0 1 240px; height: auto; min-height: 48px; font-size: 18px; border: 1px solid rgba(244,244,242,.24); background: none; }
+.dates-empty .btn:hover { background: rgba(255,255,255,.08); }
+
+/* ---------- 5. 03 — регалии ---------- */
+.section {
+  padding-top: clamp(44px, 5vw, 88px);
+  padding-bottom: clamp(44px, 5vw, 88px);
+  display: flex; flex-direction: column; gap: 24px;
+}
+.awards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 28px 20px;
+}
+.award { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.award__fact {
+  font-family: var(--cond);
+  font-weight: 900;
+  font-size: clamp(28px, 3vw, 40px);
+  line-height: .95;
+  letter-spacing: -.01em;
+  text-transform: uppercase;
+  text-wrap: pretty;
+}
+.award__fact span { text-transform: none; letter-spacing: 0; }
+.award__note { font-size: 13px; line-height: 1.4; color: var(--gray); text-wrap: pretty; }
+
+/* ---------- 6. 04 — мой дневник ---------- */
+.diary {
+  background:
+    linear-gradient(180deg, rgba(17,17,17,.62) 0%, rgba(17,17,17,.45) 45%, rgba(17,17,17,.78) 100%),
+    url('images/fur-bg.jpg') center 30% / cover no-repeat,
+    var(--bg);
+}
+.diary__inner {
+  padding-top: clamp(40px, 5vw, 80px);
+  padding-bottom: clamp(40px, 5vw, 80px);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  gap: 28px;
+  align-items: start;
+}
+.diary__col { display: flex; flex-direction: column; gap: 16px; }
+.diary__col--cta { gap: 14px; }
+.diary .eyebrow { color: var(--text); }
+.diary__title { font-size: clamp(44px, 5.4vw, 72px); line-height: .9; }
+.diary__lead { font-size: 17px; line-height: 1.5; text-wrap: pretty; }
+.perks { display: flex; flex-direction: column; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.perks li {
+  font-family: var(--cond);
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.perks li + li { padding-top: 8px; border-top: 1px solid rgba(244,244,242,.34); }
+.diary .btn--yellow:hover { box-shadow: 0 10px 30px rgba(0,0,0,.45); }
+.diary__legal { font-size: 12px; line-height: 1.45; }
+.diary__legal a { color: var(--text); }
+
+/* ---------- 7. 05 — об этом человеке ---------- */
+.bio { max-width: 62ch; font-size: 16px; line-height: 1.6; text-wrap: pretty; }
+.quotes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px 32px;
+  align-items: start;
+}
+.quotes p { text-wrap: pretty; }
+.quote--be { font-size: 17px; font-style: italic; line-height: 1.5; }
+.quote--en {
+  font-family: var(--cond);
+  font-weight: 900;
+  font-style: italic;
+  font-size: clamp(26px, 2.8vw, 34px);
+  line-height: 1.05;
+}
+.quote--ru { font-size: 15px; line-height: 1.55; color: var(--gray); }
+
+/* ---------- 8. Подвал ---------- */
+.footer { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; justify-content: space-between; }
+.footer__brand { display: flex; align-items: center; gap: 14px; }
+.footer__brand > img { display: block; height: 30px; width: auto; }
+.socials { display: flex; gap: 8px; }
+.social {
+  display: flex; align-items: center; justify-content: center;
+  width: 46px; height: 46px;
+  border-radius: 999px;
+  border: 1px solid rgba(244,244,242,.16);
+  color: var(--gray);
+  text-decoration: none;
+  transition: var(--ease);
+}
+.social:hover { color: var(--text); border-color: rgba(244,244,242,.45); transform: translateY(-1px); }
+.footer__info { display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: var(--gray); }
+
+/* ---------- Политика обработки данных (pop-up) ---------- */
+.privacy {
+  width: min(640px, calc(100% - 32px));
+  max-height: calc(100% - 48px);
+  padding: 0;
+  border: 1px solid rgba(244,244,242,.14);
+  border-radius: 16px;
+  background: var(--surface);
+  color: var(--text);
+}
+.privacy::backdrop { background: rgba(17,17,17,.8); }
+.privacy__body {
+  position: relative;
+  padding: clamp(22px, 3vw, 36px);
+  display: flex; flex-direction: column; gap: 12px;
+  font-size: 15px;
+  line-height: 1.55;
+}
+.privacy__body p { color: var(--gray); }
+.privacy__body a { color: var(--text); }
+.privacy__title { font-size: clamp(26px, 3vw, 34px); line-height: 1; padding-right: 48px; margin-bottom: 6px; }
+.privacy__close {
+  position: absolute; top: 14px; right: 14px;
+  width: 44px; height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(244,244,242,.16);
+  background: none;
+  color: var(--gray);
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+  transition: var(--ease);
+}
+.privacy__close:hover { color: var(--text); border-color: rgba(244,244,242,.45); }
+body.no-scroll { overflow: hidden; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
+}
