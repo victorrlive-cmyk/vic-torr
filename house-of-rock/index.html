@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>House of Rock — Vic Torr + Prosvet</title>
+  <meta name="description" content="Живой сет Vic Torr + Prosvet: рок-хиты в танцевальном house. Для открытий и корпоративов.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#111111">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.vic-torr.com/house-of-rock/">
+  <meta property="og:site_name" content="Vic Torr">
+  <meta property="og:title" content="House of Rock — Vic Torr + Prosvet">
+  <meta property="og:description" content="Живой сет Vic Torr + Prosvet: рок-хиты в танцевальном house. Для открытий и корпоративов.">
+  <meta property="og:image" content="https://www.vic-torr.com/house-of-rock/media/hor-7-nation-army-poster.jpg">
+  <meta property="og:locale" content="ru_RU">
+
+  <link rel="icon" href="/favicon/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="/favicon/favicon-32.png">
+  <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
+  <link rel="manifest" href="/favicon/site.webmanifest">
+
+  <link rel="preload" href="../fonts/fira-sans-extra-condensed-900i-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/fira-sans-400-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+  <!-- Общий CSS сайта: шрифты, токены, база, кнопки .btn, маркер .mark -->
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!--
+    Все видео и постеры лежат в media/ (относительно этой страницы).
+    Переезд на другое хранилище (Yandex Object Storage, Selectel) —
+    заменить префикс «media/» в src и poster трёх <video> ниже.
+    Плеер: без JS работают нативные controls; main.js прячет их до первого Play.
+  -->
+
+  <!-- 1. Первый экран -->
+  <header class="hor-hero hor-wrap">
+    <div class="hor-hero__text">
+      <p class="hor-hero__over">Vic Torr + Prosvet</p>
+      <h1 class="hor-hero__title">House of<br>Rock</h1>
+      <p class="hor-hero__sub">Мощный живой сет: <span class="hor-nobr"><em>рок</em>-хиты</span> в&nbsp;танцевальном <span class="hor-nobr"><em>house</em>-груве</span>.</p>
+      <p class="hor-hero__note">Для открытия мероприятия и&nbsp;главной танцевальной части вечера.</p>
+      <!-- Открывает форму (dialog#booking). Без JS — обычное письмо на те же адреса -->
+      <a class="btn btn--yellow hor-hero__cta" href="mailto:vic.torr.live@gmail.com,guguchkin@gmail.com" data-booking>Обсудить дату</a>
+    </div>
+
+    <figure class="hor-video hor-hero__media">
+      <div class="hor-player hor-player--vertical">
+        <video controls playsinline preload="none" poster="media/hor-7-nation-army-poster.jpg">
+          <source src="media/hor-7-nation-army.mp4" type="video/mp4">
+        </video>
+        <span class="hor-player__tag" aria-hidden="true"><span class="mark"></span>Live</span>
+        <button class="hor-player__play" type="button" aria-label="Смотреть: Seven Nation Army (House of Rock)" hidden></button>
+      </div>
+      <figcaption>Vic Torr + Prosvet — Seven Nation Army (House of Rock)</figcaption>
+    </figure>
+  </header>
+
+  <div class="hor-rest">
+    <!-- 2. Дуэт -->
+    <section class="hor-section hor-wrap">
+      <h2 class="hor-label">Кто на сцене</h2>
+      <div class="hor-duo">
+        <article class="hor-artist">
+          <h3 class="hor-artist__name">Vic Torr</h3>
+          <figure class="hor-video">
+            <div class="hor-player">
+              <video controls playsinline preload="none" poster="media/vic-torr-showreel-poster.jpg">
+                <source src="media/vic-torr-showreel.mp4" type="video/mp4">
+              </video>
+              <button class="hor-player__play" type="button" aria-label="Смотреть: Vic Torr — шоурил" hidden></button>
+            </div>
+            <figcaption>Vic Torr — шоурил</figcaption>
+          </figure>
+          <p class="hor-artist__lead">Хай-тек оркестр из&nbsp;одного человека. Голос, гитара, клавиши и&nbsp;live-петли собираются прямо на&nbsp;сцене, без подложек. Каждый сет звучит один раз — для вашего зала.</p>
+          <ul class="hor-facts">
+            <li>Тур по&nbsp;Китаю на&nbsp;50 городов с&nbsp;разогревом R3hab, тур по&nbsp;Великобритании, Amsterdam Dance Event</li>
+            <li>Часовое живое выступление на&nbsp;Чемпионате мира по&nbsp;хоккею</li>
+            <li>Музыка и&nbsp;саунд-дизайн для 15&nbsp;каналов viju (VIASAT)</li>
+            <li>«Прорыв года» премии «Песня года», финалист LIRA, Must Be the Music и&nbsp;нацотбора Евровидения</li>
+          </ul>
+        </article>
+
+        <article class="hor-artist">
+          <h3 class="hor-artist__name">Prosvet</h3>
+          <!-- TODO: заменить на финальный шоурил Prosvet -->
+          <figure class="hor-video">
+            <div class="hor-player">
+              <video controls playsinline preload="none" poster="media/prosvet-showreel-poster.jpg">
+                <source src="media/prosvet-showreel.mp4" type="video/mp4">
+              </video>
+              <button class="hor-player__play" type="button" aria-label="Смотреть: Prosvet — шоурил" hidden></button>
+            </div>
+            <figcaption>Prosvet — шоурил</figcaption>
+          </figure>
+          <p class="hor-artist__lead">Продюсер и&nbsp;электронный артист, более 10&nbsp;лет на&nbsp;сцене. Live-сеты, где электроника соединяется с&nbsp;живыми инструментами: партии запускаются вживую, под энергию конкретного зала.</p>
+          <ul class="hor-facts">
+            <li>Совместные программы с&nbsp;симфоническим оркестром — большие залы и&nbsp;солдауты</li>
+            <li>Альфа-Банк, Сбер, Т-Банк, Самолёт, MR Group, Positive Technologies, AI Journey</li>
+            <li>ФК «Локомотив», Nornickel Curling Cup, форум «Москва 2030», фестиваль Ростелекома</li>
+            <li>Фестиваль «Сретение» на&nbsp;8&nbsp;000 зрителей</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- 3. Финал. На мобильном эта же кнопка едет закреплённой внизу экрана (position: sticky) -->
+    <footer class="hor-final hor-wrap">
+      <p class="hor-final__phrase">Сделаем ваш вечер громким</p>
+    </footer>
+    <a class="btn btn--yellow hor-final__cta" href="mailto:vic.torr.live@gmail.com,guguchkin@gmail.com" data-booking>Обсудить дату</a>
+  </div>
+
+  <!-- Форма «Обсудить дату». Адресаты — BOOKING_EMAILS в main.js -->
+  <dialog class="privacy hor-booking" id="booking" aria-labelledby="booking-title">
+    <button type="button" class="privacy__close" data-close aria-label="Закрыть">×</button>
+    <form class="form hor-booking__form" id="booking-form" novalidate>
+      <div class="form__head">
+        <h2 class="form__title" id="booking-title">Обсудить дату</h2>
+        <p class="form__hint">Оставьте хотя бы один контакт. Заявка придёт Vic Torr и&nbsp;Дмитрию одновременно.</p>
+      </div>
+      <div class="form__fields">
+        <label class="field"><span class="field__label">Телефон</span><input name="phone" type="tel" autocomplete="tel" placeholder="+7 900 000-00-00"></label>
+        <label class="field"><span class="field__label">Telegram</span><input name="telegram" type="text" autocomplete="off" placeholder="@username"></label>
+        <label class="field"><span class="field__label">Почта</span><input name="email" type="email" autocomplete="email" placeholder="name@mail.com"></label>
+      </div>
+      <label class="field"><span class="field__label">Сообщение</span><textarea name="message" rows="4" placeholder="Дата, город, площадка, формат мероприятия"></textarea></label>
+      <p class="form__error" role="alert" hidden></p>
+      <div class="form__foot">
+        <button type="submit" class="form__submit">Отправить заявку</button>
+        <span class="note">Отправляя заявку, вы соглашаетесь с&nbsp;<a href="#privacy" data-privacy>политикой обработки данных</a></span>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Политика обработки данных — копия dialog#privacy с главной (152-ФЗ: форма собирает контакты) -->
+  <dialog class="privacy" id="privacy" aria-labelledby="privacy-title">
+    <div class="privacy__body">
+      <button type="button" class="privacy__close" data-close aria-label="Закрыть">×</button>
+      <h2 class="h2 privacy__title" id="privacy-title">Политика обработки данных</h2>
+      <p>Этот сайт не использует cookies, счётчики и системы аналитики и не собирает данные посетителей автоматически.</p>
+      <p>Персональные данные — телефон, имя пользователя Telegram, адрес электронной почты и текст сообщения — обрабатываются только в том случае, если вы сами отправляете заявку через форму BOOKING или пишете нам напрямую.</p>
+      <p>Данные используются исключительно для того, чтобы связаться с вами и обсудить концерт или сотрудничество. Мы не продаём, не публикуем и не передаём их третьим лицам, за исключением случаев, предусмотренных законодательством. Для доставки заявки используются Telegram и электронная почта.</p>
+      <p>Отправляя форму, вы соглашаетесь на обработку указанных данных для этой цели. Данные хранятся не дольше, чем это необходимо для ответа и дальнейшего общения по заявке.</p>
+      <p>Подписка на Telegram-канал происходит на стороне Telegram — сайт не получает и не хранит данные подписчиков.</p>
+      <p>Чтобы уточнить, изменить или удалить свои данные, напишите на <a href="mailto:vic.torr.live@gmail.com">vic.torr.live@gmail.com</a>.</p>
+    </div>
+  </dialog>
+
+  <script src="main.js"></script>
+</body>
+</html>

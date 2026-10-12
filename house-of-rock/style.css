@@ -1,0 +1,250 @@
+/* House of Rock — vic-torr.com/house-of-rock/. Токены, шрифты, .btn и .mark — из ../style.css. */
+
+/* Зерно на фоне */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: .05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.hor-wrap {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.hor-nobr { white-space: nowrap; }
+
+/* ---------- 1. Первый экран (мобильный: текст, под ним видео) ---------- */
+.hor-hero { --h1: clamp(72px, 10vw, 140px); padding-top: 48px; }
+.hor-hero__over {
+  font-family: var(--cond);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--gray);
+}
+.hor-hero__title {
+  margin: 8px 0 0;
+  font-family: var(--cond);
+  font-style: italic;
+  font-weight: 900;
+  font-size: var(--h1);
+  line-height: .84;
+  letter-spacing: -.02em;
+  text-transform: uppercase;
+}
+.hor-hero__sub {
+  margin-top: 24px;
+  max-width: 20ch;
+  font-family: var(--cond);
+  font-weight: 700;
+  font-size: clamp(26px, 3vw, 40px);
+  line-height: 1.1;
+}
+.hor-hero__sub em { font-style: normal; color: var(--accent); }
+.hor-hero__note {
+  margin-top: 14px;
+  max-width: 36ch;
+  font-size: 16px;
+  color: var(--gray);
+}
+.hor-hero__cta { margin-top: 32px; }
+.hor-hero .hor-hero__media { margin-top: 40px; }
+
+/* ---------- Плеер ---------- */
+.hor-video { margin: 0; }
+.hor-video figcaption {
+  margin-top: 12px;
+  font-size: 14px;
+  color: var(--gray);
+}
+.hor-player {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.hor-player--vertical { aspect-ratio: 9 / 16; }
+.hor-player video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Вся площадь постера — кнопка; по центру жёлтый круг с чёрным треугольником */
+.hor-player__play {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: rgba(17,17,17,.12);
+  cursor: pointer;
+  transition: var(--ease);
+}
+.hor-player__play::before,
+.hor-player__play::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transition: var(--ease);
+}
+.hor-player__play::before {
+  width: 88px; height: 88px;
+  margin: -44px 0 0 -44px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 8px 28px rgba(0,0,0,.45);
+}
+.hor-player__play::after {
+  margin: -16px 0 0 -9px;
+  border-style: solid;
+  border-width: 16px 0 16px 28px;
+  border-color: transparent transparent transparent var(--bg);
+}
+.hor-player__play:hover { background: rgba(17,17,17,0); }
+.hor-player__play:hover::before,
+.hor-player__play:hover::after { transform: translateY(-1px); }
+.hor-player__play:hover::before { box-shadow: 0 8px 28px rgba(242,233,0,.35); }
+.hor-player__play:focus-visible { outline-offset: -6px; }
+
+/* Тег LIVE — единственный красный на странице, в тон надписи на постере */
+.hor-player__tag {
+  position: absolute;
+  top: 14px; left: 14px;
+  display: flex; align-items: center; gap: 8px;
+  padding: 6px 10px;
+  background: rgba(17,17,17,.72);
+  font-family: var(--cond);
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 1;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  pointer-events: none;
+  transition: var(--ease);
+}
+.hor-player__tag .mark { width: 8px; height: 8px; }
+.is-started .hor-player__tag { opacity: 0; }
+
+/* ---------- 2. Дуэт ---------- */
+.hor-section { padding-top: 96px; }
+
+/* Подпись секции: маленькие капсы с жёлтой линией слева */
+.hor-label {
+  display: flex; align-items: center; gap: 14px;
+  margin: 0 0 40px;
+  font-family: var(--cond);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+.hor-label::before {
+  content: '';
+  flex: none;
+  width: 40px; height: 2px;
+  background: var(--accent);
+}
+
+.hor-duo { display: grid; gap: 72px; }
+.hor-artist__name {
+  margin: 0 0 20px;
+  font-family: var(--cond);
+  font-style: italic;
+  font-weight: 900;
+  font-size: clamp(56px, 7vw, 96px);
+  line-height: .86;
+  letter-spacing: -.02em;
+  text-transform: uppercase;
+}
+.hor-artist__lead {
+  margin-top: 28px;
+  font-size: 17px;
+  max-width: 46ch;
+}
+.hor-facts {
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--gray);
+}
+.hor-facts li {
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+}
+
+/* ---------- 3. Финал ---------- */
+.hor-rest { padding-bottom: 48px; }
+.hor-final { padding-top: 96px; }
+.hor-final__phrase {
+  font-family: var(--cond);
+  font-style: italic;
+  font-weight: 900;
+  font-size: clamp(52px, 9vw, 128px);
+  line-height: .86;
+  letter-spacing: -.02em;
+  text-transform: uppercase;
+}
+/* Мобильный: кнопка прилипает к низу экрана, пока не доедет до своего места в финале */
+.hor-final__cta {
+  position: sticky;
+  bottom: 12px;
+  z-index: 2;
+  margin: 32px 16px 0;
+  box-shadow: 0 10px 32px rgba(0,0,0,.55);
+}
+
+@media (min-width: 640px) {
+  .hor-wrap { padding-left: var(--pad); padding-right: var(--pad); }
+  .hor-hero__cta { display: inline-flex; padding: 0 40px; }
+  .hor-section, .hor-final { padding-top: 128px; }
+  .hor-rest { padding-bottom: 128px; }
+  .hor-final { text-align: center; }
+  .hor-final__cta {
+    position: static;
+    width: max-content;
+    margin: 40px auto 0;
+    padding: 0 48px;
+    box-shadow: none;
+  }
+}
+
+/* Десктоп: постер-экран в две колонки, видео как телефон справа */
+@media (min-width: 900px) {
+  .hor-hero {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: center;
+    align-items: center;
+    column-gap: clamp(40px, 4.5vw, 72px);
+    min-height: 100vh;
+    min-height: 100svh;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+  }
+  /* Текст и видео — один центрированный блок, без пустоты между колонками */
+  .hor-hero__title { white-space: nowrap; }
+  .hor-hero .hor-hero__media { margin-top: 0; }
+  .hor-hero__media .hor-player { height: min(calc(94svh - 34px), 85vh); }
+  .hor-duo { grid-template-columns: 1fr 1fr; gap: clamp(32px, 4vw, 64px); }
+}
+
+/* ---------- Форма «Обсудить дату» в pop-up ---------- */
+.hor-booking { width: min(720px, calc(100% - 32px)); }
+.hor-booking::backdrop { background: rgba(17,17,17,.85); }
+.hor-booking__form { margin: 0; border: 0; background: none; }
+.hor-booking .form__head { padding-right: 52px; }
+.hor-booking .form__title { margin: 0; }
+.hor-booking .form__foot .note a { color: var(--text); }
