@@ -373,17 +373,25 @@ a:hover { color: var(--text); }
   width: 100%;
   border: 1px solid rgba(244,244,242,.16);
   border-radius: 16px;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   background: var(--bg);
   transition: var(--ease);
 }
 .video:not(.is-started):hover { transform: translateY(-1px); border-color: rgba(244,244,242,.4); }
+/* Пропорцию держит обёртка, видео заполняет её: Safari/iOS не держит aspect-ratio
+   на самом <video> с preload="none" — блок растягивался в высоту */
 .video video {
+  position: absolute;
+  inset: 0;
   display: block;
   width: 100%;
-  aspect-ratio: 16 / 9;
+  height: 100%;
   object-fit: cover;
   background: var(--bg);
+}
+@supports not (aspect-ratio: 1) {
+  .video::before { content: ''; display: block; padding-top: 56.25%; }
 }
 /* До старта — как прежняя обложка: чуть приглушена */
 .video:not(.is-started) video { filter: contrast(1.05); opacity: .82; }
