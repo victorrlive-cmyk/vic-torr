@@ -30,6 +30,9 @@ vic-torr/
   images/           ← logo-yellow.svg, vic-hero-*.webp, fur-bg.jpg,
                       logo-*.svg (6 стримингов), cover-*.webp (обложки 1200×1200)
   docs/             ← EPK и техрайдер (PDF), на них ведут кнопки букинга
+  media/            ← видео главной (mp4 + постер jpg), см. «Видео на сайте»
+  tools/            ← make-web-video.sh — сжатие видео для сайта
+  house-of-rock/    ← закрытая промо-страница (noindex, без ссылки с главной), свои media/
   favicon/          ← иконки + site.webmanifest
   CNAME, .nojekyll
   .github/copilot-instructions.md  ← краткие правила для Copilot
@@ -85,6 +88,22 @@ vic-torr/
    Ссылки на релизы и стриминги зашиты в `index.html`.
 7. **Пути:** favicon и manifest абсолютные (`/favicon/…`), всё остальное относительное.
    Новые ассеты подключать относительными путями.
+
+## Видео на сайте (вместо YouTube — в РФ он грузится плохо)
+
+- Только MP4: H.264 High yuv420p + AAC 128k стерео 48 kHz, `faststart`, без метаданных и data/timecode-дорожек.
+- Кадр: горизонтальное 1280×720, вертикальное 720×1280. `crf 23–24` + `-maxrate`:
+  вертикальное 2.5M, горизонтальное 1.5M (длинное) … 2M (короткое).
+- Файл ≤ 50 МБ (лимит GitHub 100 МБ), сайт ≤ 1 ГБ. Больше 50 — снизить maxrate на 0.2–0.3M.
+- Жать только из исходника, уже сжатое не перекодировать. Промежуточные версии не коммитить.
+- Постер обязателен: JPG того же размера, q85, ≤ 150 КБ. Своя обложка Vic в приоритете,
+  иначе живой кадр (не титр, не плашки).
+- Имена: латиница, строчные, через дефис: `name.mp4` + `name-poster.jpg`.
+- Сжатие: `bash tools/make-web-video.sh <исходник> <имя> [maxrate]` из корня → `media/`.
+- Встраивание: `<video controls playsinline preload="none" poster="media/NAME-poster.jpg">`
+  + `<source src="media/NAME.mp4" type="video/mp4">`. Без автоплея; mp4 не должен качаться
+  до Play. Жёлтая Play поверх постера — `.video__play` (main.js включает controls после старта).
+- Путь `media/` держать единым: при переезде в Yandex Object Storage / Selectel меняется только префикс.
 
 ## Проверка перед коммитом
 

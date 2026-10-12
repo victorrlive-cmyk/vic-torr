@@ -377,20 +377,26 @@ a:hover { color: var(--text); }
   background: var(--bg);
   transition: var(--ease);
 }
-.video:hover { transform: translateY(-1px); border-color: rgba(244,244,242,.4); }
-.video img {
+.video:not(.is-started):hover { transform: translateY(-1px); border-color: rgba(244,244,242,.4); }
+.video video {
   display: block;
   width: 100%;
   aspect-ratio: 16 / 9;
   object-fit: cover;
-  object-position: 46% 45%;
-  filter: contrast(1.05);
-  opacity: .82;
+  background: var(--bg);
 }
+/* До старта — как прежняя обложка: чуть приглушена */
+.video:not(.is-started) video { filter: contrast(1.05); opacity: .82; }
 .video__play {
   position: absolute; inset: 0;
   display: flex; align-items: center; justify-content: center;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
 }
+.video__play:focus-visible { outline-offset: -6px; }
 .video__play::before {
   content: '';
   width: 64px; height: 64px;

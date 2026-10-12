@@ -17,6 +17,22 @@ document.querySelectorAll('[data-scroll-to]').forEach((link) => {
   });
 });
 
+// Видео Live Show: постер + жёлтая Play, нативные controls только после старта.
+// Без JS кнопка скрыта, у <video> работают обычные controls.
+document.querySelectorAll('.video').forEach((box) => {
+  const video = box.querySelector('video');
+  const play = box.querySelector('.video__play');
+  if (!video || !play) return;
+  video.controls = false;
+  play.hidden = false;
+  play.addEventListener('click', () => {
+    video.controls = true;
+    play.hidden = true;
+    box.classList.add('is-started');
+    video.play().catch(() => {});
+  });
+});
+
 // Pop-up «Политика обработки данных»
 const privacy = document.getElementById('privacy');
 

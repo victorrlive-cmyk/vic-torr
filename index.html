@@ -104,10 +104,13 @@
         <h2 class="h2 live__title">Хай-тек оркестр из одного человека</h2>
 
         <div class="live__grid">
-          <a class="video" href="https://www.youtube.com/watch?v=fTBCnhixcIw" target="_blank" rel="noopener" aria-label="Смотреть Live Show на YouTube">
-            <img src="images/vic-hero-mono.webp" alt="кадр со сцены" loading="lazy">
-            <span class="video__play" aria-hidden="true"></span>
-          </a>
+          <!-- Видео лежат в media/ (при переезде на другое хранилище меняется только префикс src/poster) -->
+          <div class="video">
+            <video controls playsinline preload="none" poster="media/vic-torr-live-show-poster.jpg">
+              <source src="media/vic-torr-live-show.mp4" type="video/mp4">
+            </video>
+            <button type="button" class="video__play" aria-label="Смотреть Live Show" hidden></button>
+          </div>
 
           <div class="live__text">
             <p class="live__lead">Голос, гитара, две клавиши, лэптоп, футсвитч. Live-секвенции записываются слой за слоем прямо на сцене — сет рождается с нуля в реальном времени. Над залом — воздушный театр «Летающие люди».</p>
