@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vic Torr — шоу для событий</title>
+  <meta name="description" content="Vic Torr для агентств и заказчиков: Postpunk, Acoustica, House of Rock и шоу, собранное под ваше событие.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#111111">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.vic-torr.com/corp/">
+  <meta property="og:site_name" content="Vic Torr">
+  <meta property="og:title" content="Vic Torr — шоу для событий">
+  <meta property="og:description" content="Postpunk, Acoustica, House of Rock и шоу, собранное под ваше событие.">
+  <meta property="og:image" content="https://www.vic-torr.com/media/vic-torr-live-show-poster.jpg">
+  <meta property="og:locale" content="ru_RU">
+
+  <link rel="icon" href="/favicon/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="/favicon/favicon-32.png">
+  <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
+  <link rel="manifest" href="/favicon/site.webmanifest">
+
+  <link rel="preload" href="../fonts/fira-sans-extra-condensed-900i-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/fira-sans-400-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+  <!-- Общий CSS сайта: шрифты, токены, база, кнопки .btn, форма .form/.field, pop-up .privacy, маркер .mark -->
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!--
+    Видео не дублируются, а берутся из соседних папок сайта:
+      Postpunk      — ../media/vic-torr-live-show.mp4 (главная)
+      Acoustica     — media/acoustica.mp4 (эта папка)
+      House of Rock — ../house-of-rock/media/hor-7-nation-army.mp4
+      Шоурил        — ../house-of-rock/media/vic-torr-showreel.mp4
+    При переезде на другое хранилище меняется только префикс src/poster.
+  -->
+
+  <!-- 1. Первый экран: три шоу как три пункта меню -->
+  <header class="corp-top">
+    <div class="corp-top__bar">
+      <img class="corp-top__logo" src="../images/logo-yellow.svg" alt="Vic Torr">
+      <p class="corp-top__over"><span class="mark"></span>Шоу для событий</p>
+      <a class="corp-top__more" href="#personal">Шоу под ваше событие <span class="corp-top__arrow" aria-hidden="true">↓</span></a>
+    </div>
+
+    <nav class="corp-menu" aria-label="Шоу">
+      <a class="corp-pick" href="#postpunk">
+        <img class="corp-pick__img" src="../media/vic-torr-live-show-poster.jpg" alt="" width="1280" height="720">
+        <span class="corp-pick__num">01</span>
+        <span class="corp-pick__body">
+          <span class="corp-pick__kind">Основное шоу</span>
+          <span class="corp-pick__title">Postpunk</span>
+          <span class="corp-pick__line">Хай-тек оркестр из&nbsp;одного человека</span>
+          <span class="corp-pick__go">Смотреть</span>
+        </span>
+      </a>
+      <a class="corp-pick" href="#acoustica">
+        <img class="corp-pick__img" src="media/acoustica-poster.jpg" alt="" width="1280" height="720">
+        <span class="corp-pick__num">02</span>
+        <span class="corp-pick__body">
+          <span class="corp-pick__kind">Акустическая программа</span>
+          <span class="corp-pick__title">Acoustica</span>
+          <span class="corp-pick__line">Нерв и&nbsp;чилл, эмоция и&nbsp;атмосфера</span>
+          <span class="corp-pick__go">Смотреть</span>
+        </span>
+      </a>
+      <a class="corp-pick" href="#house">
+        <img class="corp-pick__img corp-pick__img--top" src="../house-of-rock/media/hor-7-nation-army-poster.jpg" alt="" width="720" height="1280">
+        <span class="corp-pick__num">03</span>
+        <span class="corp-pick__body">
+          <span class="corp-pick__kind">Vic Torr + DJ Prosvet</span>
+          <span class="corp-pick__title">House of&nbsp;Rock</span>
+          <span class="corp-pick__line">Рок-хиты в&nbsp;танцевальном <span class="corp-nobr">house-груве</span></span>
+          <span class="corp-pick__go">Смотреть</span>
+        </span>
+      </a>
+    </nav>
+  </header>
+
+  <!-- Липкое меню: появляется под первым экраном, подсвечивает текущее шоу (main.js) -->
+  <nav class="corp-nav" aria-label="Разделы">
+    <div class="corp-nav__in">
+      <a class="corp-nav__link" href="#postpunk">Postpunk</a>
+      <a class="corp-nav__link" href="#acoustica">Acoustica</a>
+      <a class="corp-nav__link" href="#house">House of Rock</a>
+      <a class="corp-nav__link corp-nav__link--wide" href="#personal">Под событие</a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- 2. Postpunk -->
+    <section id="postpunk" class="corp-show">
+      <div class="corp-wrap">
+        <div class="corp-head reveal">
+          <span class="corp-head__num" aria-hidden="true">01</span>
+          <p class="corp-head__kind">Основное шоу</p>
+          <h2 class="corp-head__title">Postpunk</h2>
+          <span class="corp-head__rule" aria-hidden="true"></span>
+        </div>
+
+        <div class="corp-grid">
+          <figure class="corp-video reveal">
+            <div class="corp-player">
+              <video controls playsinline preload="none" poster="../media/vic-torr-live-show-poster.jpg">
+                <source src="../media/vic-torr-live-show.mp4" type="video/mp4">
+              </video>
+              <span class="corp-player__tag" aria-hidden="true"><span class="mark"></span>Live</span>
+              <button class="corp-player__play" type="button" aria-label="Смотреть: Postpunk — Live Show" hidden></button>
+            </div>
+            <figcaption>Vic Torr — Live Show</figcaption>
+          </figure>
+
+          <div class="corp-text reveal">
+            <p class="corp-text__big">Хай-тек оркестр из&nbsp;одного человека</p>
+            <p>Голос, гитара, две клавиши, лэптоп, футсвитч. Live-секвенции записываются слой за&nbsp;слоем прямо на&nbsp;сцене — сет рождается с&nbsp;нуля в&nbsp;реальном времени. Над залом — воздушный театр «Летающие люди».</p>
+            <p class="corp-text__accent">Начинается с&nbsp;тишины и&nbsp;темноты. Заканчивается оркестром и&nbsp;воздушным театром.</p>
+            <ul class="corp-facts">
+              <li>Тур по&nbsp;Китаю на&nbsp;50 городов с&nbsp;разогревом R3hab, тур по&nbsp;Великобритании, Amsterdam Dance Event</li>
+              <li>Часовое живое выступление на&nbsp;Чемпионате мира по&nbsp;хоккею</li>
+              <li>«Прорыв года» премии «Песня года», финалист LIRA, Must Be the Music и&nbsp;нацотбора Евровидения</li>
+            </ul>
+            <div class="corp-actions">
+              <a class="btn btn--yellow" href="mailto:vic.torr.live@gmail.com,guguchkin@gmail.com" data-booking="Postpunk">Обсудить Postpunk</a>
+              <a class="btn btn--line" href="../docs/Vic_Torr_EPK_v14_Dmitriy_light.pdf" target="_blank" rel="noopener">EPK · PDF</a>
+              <a class="btn btn--line" href="../docs/Vic_Torr_Technical_Rider_RU.pdf" target="_blank" rel="noopener">Техрайдер · PDF</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Acoustica: видео справа -->
+    <section id="acoustica" class="corp-show">
+      <div class="corp-wrap">
+        <div class="corp-head reveal">
+          <span class="corp-head__num" aria-hidden="true">02</span>
+          <p class="corp-head__kind">Акустическая программа</p>
+          <h2 class="corp-head__title">Acoustica</h2>
+          <span class="corp-head__rule" aria-hidden="true"></span>
+        </div>
+
+        <div class="corp-grid corp-grid--flip">
+          <figure class="corp-video reveal">
+            <div class="corp-player">
+              <video controls playsinline preload="none" poster="media/acoustica-poster.jpg">
+                <source src="media/acoustica.mp4" type="video/mp4">
+              </video>
+              <span class="corp-player__tag" aria-hidden="true"><span class="mark"></span>Live</span>
+              <button class="corp-player__play" type="button" aria-label="Смотреть: Vic Torr — Болид (Acoustica live)" hidden></button>
+            </div>
+            <figcaption>Vic Torr — Болид (Acoustica live)</figcaption>
+          </figure>
+
+          <div class="corp-text reveal">
+            <p class="corp-text__big">Нерв и&nbsp;чилл, эмоция и&nbsp;атмосфера</p>
+            <p>Модно сыгранная акустическая программа: стильная гитара с&nbsp;бас-питчерами, проникновенный вокал и&nbsp;музыкальные истории моей жизни, переплетающиеся с&nbsp;уже известными вам историями крутых хитов в&nbsp;интересном изложении.</p>
+            <ul class="corp-facts">
+              <li>Стильная гитара с&nbsp;бас-питчерами</li>
+              <li>Проникновенный вокал</li>
+              <li>Истории моей жизни и&nbsp;истории крутых хитов</li>
+            </ul>
+            <div class="corp-actions">
+              <a class="btn btn--yellow" href="mailto:vic.torr.live@gmail.com,guguchkin@gmail.com" data-booking="Acoustica">Обсудить Acoustica</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. House of Rock: вертикальное видео как телефон -->
+    <section id="house" class="corp-show">
+      <div class="corp-wrap">
+        <div class="corp-head reveal">
+          <span class="corp-head__num" aria-hidden="true">03</span>
+          <p class="corp-head__kind">Vic Torr + DJ Prosvet</p>
+          <h2 class="corp-head__title">House of&nbsp;Rock</h2>
+          <span class="corp-head__rule" aria-hidden="true"></span>
+        </div>
+
+        <div class="corp-grid corp-grid--tall">
+          <figure class="corp-video reveal">
+            <div class="corp-player corp-player--vertical">
+              <video controls playsinline preload="none" poster="../house-of-rock/media/hor-7-nation-army-poster.jpg">
+                <source src="../house-of-rock/media/hor-7-nation-army.mp4" type="video/mp4">
+              </video>
+              <span class="corp-player__tag" aria-hidden="true"><span class="mark"></span>Live</span>
+              <button class="corp-player__play" type="button" aria-label="Смотреть: Seven Nation Army (House of Rock)" hidden></button>
+            </div>
+            <figcaption>Vic Torr + Prosvet — Seven Nation Army</figcaption>
+          </figure>
+
+          <div class="corp-text reveal">
+            <p class="corp-text__big">Мощный живой сет: рок-хиты в&nbsp;танцевальном <span class="corp-nobr">house-груве</span></p>
+            <p>Для открытия мероприятия и&nbsp;главной танцевальной части вечера.</p>
+            <p>Vic Torr — хай-тек оркестр из&nbsp;одного человека: голос, гитара, клавиши и&nbsp;live-петли собираются прямо на&nbsp;сцене, без подложек. Prosvet — продюсер и&nbsp;электронный артист, более 10&nbsp;лет на&nbsp;сцене: электроника соединяется с&nbsp;живыми инструментами, партии запускаются вживую, под энергию конкретного зала.</p>
+            <ul class="corp-facts">
+              <li>Vic Torr: тур по&nbsp;Китаю на&nbsp;50 городов, тур по&nbsp;Великобритании, Amsterdam Dance Event</li>
+              <li>Prosvet: совместные программы с&nbsp;симфоническим оркестром — большие залы и&nbsp;солдауты, фестиваль «Сретение» на&nbsp;8&nbsp;000 зрителей</li>
+              <li>Заказчики Prosvet: Альфа-Банк, Сбер, Т-Банк, Самолёт, MR Group, Positive Technologies, AI Journey</li>
+            </ul>
+            <div class="corp-actions">
+              <a class="btn btn--yellow" href="mailto:vic.torr.live@gmail.com,guguchkin@gmail.com" data-booking="House of Rock">Обсудить House of Rock</a>
+              <a class="btn btn--line" href="../house-of-rock/">Подробнее о&nbsp;House of Rock</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Personalized show -->
+    <section id="personal" class="corp-personal">
+      <div class="corp-wrap">
+        <div class="corp-head reveal">
+          <span class="corp-head__num" aria-hidden="true">04</span>
+          <p class="corp-head__kind">Комплексное предложение</p>
+          <h2 class="corp-head__title">Personalized show</h2>
+          <span class="corp-head__rule" aria-hidden="true"></span>
+        </div>
+
+        <p class="corp-personal__lead reveal">Шоу, собранное специально под ваше событие.</p>
+
+        <figure class="corp-video corp-personal__reel reveal">
+          <div class="corp-player">
+            <video controls playsinline preload="none" poster="../house-of-rock/media/vic-torr-showreel-poster.jpg">
+              <source src="../house-of-rock/media/vic-torr-showreel.mp4" type="video/mp4">
+            </video>
+            <button class="corp-player__play" type="button" aria-label="Смотреть: Vic Torr — шоурил" hidden></button>
+          </div>
+          <figcaption>Vic Torr — шоурил</figcaption>
+        </figure>
+
+        <ol class="corp-parts">
+          <li class="corp-part reveal">
+            <span class="corp-part__num">01</span>
+            <h3 class="corp-part__title">Композиция-открытие</h3>
+            <p>Кастомная музыкальная композиция, написанная под ваше событие и&nbsp;открывающая вечер.</p>
+          </li>
+          <li class="corp-part reveal">
+            <span class="corp-part__num">02</span>
+            <h3 class="corp-part__title">Воздушный театр</h3>
+            <p>«Летающие люди» над залом — номер, встроенный в&nbsp;живой сет.</p>
+          </li>
+          <li class="corp-part reveal">
+            <span class="corp-part__num">03</span>
+            <h3 class="corp-part__title">DJ collaboration</h3>
+            <p>Совместный сет с&nbsp;DJ: живые инструменты и&nbsp;электроника в&nbsp;одном потоке.</p>
+          </li>
+          <li class="corp-part reveal">
+            <span class="corp-part__num">04</span>
+            <h3 class="corp-part__title">И&nbsp;другое</h3>
+            <p>Postpunk, Acoustica и&nbsp;House of&nbsp;Rock в&nbsp;любой комбинации — соберём формат под задачу.</p>
+          </li>
+        </ol>
+
+        <div class="corp-final reveal">
+          <p class="corp-final__phrase">Соберём шоу под&nbsp;ваш вечер</p>
+          <a class="btn btn--yellow corp-final__cta" href="mailto:vic.torr.live@gmail.com,guguchkin@gmail.com" data-booking="Personalized show">Обсудить событие</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="corp-foot">
+    <div class="corp-wrap corp-foot__in">
+      <img class="corp-foot__logo" src="../images/logo-yellow.svg" alt="Vic Torr">
+      <div class="corp-foot__info">
+        <div>Букинг: <a href="mailto:vic.torr.live@gmail.com">vic.torr.live@gmail.com</a> · директор Дмитрий Гугучкин — <a href="https://t.me/dgugu" target="_blank" rel="noopener">Telegram</a></div>
+        <div>© 2026 Vic Torr · <a href="../">vic-torr.com</a> · <a href="#privacy" data-privacy>политика обработки данных</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Форма заявки. Адресаты — BOOKING_EMAILS в main.js; кнопка «Обсудить …» отмечает нужное шоу -->
+  <dialog class="privacy corp-booking" id="booking" aria-labelledby="booking-title">
+    <button type="button" class="privacy__close" data-close aria-label="Закрыть">×</button>
+    <form class="form corp-booking__form" id="booking-form" novalidate>
+      <div class="form__head">
+        <h2 class="form__title" id="booking-title">Обсудить событие</h2>
+        <p class="form__hint">Оставьте хотя бы один контакт. Заявка придёт Vic Torr и&nbsp;Дмитрию одновременно.</p>
+      </div>
+      <fieldset class="corp-shows">
+        <legend class="field__label">Шоу</legend>
+        <label class="corp-chip"><input type="radio" name="show" value="Postpunk"><span>Postpunk</span></label>
+        <label class="corp-chip"><input type="radio" name="show" value="Acoustica"><span>Acoustica</span></label>
+        <label class="corp-chip"><input type="radio" name="show" value="House of Rock"><span>House of Rock</span></label>
+        <label class="corp-chip"><input type="radio" name="show" value="Personalized show"><span>Под событие</span></label>
+      </fieldset>
+      <div class="form__fields">
+        <label class="field"><span class="field__label">Телефон</span><input name="phone" type="tel" autocomplete="tel" placeholder="+7 900 000-00-00"></label>
+        <label class="field"><span class="field__label">Telegram</span><input name="telegram" type="text" autocomplete="off" placeholder="@username"></label>
+        <label class="field"><span class="field__label">Почта</span><input name="email" type="email" autocomplete="email" placeholder="name@mail.com"></label>
+      </div>
+      <label class="field"><span class="field__label">Сообщение</span><textarea name="message" rows="4" placeholder="Дата, город, площадка, формат мероприятия"></textarea></label>
+      <p class="form__error" role="alert" hidden></p>
+      <div class="form__foot">
+        <button type="submit" class="form__submit">Отправить заявку</button>
+        <span class="note">Отправляя заявку, вы соглашаетесь с&nbsp;<a href="#privacy" data-privacy>политикой обработки данных</a></span>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Политика обработки данных — копия dialog#privacy с главной (152-ФЗ: форма собирает контакты) -->
+  <dialog class="privacy" id="privacy" aria-labelledby="privacy-title">
+    <div class="privacy__body">
+      <button type="button" class="privacy__close" data-close aria-label="Закрыть">×</button>
+      <h2 class="h2 privacy__title" id="privacy-title">Политика обработки данных</h2>
+      <p>Этот сайт не использует cookies, счётчики и системы аналитики и не собирает данные посетителей автоматически.</p>
+      <p>Персональные данные — телефон, имя пользователя Telegram, адрес электронной почты и текст сообщения — обрабатываются только в том случае, если вы сами отправляете заявку через форму BOOKING или пишете нам напрямую.</p>
+      <p>Данные используются исключительно для того, чтобы связаться с вами и обсудить концерт или сотрудничество. Мы не продаём, не публикуем и не передаём их третьим лицам, за исключением случаев, предусмотренных законодательством. Для доставки заявки используются Telegram и электронная почта.</p>
+      <p>Отправляя форму, вы соглашаетесь на обработку указанных данных для этой цели. Данные хранятся не дольше, чем это необходимо для ответа и дальнейшего общения по заявке.</p>
+      <p>Подписка на Telegram-канал происходит на стороне Telegram — сайт не получает и не хранит данные подписчиков.</p>
+      <p>Чтобы уточнить, изменить или удалить свои данные, напишите на <a href="mailto:vic.torr.live@gmail.com">vic.torr.live@gmail.com</a>.</p>
+    </div>
+  </dialog>
+
+  <script src="main.js"></script>
+</body>
+</html>
