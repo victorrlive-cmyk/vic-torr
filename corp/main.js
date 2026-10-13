@@ -102,7 +102,7 @@ if (booking && booking.showModal) {
     link.addEventListener('click', function (e) {
       e.preventDefault();
       showError('');
-      // Кнопка «Обсудить Postpunk» сразу отмечает Postpunk и т. д.
+      // Кнопка «Обсудить Feel Alive» сразу отмечает Feel Alive и т. д.
       var radio = form.querySelector('input[name="show"][value="' + link.dataset.booking + '"]');
       if (radio) radio.checked = true;
       booking.showModal();
