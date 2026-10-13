@@ -30,7 +30,7 @@ players.forEach(function (player) {
 // Форма «Обсудить дату». Пока нет Worker'а (как и на главной, BOOKING_ENDPOINT в ../main.js пуст),
 // заявка уходит письмом через mailto — сразу всем адресатам из списка.
 // TODO: добавить почту Prosvet и поправить подсказку в форме (index.html, .form__hint)
-var BOOKING_EMAILS = ['vic.torr.live@gmail.com', 'guguchkin@gmail.com'];
+var BOOKING_EMAILS = ['vic.torr.live@gmail.com', 'guguchkin@gmail.com', 'Kichigin.kiril@yandex.ru'];
 
 var booking = document.getElementById('booking');
 var privacy = document.getElementById('privacy');
