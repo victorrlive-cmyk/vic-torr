@@ -43,7 +43,7 @@
     <div class="corp-top__bar">
       <img class="corp-top__logo" src="../images/logo-yellow.svg" alt="Vic Torr">
       <p class="corp-top__over"><span class="mark"></span>Шоу для событий</p>
-      <a class="corp-top__more" href="#personal">Шоу под ваше событие <span class="corp-top__arrow" aria-hidden="true">↓</span></a>
+      <a class="corp-top__more" href="#personal"><span class="corp-top__long">Шоу под ваше событие</span><span class="corp-top__short">Под событие</span> <span class="corp-top__arrow" aria-hidden="true">↓</span></a>
     </div>
 
     <nav class="corp-menu" aria-label="Шоу">
@@ -87,6 +87,10 @@
       <a class="corp-nav__link" href="#acoustica">Acoustica</a>
       <a class="corp-nav__link" href="#house">House of Rock</a>
       <a class="corp-nav__link corp-nav__link--wide" href="#personal">Под событие</a>
+      <a class="corp-nav__link corp-nav__link--contacts" href="#contacts" aria-label="Контакты">
+        <svg class="corp-nav__icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z" fill="currentColor"/></svg>
+        <span class="corp-nav__text">Контакты</span>
+      </a>
     </div>
   </nav>
 
@@ -259,6 +263,37 @@
           <p class="corp-final__phrase">Соберём шоу под&nbsp;ваш вечер</p>
           <a class="btn btn--yellow corp-final__cta" href="mailto:vic.torr.live@gmail.com,guguchkin@gmail.com" data-booking="Personalized show">Обсудить событие</a>
         </div>
+      </div>
+    </section>
+
+    <!-- 6. Контакты: напрямую, без формы. Телефон и Telegram нажимаются на телефоне -->
+    <section id="contacts" class="corp-show corp-contacts">
+      <div class="corp-wrap">
+        <div class="corp-head reveal">
+          <span class="corp-head__num" aria-hidden="true">05</span>
+          <p class="corp-head__kind">Позвонить или написать</p>
+          <h2 class="corp-head__title">Контакты</h2>
+          <span class="corp-head__rule" aria-hidden="true"></span>
+        </div>
+
+        <ul class="corp-contacts__list reveal">
+          <li class="corp-contacts__row">
+            <span class="corp-contacts__label">Почта</span>
+            <a class="corp-contacts__value" href="mailto:vic.torr.live@gmail.com">vic.torr.live@gmail.com</a>
+          </li>
+          <li class="corp-contacts__row">
+            <span class="corp-contacts__label">Директор</span>
+            <span class="corp-contacts__value corp-contacts__value--text">Дмитрий Гугучкин</span>
+          </li>
+          <li class="corp-contacts__row">
+            <span class="corp-contacts__label">Телефон</span>
+            <a class="corp-contacts__value" href="tel:+79166952256">+7&nbsp;(916)&nbsp;695-22-56</a>
+          </li>
+          <li class="corp-contacts__row">
+            <span class="corp-contacts__label">Telegram</span>
+            <a class="corp-contacts__value" href="https://t.me/dgugu" target="_blank" rel="noopener">@dgugu</a>
+          </li>
+        </ul>
       </div>
     </section>
   </main>

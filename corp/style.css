@@ -33,7 +33,7 @@ html { scroll-padding-top: 64px; }
 /* ---------- 1. Первый экран: три шоу (мобильный — стопкой) ---------- */
 .corp-top__bar {
   display: flex; flex-wrap: wrap; align-items: center;
-  gap: 10px 20px;
+  gap: 10px 14px;
   padding: 20px 16px;
 }
 .corp-top__logo { display: block; height: 34px; width: auto; }
@@ -44,14 +44,15 @@ html { scroll-padding-top: 64px; }
 }
 .corp-top__over .mark { width: 8px; height: 8px; }
 .corp-top__more {
-  display: none;
   margin-left: auto;
-  font-size: 13px;
+  font-size: 12px;
+  letter-spacing: .16em;
   color: var(--gray);
   text-decoration: none;
   transition: var(--ease);
 }
 .corp-top__more:hover { color: var(--text); }
+.corp-top__long { display: none; }
 /* Стрелка мигает жёлтым, как курсор в строке; при наведении замирает и шагает вниз */
 .corp-top__arrow {
   display: inline-block;
@@ -94,9 +95,9 @@ html { scroll-padding-top: 64px; }
   z-index: -1;
   background: linear-gradient(180deg, rgba(17,17,17,.1) 0%, rgba(17,17,17,0) 35%, rgba(17,17,17,.88) 100%);
 }
+/* На мобильном номер стоит в потоке над подписью, чтобы не наезжать на текст */
 .corp-pick__num {
-  position: absolute;
-  top: 18px; left: 16px;
+  margin-bottom: 8px;
   font-family: var(--cond);
   font-style: italic;
   font-weight: 900;
@@ -140,7 +141,7 @@ html { scroll-padding-top: 64px; }
   border-bottom: 1px solid var(--line);
 }
 .corp-nav__in {
-  display: flex; gap: 22px;
+  display: flex; justify-content: space-between; gap: 8px;
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 16px;
@@ -153,8 +154,8 @@ html { scroll-padding-top: 64px; }
   flex: none;
   display: flex; align-items: center;
   height: 52px;
-  font-size: 13px;
-  letter-spacing: .16em;
+  font-size: 12px;
+  letter-spacing: .05em;
   color: var(--gray);
   text-decoration: none;
   transition: var(--ease);
@@ -175,7 +176,8 @@ html { scroll-padding-top: 64px; }
 .corp-nav__link:focus-visible { outline-offset: -2px; }
 
 /* ---------- Шоу ---------- */
-.corp-show { padding: 88px 0; border-top: 1px solid var(--line); }
+/* Контурные номера глав уезжают вбок — обрезаем, иначе iOS скроллит страницу вправо */
+.corp-show { padding: 88px 0; border-top: 1px solid var(--line); overflow-x: hidden; overflow-x: clip; }
 .corp-show:first-child { border-top: 0; }
 
 /* Заголовок главы: огромный контурный номер за названием */
@@ -326,6 +328,7 @@ html { scroll-padding-top: 64px; }
 .corp-personal {
   padding: 88px 0;
   border-top: 1px solid var(--line);
+  overflow-x: hidden; overflow-x: clip;
   background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
 }
 .corp-personal__lead {
@@ -370,6 +373,40 @@ html { scroll-padding-top: 64px; }
 }
 .corp-part p { font-size: 15px; line-height: 1.5; color: var(--gray); }
 
+/* ---------- Контакты ---------- */
+.corp-contacts__list { margin: 0; padding: 0; list-style: none; }
+.corp-contacts__row {
+  display: flex; flex-direction: column; gap: 6px;
+  padding: 20px 0;
+  border-top: 1px solid var(--line);
+}
+.corp-contacts__row:first-child { border-top: 0; padding-top: 0; }
+.corp-contacts__row:last-child { border-bottom: 1px solid var(--line); }
+.corp-contacts__label {
+  font-family: var(--cond);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--gray);
+}
+.corp-contacts__value {
+  align-self: flex-start;
+  font-family: var(--cond);
+  font-weight: 700;
+  font-size: clamp(28px, 4vw, 52px);
+  line-height: 1.1;
+  color: var(--text);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  transition: var(--ease);
+}
+a.corp-contacts__value:hover { color: var(--accent); transform: translateY(-1px); }
+.corp-contacts__value--text { color: var(--gray); }
+/* На мобильном «Контакты» в меню — значок трубки, с 640px — словом */
+.corp-nav__icon { display: block; }
+.corp-nav__text { display: none; }
+
 .corp-final { padding-top: 88px; text-align: center; }
 .corp-final__phrase {
   font-family: var(--cond);
@@ -404,13 +441,19 @@ html { scroll-padding-top: 64px; }
 
 @media (min-width: 640px) {
   .corp-wrap, .corp-nav__in { padding-left: var(--pad); padding-right: var(--pad); }
-  .corp-top__bar { padding: 22px var(--pad); }
-  .corp-top__more { display: block; }
+  .corp-top__bar { gap: 10px 20px; padding: 22px var(--pad); }
+  .corp-top__more { font-size: 13px; letter-spacing: .22em; }
+  .corp-top__long { display: inline; }
+  .corp-top__short { display: none; }
   .corp-pick { padding: 28px var(--pad); }
-  .corp-pick__num { top: 24px; left: var(--pad); }
   .corp-pick__title { font-size: 72px; }
-  .corp-nav__in { gap: 32px; }
-  .corp-nav__link { height: 56px; font-size: 14px; }
+  .corp-nav__in { justify-content: flex-start; gap: 32px; }
+  .corp-nav__link { height: 56px; font-size: 14px; letter-spacing: .16em; }
+  .corp-nav__icon { display: none; }
+  .corp-nav__text { display: inline; }
+  .corp-contacts__row { flex-direction: row; align-items: center; gap: 24px; padding: 26px 0; }
+  .corp-contacts__row:first-child { padding-top: 0; }
+  .corp-contacts__label { flex: none; width: 160px; }
   .corp-show, .corp-personal { padding: 128px 0; }
   .corp-actions .btn--yellow { flex: 0 1 auto; padding: 0 32px; font-size: 21px; }
   .corp-parts { grid-template-columns: 1fr 1fr; }
@@ -437,7 +480,7 @@ html { scroll-padding-top: 64px; }
     padding: 28px clamp(20px, 2.4vw, 36px) clamp(28px, 4vh, 48px);
     transition: flex-grow var(--slow);
   }
-  .corp-pick__num { left: clamp(20px, 2.4vw, 36px); }
+  .corp-pick__num { position: absolute; top: 24px; left: clamp(20px, 2.4vw, 36px); margin: 0; }
   .corp-pick__title { font-size: min(5vw, 84px); }
   .corp-menu:hover .corp-pick,
   .corp-menu:focus-within .corp-pick { flex-grow: .85; }
