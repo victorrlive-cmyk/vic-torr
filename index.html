@@ -44,6 +44,21 @@
     </div>
   </header>
 
+  <!-- Липкое меню: появляется под первым экраном, подсвечивает текущий раздел (main.js) -->
+  <nav class="nav" aria-label="Разделы">
+    <div class="nav__in">
+      <a class="nav__link" href="#listen">Музыка</a>
+      <a class="nav__link" href="#live">Live</a>
+      <a class="nav__link" href="#awards">Регалии</a>
+      <a class="nav__link" href="#diary">Дневник</a>
+      <a class="nav__link" href="#about">Обо мне</a>
+      <a class="nav__link nav__link--contacts" href="#contacts" aria-label="Контакты">
+        <svg class="nav__icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z" fill="currentColor"/></svg>
+        <span class="nav__text">Контакты</span>
+      </a>
+    </div>
+  </nav>
+
   <main>
     <!-- 2. 01 — слушать -->
     <section id="listen" class="wrap listen">
@@ -161,7 +176,7 @@
     </section>
 
     <!-- 5. 03 — регалии -->
-    <section class="wrap section">
+    <section id="awards" class="wrap section">
       <div class="eyebrow"><span class="mark"></span><span>03 — регалии</span></div>
       <div class="awards">
         <div class="award"><div class="award__fact">50 городов</div><div class="award__note">тур по Китаю, разогрев R3hab</div></div>
@@ -195,7 +210,7 @@
     </section>
 
     <!-- 7. 05 — об этом человеке -->
-    <section class="wrap section">
+    <section id="about" class="wrap section">
       <div class="eyebrow"><span class="mark"></span><span>05 — об этом человеке</span></div>
       <p class="bio">Vic Torr пишет постпанк и альтернативу и играет их живьём. За плечами тур по Китаю на 50 городов с разогревом R3hab, тур по Великобритании, Amsterdam Dance Event, live на Чемпионате мира по хоккею и вся музыка + саундизайн 15-и каналов viju+. На сцене всё собирается в реальном времени — без подложек и без нейросетей.</p>
       <div class="quotes">
@@ -203,9 +218,32 @@
         <p class="quote--en" lang="en">“I don’t make music — I create soundscapes.”</p>
         <p class="quote--ru">Говорят, что при прослушивании музыки вырабатывается окситоцин, как при объятиях. Поэтому — позволь мне тебя обнять, мой друг.</p>
       </div>
+    </section>
+
+    <!-- 8. 06 — контакты: напрямую, телефон и Telegram нажимаются на телефоне -->
+    <section id="contacts" class="wrap section">
+      <div class="eyebrow"><span class="mark"></span><span>06 — контакты</span></div>
+      <ul class="contacts">
+        <li class="contacts__row">
+          <span class="contacts__label">Почта</span>
+          <a class="contacts__value" href="mailto:vic.torr.live@gmail.com">vic.torr.live@gmail.com</a>
+        </li>
+        <li class="contacts__row">
+          <span class="contacts__label">Директор</span>
+          <span class="contacts__value contacts__value--text">Дмитрий Гугучкин</span>
+        </li>
+        <li class="contacts__row">
+          <span class="contacts__label">Телефон</span>
+          <a class="contacts__value" href="tel:+79166952256">+7&nbsp;(916)&nbsp;695-22-56</a>
+        </li>
+        <li class="contacts__row">
+          <span class="contacts__label">Telegram</span>
+          <a class="contacts__value" href="https://t.me/dgugu" target="_blank" rel="noopener">@dgugu</a>
+        </li>
+      </ul>
       <div class="divider"></div>
 
-      <!-- 8. Подвал -->
+      <!-- 9. Подвал -->
       <footer class="footer">
         <div class="footer__brand">
           <img src="images/logo-yellow.svg" alt="Vic Torr">

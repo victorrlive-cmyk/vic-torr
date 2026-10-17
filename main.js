@@ -11,11 +11,30 @@ document.querySelectorAll('[data-scroll-to]').forEach((link) => {
     if (!target) return;
     e.preventDefault();
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const top = target.getBoundingClientRect().top + window.scrollY - 24;
+    const nav = document.querySelector('.nav');
+    const top = target.getBoundingClientRect().top + window.scrollY - 24 - (nav ? nav.offsetHeight : 0);
     window.scrollTo({ top, behavior: reduce ? 'auto' : 'smooth' });
     history.replaceState(null, '', '#' + target.id);
   });
 });
+
+// Липкое меню: подсвечиваем раздел, который сейчас посередине экрана
+if ('IntersectionObserver' in window) {
+  const links = {};
+  document.querySelectorAll('.nav__link').forEach((link) => {
+    links[link.getAttribute('href').slice(1)] = link;
+  });
+  const spy = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const link = links[entry.target.id];
+      if (link) link.classList.toggle('is-active', entry.isIntersecting);
+    });
+  }, { rootMargin: '-50% 0px -50% 0px' });
+  Object.keys(links).forEach((id) => {
+    const section = document.getElementById(id);
+    if (section) spy.observe(section);
+  });
+}
 
 // Видео Live Show: постер + жёлтая Play, нативные controls только после старта.
 // Без JS кнопка скрыта, у <video> работают обычные controls.
