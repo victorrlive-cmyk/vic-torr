@@ -220,10 +220,12 @@ a:hover { color: var(--text); }
   .hero__btns .btn { min-width: 220px; height: 58px; font-size: 22px; }
 }
 
-/* ---------- Липкое меню ---------- */
+/* ---------- Липкое меню ----------
+   До 640px первый экран выше кадра — меню закреплено сверху поверх фото.
+   С 640px — sticky под первым экраном, как в макете. */
 .nav {
-  position: sticky;
-  top: 0;
+  position: fixed;
+  top: 0; left: 0; right: 0;
   z-index: 5;
   background: rgba(17,17,17,.88);
   -webkit-backdrop-filter: blur(12px);
@@ -271,6 +273,7 @@ a:hover { color: var(--text); }
 .nav__text { display: none; }
 
 @media (min-width: 640px) {
+  .nav { position: sticky; }
   .nav__in { justify-content: flex-start; gap: 32px; }
   .nav__link { height: 56px; font-size: 14px; letter-spacing: .16em; }
   .nav__link--contacts { margin-left: auto; }
