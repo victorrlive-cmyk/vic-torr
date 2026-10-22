@@ -53,15 +53,35 @@ html { scroll-padding-top: 64px; }
 }
 .corp-top__more:hover { color: var(--text); }
 .corp-top__long { display: none; }
-/* Стрелка мигает жёлтым, как курсор в строке; при наведении замирает и шагает вниз */
+/* Стрелка — блочный курсор DOS: при загрузке «загорается» серией вспышек,
+   дальше мигает, переключаясь между инверсией (тёмная стрелка на жёлтом) и обычным видом.
+   При наведении надпись выделяется как пункт меню, курсор замирает в инверсии и шагает вниз */
 .corp-top__arrow {
-  display: inline-block;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 1.4em; height: 1.6em;
+  margin-left: .3em;
+  vertical-align: -.38em;
+  letter-spacing: 0;
+  font-weight: 900;
   color: var(--accent);
-  animation: corp-blink 1.1s steps(1, end) infinite;
+  animation: corp-boot 90ms steps(1, end) 300ms 5, corp-cursor 1.06s steps(1, end) 750ms infinite;
   transition: transform 120ms ease;
 }
-.corp-top__more:hover .corp-top__arrow { animation: none; transform: translateY(2px); }
-@keyframes corp-blink { 50% { opacity: 0; } }
+.corp-top__long, .corp-top__short { transition: background-color 120ms ease, color 120ms ease, box-shadow 120ms ease; }
+.corp-top__more:hover .corp-top__long, .corp-top__more:hover .corp-top__short,
+.corp-top__more:focus-visible .corp-top__long, .corp-top__more:focus-visible .corp-top__short {
+  background: var(--text);
+  box-shadow: 0 0 0 4px var(--text);
+  color: var(--bg);
+}
+.corp-top__more:hover .corp-top__arrow, .corp-top__more:focus-visible .corp-top__arrow {
+  animation: none;
+  background: var(--accent);
+  color: var(--bg);
+  transform: translateY(2px);
+}
+@keyframes corp-boot { 0% { background: var(--accent); color: var(--bg); } 50% { background: transparent; color: var(--accent); } }
+@keyframes corp-cursor { 0% { background: var(--accent); color: var(--bg); } 50% { background: transparent; color: var(--accent); } }
 
 .corp-menu { display: flex; flex-direction: column; gap: 2px; }
 .corp-pick {
@@ -543,5 +563,5 @@ a.corp-contacts__value:hover { color: var(--accent); transform: translateY(-1px)
   .js .reveal { opacity: 1; transform: none; }
   .js .corp-head__rule { transform: none; }
   .corp-head__num { transform: none; }
-  .corp-top__arrow { animation: none; }
+  .corp-top__arrow { animation: none; background: var(--accent); color: var(--bg); }
 }
