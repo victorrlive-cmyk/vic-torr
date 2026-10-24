@@ -310,6 +310,8 @@ a:hover { color: var(--text); }
   padding: 16px;
   display: flex; flex-direction: column; gap: 14px;
 }
+.release__cover { display: block; transition: var(--ease); }
+.release__cover:hover { transform: translateY(-1px); }
 .release__badge {
   position: absolute; top: 14px; left: 14px;
   padding: 5px 10px;

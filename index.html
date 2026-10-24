@@ -65,10 +65,11 @@
       <div class="eyebrow"><span class="mark"></span><span>01 — слушать</span></div>
       <div class="releases">
         <article class="release">
-          <div class="cover">
+          <!-- Обложка нажимается как кнопка «Слушать везде»; для клавиатуры и скринридеров её дублирует кнопка -->
+          <a class="cover release__cover" href="https://link.1mp.ru/knsv" target="_blank" rel="noopener" data-listen="koni" tabindex="-1" aria-hidden="true">
             <img src="images/cover-koni.webp" alt="Обложка сингла «Кони»" width="1200" height="1200">
             <div class="release__badge"><span class="mark"></span><span>новый релиз</span></div>
-          </div>
+          </a>
           <div class="release__meta">
             <h2 class="release__title">Кони</h2>
             <div class="release__type">сингл</div>
@@ -317,6 +318,7 @@
 
   <!-- Pop-up «Где слушать»: открывается кнопками и плитками с data-listen="…" (main.js).
        Ссылки ведут прямо на трек; где релиза на площадке не нашлось — на страницу артиста.
+       Звук — только /track/ID: ссылка /release/ у части слушателей открывает карточку артиста.
        Новый трек — ещё одна группа .pick__release с тем же data-release, что у кнопки. -->
   <dialog class="privacy pick" id="pick" aria-label="Где слушать">
     <div class="privacy__body pick__body">
@@ -328,7 +330,7 @@
         </div>
         <div class="platforms__grid pick__grid">
           <a class="platform" href="https://music.apple.com/ru/album/6800753357" target="_blank" rel="noopener" aria-label="Apple Music"><img src="images/logo-apple-music.svg" alt=""></a>
-          <a class="platform" href="https://zvuk.com/release/52399627" target="_blank" rel="noopener" aria-label="Звук"><img src="images/logo-zvuk.svg" alt=""></a>
+          <a class="platform" href="https://zvuk.com/track/185714094" target="_blank" rel="noopener" aria-label="Звук"><img src="images/logo-zvuk.svg" alt=""></a>
           <a class="platform" href="https://music.mts.ru/album/43514717" target="_blank" rel="noopener" aria-label="КИОН"><img src="images/logo-kion.svg" alt=""></a>
           <a class="platform" href="https://music.vk.com/link/ecydf" target="_blank" rel="noopener" aria-label="VK Музыка"><img src="images/logo-vk.svg" alt=""></a>
           <a class="platform" href="https://music.yandex.ru/album/43514717" target="_blank" rel="noopener" aria-label="Яндекс Музыка"><img src="images/logo-yandex-music.svg" alt=""></a>
@@ -342,7 +344,7 @@
         </div>
         <div class="platforms__grid pick__grid">
           <a class="platform" href="https://music.apple.com/ru/album/1820949121" target="_blank" rel="noopener" aria-label="Apple Music"><img src="images/logo-apple-music.svg" alt=""></a>
-          <a class="platform" href="https://zvuk.com/release/39116145" target="_blank" rel="noopener" aria-label="Звук"><img src="images/logo-zvuk.svg" alt=""></a>
+          <a class="platform" href="https://zvuk.com/track/144602829" target="_blank" rel="noopener" aria-label="Звук"><img src="images/logo-zvuk.svg" alt=""></a>
           <a class="platform" href="https://music.mts.ru/album/37076889" target="_blank" rel="noopener" aria-label="КИОН"><img src="images/logo-kion.svg" alt=""></a>
           <a class="platform" href="https://music.vk.com/link/IRYPF" target="_blank" rel="noopener" aria-label="VK Музыка"><img src="images/logo-vk.svg" alt=""></a>
           <a class="platform" href="https://music.yandex.ru/album/37076889" target="_blank" rel="noopener" aria-label="Яндекс Музыка"><img src="images/logo-yandex-music.svg" alt=""></a>
@@ -356,7 +358,7 @@
         </div>
         <div class="platforms__grid pick__grid">
           <a class="platform" href="https://music.apple.com/ru/album/1812472911" target="_blank" rel="noopener" aria-label="Apple Music"><img src="images/logo-apple-music.svg" alt=""></a>
-          <a class="platform" href="https://zvuk.com/release/38590183" target="_blank" rel="noopener" aria-label="Звук"><img src="images/logo-zvuk.svg" alt=""></a>
+          <a class="platform" href="https://zvuk.com/track/143996620" target="_blank" rel="noopener" aria-label="Звук"><img src="images/logo-zvuk.svg" alt=""></a>
           <a class="platform" href="https://music.mts.ru/album/36515357" target="_blank" rel="noopener" aria-label="КИОН"><img src="images/logo-kion.svg" alt=""></a>
           <a class="platform" href="https://music.vk.com/link/w9tJi" target="_blank" rel="noopener" aria-label="VK Музыка"><img src="images/logo-vk.svg" alt=""></a>
           <a class="platform" href="https://music.yandex.ru/album/36515357" target="_blank" rel="noopener" aria-label="Яндекс Музыка"><img src="images/logo-yandex-music.svg" alt=""></a>
@@ -370,7 +372,7 @@
         </div>
         <div class="platforms__grid pick__grid">
           <a class="platform" href="https://music.apple.com/ru/album/6793155204" target="_blank" rel="noopener" aria-label="Apple Music"><img src="images/logo-apple-music.svg" alt=""></a>
-          <a class="platform" href="https://zvuk.com/artist/212249377" target="_blank" rel="noopener" aria-label="Звук"><img src="images/logo-zvuk.svg" alt=""></a>
+          <a class="platform" href="https://zvuk.com/track/184433578" target="_blank" rel="noopener" aria-label="Звук"><img src="images/logo-zvuk.svg" alt=""></a>
           <a class="platform" href="https://music.mts.ru/album/43180313" target="_blank" rel="noopener" aria-label="КИОН"><img src="images/logo-kion.svg" alt=""></a>
           <a class="platform" href="https://music.vk.com/link/icmq7" target="_blank" rel="noopener" aria-label="VK Музыка"><img src="images/logo-vk.svg" alt=""></a>
           <a class="platform" href="https://music.yandex.ru/album/43180313" target="_blank" rel="noopener" aria-label="Яндекс Музыка"><img src="images/logo-yandex-music.svg" alt=""></a>
@@ -384,7 +386,7 @@
         </div>
         <div class="platforms__grid pick__grid">
           <a class="platform" href="https://music.apple.com/ru/album/1816811294" target="_blank" rel="noopener" aria-label="Apple Music"><img src="images/logo-apple-music.svg" alt=""></a>
-          <a class="platform" href="https://zvuk.com/artist/212249377" target="_blank" rel="noopener" aria-label="Звук"><img src="images/logo-zvuk.svg" alt=""></a>
+          <a class="platform" href="https://zvuk.com/track/144320716" target="_blank" rel="noopener" aria-label="Звук"><img src="images/logo-zvuk.svg" alt=""></a>
           <a class="platform" href="https://music.mts.ru/album/36832441" target="_blank" rel="noopener" aria-label="КИОН"><img src="images/logo-kion.svg" alt=""></a>
           <a class="platform" href="https://vk.ru/vic_torr_808" target="_blank" rel="noopener" aria-label="VK Музыка"><img src="images/logo-vk.svg" alt=""></a>
           <a class="platform" href="https://music.yandex.ru/album/36832441/track/139671926" target="_blank" rel="noopener" aria-label="Яндекс Музыка"><img src="images/logo-yandex-music.svg" alt=""></a>
