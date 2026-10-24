@@ -73,25 +73,69 @@
             <h2 class="release__title">Кони</h2>
             <div class="release__type">сингл</div>
           </div>
-          <a class="btn btn--yellow" href="https://link.1mp.ru/knsv" target="_blank" rel="noopener">Слушать везде</a>
+          <a class="btn btn--yellow" href="https://link.1mp.ru/knsv" target="_blank" rel="noopener" data-listen="koni">Слушать везде</a>
         </article>
 
+        <!-- data-listen открывает pop-up #pick с прямыми ссылками на трек; без JS работает href -->
         <div class="catalog">
-          <a class="tile" href="http://link.1mp.ru/vtnp" target="_blank" rel="noopener">
+          <a class="tile" href="http://link.1mp.ru/vtnp" target="_blank" rel="noopener" data-listen="ne-pyanitsa">
             <div class="cover"><img src="images/cover-ne-pyanitsa.webp" alt="" width="1200" height="1200" loading="lazy"></div>
             <div class="tile__title">Не пьяница</div>
             <div class="tile__type">сингл</div>
           </a>
-          <a class="tile" href="http://link.1mp.ru/vctb" target="_blank" rel="noopener">
+          <a class="tile" href="http://link.1mp.ru/vctb" target="_blank" rel="noopener" data-listen="dubai">
             <div class="cover"><img src="images/cover-dubai.webp" alt="" width="1200" height="1200" loading="lazy"></div>
             <div class="tile__title">Дубай</div>
             <div class="tile__type">сингл</div>
           </a>
-          <a class="tile" href="https://link.1mp.ru/vtng" target="_blank" rel="noopener">
+          <a class="tile" href="https://link.1mp.ru/vtng" target="_blank" rel="noopener" data-listen="ne-geroy">
             <div class="cover"><img src="images/cover-ne-geroy.webp" alt="" width="1200" height="1200" loading="lazy"></div>
             <div class="tile__title">Не герой</div>
             <div class="tile__type">сингл</div>
           </a>
+          <a class="tile" href="https://music.yandex.ru/album/36832441/track/139671926" target="_blank" rel="noopener" data-listen="muzyka">
+            <div class="cover"><img src="images/cover-muzyka.webp" alt="" width="1200" height="1200" loading="lazy"></div>
+            <div class="tile__title">Музыка</div>
+            <div class="tile__type">сингл</div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Видео к песням: вертикальные, как в телефоне. Новый ролик — ещё одна .reel в .reels__row -->
+      <div class="reels">
+        <div class="reels__head reveal">
+          <h2 class="reels__title">Смотреть</h2>
+          <p class="reels__sub">Короткие видео к песням — посмотри и слушай целиком на своём стриминге.</p>
+        </div>
+        <div class="reels__row">
+          <figure class="reel reveal">
+            <div class="video video--vertical">
+              <video controls playsinline preload="none" poster="media/koni-kitchen-strobe-poster.jpg">
+                <source src="media/koni-kitchen-strobe.mp4" type="video/mp4">
+              </video>
+              <span class="video__tag" aria-hidden="true"><span class="mark"></span>Уже вышел</span>
+              <button type="button" class="video__play" aria-label="Смотреть: Кони" hidden></button>
+            </div>
+            <figcaption class="reel__cap">
+              <span class="reel__title">Кони</span>
+              <span class="reel__note">сингл · уже на площадках</span>
+            </figcaption>
+            <a class="btn btn--line" href="https://link.1mp.ru/knsv" target="_blank" rel="noopener" data-listen="koni">Слушать «Кони»</a>
+          </figure>
+          <figure class="reel reveal">
+            <div class="video video--vertical">
+              <video controls playsinline preload="none" poster="media/poteryat-teaser-poster.jpg">
+                <source src="media/poteryat-teaser.mp4" type="video/mp4">
+              </video>
+              <span class="video__tag" aria-hidden="true"><span class="mark"></span>Скоро</span>
+              <button type="button" class="video__play" aria-label="Смотреть: Потерять" hidden></button>
+            </div>
+            <figcaption class="reel__cap">
+              <span class="reel__title">Потерять</span>
+              <span class="reel__note">новый сингл · скоро пресейв</span>
+            </figcaption>
+            <a class="btn btn--line" href="https://t.me/vic_torr_808" target="_blank" rel="noopener">Узнать о пресейве</a>
+          </figure>
         </div>
       </div>
 
@@ -270,6 +314,86 @@
       </footer>
     </section>
   </main>
+
+  <!-- Pop-up «Где слушать»: открывается кнопками и плитками с data-listen="…" (main.js).
+       Ссылки ведут прямо на трек; где релиза на площадке не нашлось — на страницу артиста.
+       Новый трек — ещё одна группа .pick__release с тем же data-release, что у кнопки. -->
+  <dialog class="privacy pick" id="pick" aria-label="Где слушать">
+    <div class="privacy__body pick__body">
+      <button type="button" class="privacy__close" data-pick-close aria-label="Закрыть">×</button>
+      <div class="pick__release" data-release="koni" data-title="Кони" hidden>
+        <div class="pick__head">
+          <img class="pick__cover" src="images/cover-koni.webp" alt="" width="1200" height="1200" loading="lazy">
+          <div class="pick__meta"><p class="pick__kind">Слушать</p><h2 class="pick__title">Кони</h2></div>
+        </div>
+        <div class="platforms__grid pick__grid">
+          <a class="platform" href="https://music.apple.com/ru/album/6800753357" target="_blank" rel="noopener" aria-label="Apple Music"><img src="images/logo-apple-music.svg" alt=""></a>
+          <a class="platform" href="https://zvuk.com/release/52399627" target="_blank" rel="noopener" aria-label="Звук"><img src="images/logo-zvuk.svg" alt=""></a>
+          <a class="platform" href="https://music.mts.ru/album/43514717" target="_blank" rel="noopener" aria-label="КИОН"><img src="images/logo-kion.svg" alt=""></a>
+          <a class="platform" href="https://music.vk.com/link/ecydf" target="_blank" rel="noopener" aria-label="VK Музыка"><img src="images/logo-vk.svg" alt=""></a>
+          <a class="platform" href="https://music.yandex.ru/album/43514717" target="_blank" rel="noopener" aria-label="Яндекс Музыка"><img src="images/logo-yandex-music.svg" alt=""></a>
+          <a class="platform" href="https://open.spotify.com/album/7zvwQUSXAOfjgCwXV9ALZY" target="_blank" rel="noopener" aria-label="Spotify"><img src="images/logo-spotify.svg" alt=""></a>
+        </div>
+      </div>
+      <div class="pick__release" data-release="ne-pyanitsa" data-title="Не пьяница" hidden>
+        <div class="pick__head">
+          <img class="pick__cover" src="images/cover-ne-pyanitsa.webp" alt="" width="1200" height="1200" loading="lazy">
+          <div class="pick__meta"><p class="pick__kind">Слушать</p><h2 class="pick__title">Не пьяница</h2></div>
+        </div>
+        <div class="platforms__grid pick__grid">
+          <a class="platform" href="https://music.apple.com/ru/album/1820949121" target="_blank" rel="noopener" aria-label="Apple Music"><img src="images/logo-apple-music.svg" alt=""></a>
+          <a class="platform" href="https://zvuk.com/release/39116145" target="_blank" rel="noopener" aria-label="Звук"><img src="images/logo-zvuk.svg" alt=""></a>
+          <a class="platform" href="https://music.mts.ru/album/37076889" target="_blank" rel="noopener" aria-label="КИОН"><img src="images/logo-kion.svg" alt=""></a>
+          <a class="platform" href="https://music.vk.com/link/IRYPF" target="_blank" rel="noopener" aria-label="VK Музыка"><img src="images/logo-vk.svg" alt=""></a>
+          <a class="platform" href="https://music.yandex.ru/album/37076889" target="_blank" rel="noopener" aria-label="Яндекс Музыка"><img src="images/logo-yandex-music.svg" alt=""></a>
+          <a class="platform" href="https://open.spotify.com/album/37i9ZLJMz7Ei7kqWXCgQ9e" target="_blank" rel="noopener" aria-label="Spotify"><img src="images/logo-spotify.svg" alt=""></a>
+        </div>
+      </div>
+      <div class="pick__release" data-release="dubai" data-title="Дубай" hidden>
+        <div class="pick__head">
+          <img class="pick__cover" src="images/cover-dubai.webp" alt="" width="1200" height="1200" loading="lazy">
+          <div class="pick__meta"><p class="pick__kind">Слушать</p><h2 class="pick__title">Дубай</h2></div>
+        </div>
+        <div class="platforms__grid pick__grid">
+          <a class="platform" href="https://music.apple.com/ru/album/1812472911" target="_blank" rel="noopener" aria-label="Apple Music"><img src="images/logo-apple-music.svg" alt=""></a>
+          <a class="platform" href="https://zvuk.com/release/38590183" target="_blank" rel="noopener" aria-label="Звук"><img src="images/logo-zvuk.svg" alt=""></a>
+          <a class="platform" href="https://music.mts.ru/album/36515357" target="_blank" rel="noopener" aria-label="КИОН"><img src="images/logo-kion.svg" alt=""></a>
+          <a class="platform" href="https://music.vk.com/link/w9tJi" target="_blank" rel="noopener" aria-label="VK Музыка"><img src="images/logo-vk.svg" alt=""></a>
+          <a class="platform" href="https://music.yandex.ru/album/36515357" target="_blank" rel="noopener" aria-label="Яндекс Музыка"><img src="images/logo-yandex-music.svg" alt=""></a>
+          <a class="platform" href="https://open.spotify.com/album/79qtLZgkZQWbhTki50a8hv" target="_blank" rel="noopener" aria-label="Spotify"><img src="images/logo-spotify.svg" alt=""></a>
+        </div>
+      </div>
+      <div class="pick__release" data-release="ne-geroy" data-title="Не герой" hidden>
+        <div class="pick__head">
+          <img class="pick__cover" src="images/cover-ne-geroy.webp" alt="" width="1200" height="1200" loading="lazy">
+          <div class="pick__meta"><p class="pick__kind">Слушать</p><h2 class="pick__title">Не герой</h2></div>
+        </div>
+        <div class="platforms__grid pick__grid">
+          <a class="platform" href="https://music.apple.com/ru/album/6793155204" target="_blank" rel="noopener" aria-label="Apple Music"><img src="images/logo-apple-music.svg" alt=""></a>
+          <a class="platform" href="https://zvuk.com/artist/212249377" target="_blank" rel="noopener" aria-label="Звук"><img src="images/logo-zvuk.svg" alt=""></a>
+          <a class="platform" href="https://music.mts.ru/album/43180313" target="_blank" rel="noopener" aria-label="КИОН"><img src="images/logo-kion.svg" alt=""></a>
+          <a class="platform" href="https://music.vk.com/link/icmq7" target="_blank" rel="noopener" aria-label="VK Музыка"><img src="images/logo-vk.svg" alt=""></a>
+          <a class="platform" href="https://music.yandex.ru/album/43180313" target="_blank" rel="noopener" aria-label="Яндекс Музыка"><img src="images/logo-yandex-music.svg" alt=""></a>
+          <a class="platform" href="https://open.spotify.com/album/7F03FBX4ScoVaX7wdnb3yd" target="_blank" rel="noopener" aria-label="Spotify"><img src="images/logo-spotify.svg" alt=""></a>
+        </div>
+      </div>
+      <div class="pick__release" data-release="muzyka" data-title="Музыка" hidden>
+        <div class="pick__head">
+          <img class="pick__cover" src="images/cover-muzyka.webp" alt="" width="1200" height="1200" loading="lazy">
+          <div class="pick__meta"><p class="pick__kind">Слушать</p><h2 class="pick__title">Музыка</h2></div>
+        </div>
+        <div class="platforms__grid pick__grid">
+          <a class="platform" href="https://music.apple.com/ru/album/1816811294" target="_blank" rel="noopener" aria-label="Apple Music"><img src="images/logo-apple-music.svg" alt=""></a>
+          <a class="platform" href="https://zvuk.com/artist/212249377" target="_blank" rel="noopener" aria-label="Звук"><img src="images/logo-zvuk.svg" alt=""></a>
+          <a class="platform" href="https://music.mts.ru/album/36832441" target="_blank" rel="noopener" aria-label="КИОН"><img src="images/logo-kion.svg" alt=""></a>
+          <a class="platform" href="https://vk.ru/vic_torr_808" target="_blank" rel="noopener" aria-label="VK Музыка"><img src="images/logo-vk.svg" alt=""></a>
+          <a class="platform" href="https://music.yandex.ru/album/36832441/track/139671926" target="_blank" rel="noopener" aria-label="Яндекс Музыка"><img src="images/logo-yandex-music.svg" alt=""></a>
+          <a class="platform" href="https://open.spotify.com/track/0xQKmFVWhiz0DTBvCxkB2i" target="_blank" rel="noopener" aria-label="Spotify"><img src="images/logo-spotify.svg" alt=""></a>
+        </div>
+      </div>
+      <p class="pick__sub">Выбери свой стриминг — трек откроется сразу там.</p>
+    </div>
+  </dialog>
 
   <!-- Политика обработки данных (открывается из ссылок data-privacy) -->
   <dialog class="privacy" id="privacy" aria-labelledby="privacy-title">

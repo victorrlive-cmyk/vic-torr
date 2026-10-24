@@ -4,6 +4,8 @@ const BOOKING_ENDPOINT = '';
 
 const BOOKING_EMAIL = 'vic.torr.live@gmail.com';
 
+document.documentElement.classList.add('js');
+
 // Плавный скролл «Слушать» → блок платформ
 document.querySelectorAll('[data-scroll-to]').forEach((link) => {
   link.addEventListener('click', (e) => {
@@ -34,6 +36,18 @@ if ('IntersectionObserver' in window) {
     const section = document.getElementById(id);
     if (section) spy.observe(section);
   });
+
+  // Появление блоков при скролле
+  const revealer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-in');
+      revealer.unobserve(entry.target);
+    });
+  }, { rootMargin: '0px 0px -12% 0px' });
+  document.querySelectorAll('.reveal').forEach((el) => revealer.observe(el));
+} else {
+  document.querySelectorAll('.reveal').forEach((el) => el.classList.add('is-in'));
 }
 
 // Видео Live Show: постер + жёлтая Play, нативные controls только после старта.
@@ -51,6 +65,40 @@ document.querySelectorAll('.video').forEach((box) => {
     video.play().catch(() => {});
   });
 });
+
+// Одновременно звучит только одно видео
+const videos = document.querySelectorAll('video');
+videos.forEach((video) => {
+  video.addEventListener('play', () => {
+    videos.forEach((other) => { if (other !== video) other.pause(); });
+  });
+});
+
+// Pop-up «Где слушать»: кнопки и плитки с data-listen открывают прямые ссылки на трек.
+// Без JS (или без <dialog>) работает обычный href — BandLink.
+const pick = document.getElementById('pick');
+
+if (pick && pick.showModal) {
+  const groups = pick.querySelectorAll('[data-release]');
+  document.querySelectorAll('[data-listen]').forEach((link) => {
+    link.addEventListener('click', (e) => {
+      const group = pick.querySelector('[data-release="' + link.dataset.listen + '"]');
+      if (!group) return;
+      e.preventDefault();
+      groups.forEach((g) => { g.hidden = g !== group; });
+      pick.setAttribute('aria-label', 'Где слушать «' + group.dataset.title + '»');
+      videos.forEach((v) => v.pause());
+      pick.showModal();
+      document.body.classList.add('no-scroll');
+    });
+  });
+  pick.querySelector('[data-pick-close]').addEventListener('click', () => pick.close());
+  // клик по затемнению вокруг окна
+  pick.addEventListener('click', (e) => { if (e.target === pick) pick.close(); });
+  // стриминг открылся в новой вкладке — окно закрываем, чтобы вернуться на страницу
+  pick.querySelectorAll('.platform').forEach((a) => a.addEventListener('click', () => pick.close()));
+  pick.addEventListener('close', () => document.body.classList.remove('no-scroll'));
+}
 
 // Pop-up «Политика обработки данных»
 const privacy = document.getElementById('privacy');
