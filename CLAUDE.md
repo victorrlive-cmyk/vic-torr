@@ -67,9 +67,10 @@ vic-torr/
 
 ## Как устроена страница
 
-`header.hero` → `main`: `#listen` (01 — релизы + `#platforms`) → `#live` (02 — видео,
-`#booking`, ближайшие даты) → регалии (03) → `#diary` (04) → «об этом человеке» (05)
-+ `footer` → `dialog#privacy`.
+`header.hero` → `main`: `#listen` (01 — релизы, «Смотреть» с вертикальными видео, `#platforms`)
+→ `#live` (02 — видео, `#booking`, ближайшие даты) → `#diary` (03 — сразу после лайва,
+пока эмоция живая) → `#about` (04 — био, регалии, цитата) → `#contacts` (05) + `footer`
+→ `dialog#pick` (где слушать трек) → `dialog#privacy`.
 
 ## Хрупкие места
 

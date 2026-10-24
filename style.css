@@ -698,7 +698,7 @@ a:hover { color: var(--text); }
 .dates-empty .btn { flex: 0 1 240px; height: auto; min-height: 48px; font-size: 18px; border: 1px solid rgba(244,244,242,.24); background: none; }
 .dates-empty .btn:hover { background: rgba(255,255,255,.08); }
 
-/* ---------- 5. 03 — регалии ---------- */
+/* ---------- Регалии (внутри «об этом человеке») ---------- */
 .section {
   padding-top: clamp(44px, 5vw, 88px);
   padding-bottom: clamp(44px, 5vw, 88px);
@@ -722,7 +722,7 @@ a:hover { color: var(--text); }
 .award__fact span { text-transform: none; letter-spacing: 0; }
 .award__note { font-size: 13px; line-height: 1.4; color: var(--gray); text-wrap: pretty; }
 
-/* ---------- 6. 04 — мой дневник ---------- */
+/* ---------- 03 — мой дневник ---------- */
 .diary {
   background:
     linear-gradient(180deg, rgba(17,17,17,.62) 0%, rgba(17,17,17,.45) 45%, rgba(17,17,17,.78) 100%),
@@ -755,26 +755,21 @@ a:hover { color: var(--text); }
 .diary__legal { font-size: 12px; line-height: 1.45; }
 .diary__legal a { color: var(--text); }
 
-/* ---------- 7. 05 — об этом человеке ---------- */
+/* ---------- 04 — об этом человеке ---------- */
 .bio { max-width: 62ch; font-size: 16px; line-height: 1.6; text-wrap: pretty; }
-.quotes {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 24px 32px;
-  align-items: start;
-}
-.quotes p { text-wrap: pretty; }
-.quote--be { font-size: 17px; font-style: italic; line-height: 1.5; }
-.quote--en {
+.bio + .awards { margin-top: 12px; }
+.about__quote {
+  max-width: 24ch;
+  margin-top: 16px;
   font-family: var(--cond);
   font-weight: 900;
   font-style: italic;
-  font-size: clamp(26px, 2.8vw, 34px);
-  line-height: 1.05;
+  font-size: clamp(30px, 3.6vw, 48px);
+  line-height: 1.02;
+  text-wrap: pretty;
 }
-.quote--ru { font-size: 15px; line-height: 1.55; color: var(--gray); }
 
-/* ---------- 06 — контакты ---------- */
+/* ---------- 05 — контакты ---------- */
 .contacts { margin: 0; padding: 0; list-style: none; }
 .contacts__row {
   display: flex; flex-direction: column; gap: 6px;
