@@ -20,17 +20,21 @@ document.querySelectorAll('[data-scroll-to]').forEach((link) => {
   });
 });
 
-// Липкое меню: подсвечиваем раздел, который сейчас посередине экрана
+// Липкое меню: подсвечиваем раздел, который сейчас посередине экрана.
+// «Видео» (#reels) лежит внутри «Музыки» (#listen) — если посередине оба, горит тот, что правее в меню.
 if ('IntersectionObserver' in window) {
   const links = {};
   document.querySelectorAll('.nav__link').forEach((link) => {
     links[link.getAttribute('href').slice(1)] = link;
   });
+  const visible = new Set();
   const spy = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-      const link = links[entry.target.id];
-      if (link) link.classList.toggle('is-active', entry.isIntersecting);
+      if (entry.isIntersecting) visible.add(entry.target.id);
+      else visible.delete(entry.target.id);
     });
+    const current = Object.keys(links).filter((id) => visible.has(id)).pop();
+    Object.keys(links).forEach((id) => links[id].classList.toggle('is-active', id === current));
   }, { rootMargin: '-50% 0px -50% 0px' });
   Object.keys(links).forEach((id) => {
     const section = document.getElementById(id);
