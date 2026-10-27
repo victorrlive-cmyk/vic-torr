@@ -362,6 +362,47 @@ a:hover { color: var(--text); }
 }
 .tile__type { font-size: 13px; color: var(--gray); margin-top: -6px; }
 
+/* «Ранее»: релизы старше четырёх плиток — трек-листом под ними, на всю ширину каталога */
+.archive {
+  grid-column: 1 / -1;
+  display: flex; flex-direction: column;
+  margin-top: 10px;
+}
+.archive__label {
+  padding-bottom: 10px;
+  font-family: var(--cond);
+  font-size: 11px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--gray);
+}
+.archive__row {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+  padding: 9px 0;
+  border-top: 1px solid var(--line);
+  text-decoration: none;
+  color: var(--text);
+  transition: var(--ease);
+}
+.archive__row:last-child { border-bottom: 1px solid var(--line); }
+.archive__row:hover { color: var(--text); transform: translateY(-1px); }
+.archive__row:hover .archive__type { color: var(--text); }
+.archive__row:focus-visible { outline-offset: 4px; }
+.archive__cover { display: block; width: 52px; height: 52px; object-fit: contain; }
+.archive__title {
+  font-family: var(--cond);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.05;
+  text-transform: uppercase;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.archive__type { font-size: 13px; color: var(--gray); transition: var(--ease); }
+.archive__type::after { content: ' →'; }
+
 /* ---------- Смотреть: вертикальные видео к песням ----------
    Одна раскладка на все ширины: заголовок сверху, ролики сеткой под ним.
    До 640px — два ролика рядом на всю ширину, шире — карточки по 300px слева направо */

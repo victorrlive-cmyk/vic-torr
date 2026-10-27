@@ -26,6 +26,21 @@
   <!-- Общий CSS сайта: шрифты, токены, база, кнопки .btn, форма .form/.field, pop-up .privacy, маркер .mark -->
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="style.css">
+
+  <!-- Яндекс Метрика: только счётчик + вебвизор и карта кликов.
+       Поля форм помечены ym-disable-keys — вебвизор не записывает, что в них вводят.
+       YM_ID — номер счётчика (тот же, что в ../index.html) -->
+  <script>
+    window.YM_ID = 113827995;
+    if (window.YM_ID) {
+      (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+      m[i].l=1*new Date();
+      for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+      k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+      (window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=' + window.YM_ID, 'ym');
+      ym(window.YM_ID, 'init', { ssr: true, webvisor: true, clickmap: true, trackLinks: true, accurateTrackBounce: true });
+    }
+  </script>
 </head>
 <body>
 
@@ -337,11 +352,11 @@
         <label class="corp-chip"><input type="radio" name="show" value="Personalized show"><span>Под событие</span></label>
       </fieldset>
       <div class="form__fields">
-        <label class="field"><span class="field__label">Телефон</span><input name="phone" type="tel" autocomplete="tel" placeholder="+7 900 000-00-00"></label>
-        <label class="field"><span class="field__label">Telegram</span><input name="telegram" type="text" autocomplete="off" placeholder="@username"></label>
-        <label class="field"><span class="field__label">Почта</span><input name="email" type="email" autocomplete="email" placeholder="name@mail.com"></label>
+        <label class="field"><span class="field__label">Телефон</span><input class="ym-disable-keys" name="phone" type="tel" autocomplete="tel" placeholder="+7 900 000-00-00"></label>
+        <label class="field"><span class="field__label">Telegram</span><input class="ym-disable-keys" name="telegram" type="text" autocomplete="off" placeholder="@username"></label>
+        <label class="field"><span class="field__label">Почта</span><input class="ym-disable-keys" name="email" type="email" autocomplete="email" placeholder="name@mail.com"></label>
       </div>
-      <label class="field"><span class="field__label">Сообщение</span><textarea name="message" rows="4" placeholder="Дата, город, площадка, формат мероприятия"></textarea></label>
+      <label class="field"><span class="field__label">Сообщение</span><textarea class="ym-disable-keys" name="message" rows="4" placeholder="Дата, город, площадка, формат мероприятия"></textarea></label>
       <p class="form__error" role="alert" hidden></p>
       <div class="form__foot">
         <button type="submit" class="form__submit">Отправить заявку</button>
@@ -355,7 +370,7 @@
     <div class="privacy__body">
       <button type="button" class="privacy__close" data-close aria-label="Закрыть">×</button>
       <h2 class="h2 privacy__title" id="privacy-title">Политика обработки данных</h2>
-      <p>Этот сайт не использует cookies, счётчики и системы аналитики и не собирает данные посетителей автоматически.</p>
+      <p>Сайт использует счётчик Яндекс Метрики (ООО «Яндекс»): он собирает обезличенную статистику посещений и переходов — страницы, источник перехода, тип устройства, примерное местоположение — и для этого использует cookies. Для улучшения сайта счётчик также обезличенно записывает действия на странице — прокрутку, движения и клики (вебвизор); текст, который вы вводите в поля формы, не записывается. Отключить cookies можно в настройках браузера — сайт продолжит работать.</p>
       <p>Персональные данные — телефон, имя пользователя Telegram, адрес электронной почты и текст сообщения — обрабатываются только в том случае, если вы сами отправляете заявку через форму BOOKING или пишете нам напрямую.</p>
       <p>Данные используются исключительно для того, чтобы связаться с вами и обсудить концерт или сотрудничество. Мы не продаём, не публикуем и не передаём их третьим лицам, за исключением случаев, предусмотренных законодательством. Для доставки заявки используются Telegram и электронная почта.</p>
       <p>Отправляя форму, вы соглашаетесь на обработку указанных данных для этой цели. Данные хранятся не дольше, чем это необходимо для ответа и дальнейшего общения по заявке.</p>

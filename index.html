@@ -24,6 +24,21 @@
   <link rel="preload" href="fonts/fira-sans-extra-condensed-900-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/fira-sans-400-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css">
+
+  <!-- Яндекс Метрика: только счётчик и цели (reachGoal в main.js) + вебвизор и карта кликов.
+       Поля форм помечены ym-disable-keys — вебвизор не записывает, что в них вводят.
+       YM_ID — номер счётчика. Тот же номер — в corp/index.html -->
+  <script>
+    window.YM_ID = 113827995;
+    if (window.YM_ID) {
+      (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+      m[i].l=1*new Date();
+      for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+      k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+      (window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=' + window.YM_ID, 'ym');
+      ym(window.YM_ID, 'init', { ssr: true, webvisor: true, clickmap: true, trackLinks: true, accurateTrackBounce: true });
+    }
+  </script>
 </head>
 <body>
 
@@ -65,20 +80,27 @@
       <div class="eyebrow"><span class="mark"></span><span>01 — слушать</span></div>
       <div class="releases">
         <article class="release">
-          <!-- Обложка нажимается как кнопка «Слушать везде»; для клавиатуры и скринридеров её дублирует кнопка -->
-          <a class="cover release__cover" href="https://link.1mp.ru/knsv" target="_blank" rel="noopener" data-listen="koni" tabindex="-1" aria-hidden="true">
-            <img src="images/cover-koni.webp" alt="Обложка сингла «Кони»" width="1200" height="1200">
-            <div class="release__badge"><span class="mark"></span><span>новый релиз</span></div>
+          <!-- Обложка нажимается как кнопка «Пресейв»; для клавиатуры и скринридеров её дублирует кнопка.
+               До релиза прямых ссылок на площадки нет — без data-listen, сразу на ссылку лейбла.
+               data-release-link — только для счётчика (main.js) -->
+          <a class="cover release__cover" href="https://link.1mp.ru/potr" target="_blank" rel="noopener" data-release-link="poteryat" tabindex="-1" aria-hidden="true">
+            <img src="images/cover-poteryat.webp" alt="Обложка сингла «Потерять»" width="1200" height="1200">
+            <div class="release__badge"><span class="mark"></span><span>пресейв · 10 ноября</span></div>
           </a>
           <div class="release__meta">
-            <h2 class="release__title">Кони</h2>
+            <h2 class="release__title">Потерять</h2>
             <div class="release__type">сингл</div>
           </div>
-          <a class="btn btn--yellow" href="https://link.1mp.ru/knsv" target="_blank" rel="noopener" data-listen="koni">Слушать везде</a>
+          <a class="btn btn--yellow" href="https://link.1mp.ru/potr" target="_blank" rel="noopener" data-release-link="poteryat">Пресейв</a>
         </article>
 
         <!-- data-listen открывает pop-up #pick с прямыми ссылками на трек; без JS работает href -->
         <div class="catalog">
+          <a class="tile" href="https://link.1mp.ru/knsv" target="_blank" rel="noopener" data-listen="koni">
+            <div class="cover"><img src="images/cover-koni.webp" alt="" width="1200" height="1200" loading="lazy"></div>
+            <div class="tile__title">Кони</div>
+            <div class="tile__type">сингл</div>
+          </a>
           <a class="tile" href="http://link.1mp.ru/vtnp" target="_blank" rel="noopener" data-listen="ne-pyanitsa">
             <div class="cover"><img src="images/cover-ne-pyanitsa.webp" alt="" width="1200" height="1200" loading="lazy"></div>
             <div class="tile__title">Не пьяница</div>
@@ -94,11 +116,15 @@
             <div class="tile__title">Не герой</div>
             <div class="tile__type">сингл</div>
           </a>
-          <a class="tile" href="https://music.yandex.ru/album/36832441/track/139671926" target="_blank" rel="noopener" data-listen="muzyka">
-            <div class="cover"><img src="images/cover-muzyka.webp" alt="" width="1200" height="1200" loading="lazy"></div>
-            <div class="tile__title">Музыка</div>
-            <div class="tile__type">сингл</div>
-          </a>
+          <!-- Плиток всегда четыре (2×2). Новый релиз — новая плитка первой, последняя плитка уходит строкой в «Ранее» -->
+          <div class="archive">
+            <div class="archive__label">Ранее</div>
+            <a class="archive__row" href="https://music.yandex.ru/album/36832441/track/139671926" target="_blank" rel="noopener" data-listen="muzyka">
+              <img class="archive__cover" src="images/cover-muzyka.webp" alt="" width="1200" height="1200" loading="lazy">
+              <span class="archive__title">Музыка</span>
+              <span class="archive__type">сингл</span>
+            </a>
+          </div>
         </div>
       </div>
 
@@ -133,9 +159,9 @@
             </div>
             <figcaption class="reel__cap">
               <span class="reel__title">Потерять</span>
-              <span class="reel__note">новый сингл · скоро пресейв</span>
+              <span class="reel__note">новый сингл · пресейв открыт</span>
             </figcaption>
-            <a class="btn btn--line" href="https://t.me/vic_torr_808" target="_blank" rel="noopener">Узнать о пресейве</a>
+            <a class="btn btn--line" href="https://link.1mp.ru/potr" target="_blank" rel="noopener" data-release-link="poteryat">Пресейв «Потерять»</a>
           </figure>
         </div>
       </div>
@@ -194,11 +220,11 @@
               <p class="form__hint">Оставьте хотя бы один контакт. Заявка придёт Vic Torr и Дмитрию одновременно.</p>
             </div>
             <div class="form__fields">
-              <label class="field"><span class="field__label">Телефон</span><input name="phone" type="tel" autocomplete="tel" placeholder="+7 900 000-00-00"></label>
-              <label class="field"><span class="field__label">Telegram</span><input name="telegram" type="text" autocomplete="off" placeholder="@username"></label>
-              <label class="field"><span class="field__label">Почта</span><input name="email" type="email" autocomplete="email" placeholder="name@mail.com"></label>
+              <label class="field"><span class="field__label">Телефон</span><input class="ym-disable-keys" name="phone" type="tel" autocomplete="tel" placeholder="+7 900 000-00-00"></label>
+              <label class="field"><span class="field__label">Telegram</span><input class="ym-disable-keys" name="telegram" type="text" autocomplete="off" placeholder="@username"></label>
+              <label class="field"><span class="field__label">Почта</span><input class="ym-disable-keys" name="email" type="email" autocomplete="email" placeholder="name@mail.com"></label>
             </div>
-            <label class="field"><span class="field__label">Сообщение</span><textarea name="message" rows="4" placeholder="Город, дата, площадка, формат"></textarea></label>
+            <label class="field"><span class="field__label">Сообщение</span><textarea class="ym-disable-keys" name="message" rows="4" placeholder="Город, дата, площадка, формат"></textarea></label>
             <p class="form__error" role="alert" hidden></p>
             <div class="form__foot">
               <button type="submit" class="form__submit">Отправить заявку</button>
@@ -393,7 +419,7 @@
     <div class="privacy__body">
       <button type="button" class="privacy__close" data-privacy-close aria-label="Закрыть">×</button>
       <h2 class="h2 privacy__title" id="privacy-title">Политика обработки данных</h2>
-      <p>Этот сайт не использует cookies, счётчики и системы аналитики и не собирает данные посетителей автоматически.</p>
+      <p>Сайт использует счётчик Яндекс Метрики (ООО «Яндекс»): он собирает обезличенную статистику посещений и переходов — страницы, источник перехода, тип устройства, примерное местоположение — и для этого использует cookies. Для улучшения сайта счётчик также обезличенно записывает действия на странице — прокрутку, движения и клики (вебвизор); текст, который вы вводите в поля формы, не записывается. Отключить cookies можно в настройках браузера — сайт продолжит работать.</p>
       <p>Персональные данные — телефон, имя пользователя Telegram, адрес электронной почты и текст сообщения — обрабатываются только в том случае, если вы сами отправляете заявку через форму BOOKING или пишете нам напрямую.</p>
       <p>Данные используются исключительно для того, чтобы связаться с вами и обсудить концерт или сотрудничество. Мы не продаём, не публикуем и не передаём их третьим лицам, за исключением случаев, предусмотренных законодательством. Для доставки заявки используются Telegram и электронная почта.</p>
       <p>Отправляя форму, вы соглашаетесь на обработку указанных данных для этой цели. Данные хранятся не дольше, чем это необходимо для ответа и дальнейшего общения по заявке.</p>

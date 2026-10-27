@@ -104,6 +104,44 @@ if (pick && pick.showModal) {
   pick.addEventListener('close', () => document.body.classList.remove('no-scroll'));
 }
 
+// Цели Яндекс Метрики — один обработчик на весь документ.
+// Счётчик подключается в <head> index.html (YM_ID). Метрика заблокирована или не настроена — молча ничего.
+const goal = (name, params) => {
+  try {
+    if (window.YM_ID && typeof window.ym === 'function') window.ym(window.YM_ID, 'reachGoal', name, params);
+  } catch (err) { /* счётчик не должен ломать сайт */ }
+};
+
+const PLATFORMS = [
+  ['music.yandex', 'yandex'], ['vk.com', 'vk'], ['vk.ru', 'vk'], ['apple.com', 'apple'],
+  ['zvuk.com', 'zvuk'], ['spotify.com', 'spotify'], ['mts.ru', 'kion'],
+];
+
+document.addEventListener('click', (e) => {
+  const el = e.target.closest('a, button');
+  if (!el) return;
+  const href = el.getAttribute('href') || '';
+
+  const release = el.dataset.listen || el.dataset.releaseLink;
+  if (release) goal('listen_click', { release });
+
+  if (href.includes('link.1mp.ru/potr')) goal('presave_click', { release: 'poteryat' });
+
+  const group = el.classList.contains('platform') && el.closest('#pick [data-release]');
+  if (group) {
+    const found = PLATFORMS.find(([domain]) => href.includes(domain));
+    goal('platform_click', { release: group.dataset.release, platform: found ? found[1] : 'other' });
+  }
+
+  let booking = '';
+  if (el.id === 'booking-toggle') booking = 'form';
+  else if (/docs\/.+\.pdf$/.test(href)) booking = 'pdf';
+  else if (href.startsWith('mailto:')) booking = 'mail';
+  else if (href.startsWith('tel:')) booking = 'phone';
+  else if (href.includes('t.me/')) booking = 'telegram';
+  if (booking) goal('booking_click', { type: booking, href });
+});
+
 // Pop-up «Политика обработки данных»
 const privacy = document.getElementById('privacy');
 
