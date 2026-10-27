@@ -127,15 +127,23 @@ document.addEventListener('click', (e) => {
 
   if (href.includes('link.1mp.ru/potr')) goal('presave_click', { release: 'poteryat' });
 
-  const group = el.classList.contains('platform') && el.closest('#pick [data-release]');
-  if (group) {
+  // Площадка в pop-up #pick — конкретный трек; в блоке #platforms — страница артиста
+  if (el.classList.contains('platform')) {
+    const group = el.closest('#pick [data-release]');
     const found = PLATFORMS.find(([domain]) => href.includes(domain));
-    goal('platform_click', { release: group.dataset.release, platform: found ? found[1] : 'other' });
+    goal('platform_click', { release: group ? group.dataset.release : 'artist', platform: found ? found[1] : 'other' });
+  }
+
+  // Канал — отдельная цель, это подписка, а не букинг. Отправка формы — в обработчике submit ниже
+  if (href.includes('t.me/vic_torr_808')) {
+    goal('telegram_click', { place: el.closest('[id]') ? el.closest('[id]').id : 'hero' });
+    return;
   }
 
   let booking = '';
   if (el.id === 'booking-toggle') booking = 'form';
   else if (/docs\/.+\.pdf$/.test(href)) booking = 'pdf';
+  else if (el.closest('.privacy')) booking = '';
   else if (href.startsWith('mailto:')) booking = 'mail';
   else if (href.startsWith('tel:')) booking = 'phone';
   else if (href.includes('t.me/')) booking = 'telegram';
@@ -195,6 +203,8 @@ if (toggle && form) {
       showError('Укажите телефон, Telegram или почту.');
       return;
     }
+
+    goal('booking_click', { type: 'submit' });
 
     if (!BOOKING_ENDPOINT) {
       const body = 'Телефон: ' + data.phone + '\nTelegram: ' + data.telegram + '\nПочта: ' + data.email + '\n\n' + data.message;

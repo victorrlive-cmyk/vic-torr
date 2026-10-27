@@ -83,6 +83,28 @@ if (!reduceMotion && nums.length) {
   drift();
 }
 
+// Цели Яндекс Метрики — те же, что на главной (../main.js), с page: 'corp'.
+// Счётчик подключается в <head> (YM_ID). Метрика заблокирована — молча ничего.
+var goal = function (name, params) {
+  params.page = 'corp';
+  try {
+    if (window.YM_ID && typeof window.ym === 'function') window.ym(window.YM_ID, 'reachGoal', name, params);
+  } catch (err) { /* счётчик не должен ломать сайт */ }
+};
+
+document.addEventListener('click', function (e) {
+  var el = e.target.closest('a');
+  if (!el || el.closest('.privacy')) return;
+  var href = el.getAttribute('href') || '';
+  var type = '';
+  if (el.dataset.booking) type = 'form';
+  else if (/docs\/.+\.pdf$/.test(href)) type = 'pdf';
+  else if (href.indexOf('mailto:') === 0) type = 'mail';
+  else if (href.indexOf('tel:') === 0) type = 'phone';
+  else if (href.indexOf('t.me/') !== -1) type = 'telegram';
+  if (type) goal('booking_click', { type: type, show: el.dataset.booking || '', href: href });
+});
+
 // Форма заявки. Как и на главной (BOOKING_ENDPOINT в ../main.js пуст), заявка уходит письмом через mailto.
 var BOOKING_EMAILS = ['vic.torr.live@gmail.com', 'guguchkin@gmail.com'];
 
@@ -135,6 +157,8 @@ if (booking && booking.showModal) {
       showError('Укажите телефон, Telegram или почту.');
       return;
     }
+
+    goal('booking_click', { type: 'submit', show: show ? show.value : '' });
 
     var body = 'Шоу: ' + (show ? show.value : '—') +
       '\nТелефон: ' + data.phone + '\nTelegram: ' + data.telegram + '\nПочта: ' + data.email + '\n\n' + data.message;
