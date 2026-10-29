@@ -18,9 +18,147 @@ body::before {
   padding-right: 16px;
 }
 .hor-nobr { white-space: nowrap; }
+html { scroll-padding-top: 72px; }
+
+/* Маленькие капсы: нотификатор, меню, подписи контактов */
+.hor-nav__more, .hor-nav__link, .hor-head__kind, .hor-contacts__label {
+  font-family: var(--cond);
+  font-weight: 700;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+
+/* ---------- Логотипы дуэта: Vic Torr × Prosvet ----------
+   Vic Torr — жёлтый и первым, Prosvet — светлый, чуть ниже по высоте: широкий штрихкод
+   визуально уравновешивает компактный знак. Между ними — тонкий крест коллаборации.
+   Размер всей связки задаёт --h (высота знака Vic Torr) */
+.hor-duet {
+  --h: 26px;
+  flex: none;
+  display: flex; align-items: center;
+  gap: calc(var(--h) * .36);
+  text-decoration: none;
+}
+.hor-duet__vic { display: block; height: var(--h); width: auto; }
+.hor-duet__prosvet {
+  display: block;
+  height: calc(var(--h) * .68);
+  width: auto;
+  opacity: .9;
+  transition: opacity 120ms ease;
+}
+.hor-duet:hover .hor-duet__prosvet { opacity: 1; }
+.hor-duet__x {
+  position: relative;
+  flex: none;
+  width: calc(var(--h) * .32);
+  height: calc(var(--h) * .32);
+}
+.hor-duet__x::before, .hor-duet__x::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: -10%;
+  width: 120%;
+  height: 1px;
+  background: var(--gray-3);
+  transform: rotate(45deg);
+}
+.hor-duet__x::after { transform: rotate(-45deg); }
+.hor-duet:focus-visible { outline-offset: 6px; }
+
+/* ---------- Нотификатор справа в меню: ведёт к контактам ---------- */
+.hor-nav__more {
+  flex: none;
+  display: flex; align-items: center;
+  margin-left: auto;
+  font-size: 12px;
+  letter-spacing: .12em;
+  white-space: nowrap;
+  color: var(--gray);
+  text-decoration: none;
+  transition: var(--ease);
+}
+.hor-nav__more:hover, .hor-nav__more.is-active { color: var(--text); }
+.hor-nav__long { display: none; }
+/* Стрелка — блочный курсор DOS: при загрузке «загорается» серией вспышек,
+   дальше мигает, переключаясь между инверсией (тёмная стрелка на жёлтом) и обычным видом.
+   При наведении надпись выделяется как пункт меню, курсор замирает в инверсии и шагает вниз */
+.hor-nav__arrow {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 1.4em; height: 1.6em;
+  margin-left: .3em;
+  vertical-align: -.38em;
+  letter-spacing: 0;
+  font-weight: 900;
+  color: var(--accent);
+  animation: hor-boot 90ms steps(1, end) 300ms 5, hor-cursor 1.06s steps(1, end) 750ms infinite;
+  transition: transform 120ms ease;
+}
+.hor-nav__long, .hor-nav__short { transition: background-color 120ms ease, color 120ms ease, box-shadow 120ms ease; }
+.hor-nav__more:hover .hor-nav__long, .hor-nav__more:hover .hor-nav__short,
+.hor-nav__more:focus-visible .hor-nav__long, .hor-nav__more:focus-visible .hor-nav__short {
+  background: var(--text);
+  box-shadow: 0 0 0 4px var(--text);
+  color: var(--bg);
+}
+.hor-nav__more:hover .hor-nav__arrow, .hor-nav__more:focus-visible .hor-nav__arrow {
+  animation: none;
+  background: var(--accent);
+  color: var(--bg);
+  transform: translateY(2px);
+}
+@keyframes hor-boot { 0% { background: var(--accent); color: var(--bg); } 50% { background: transparent; color: var(--accent); } }
+@keyframes hor-cursor { 0% { background: var(--accent); color: var(--bg); } 50% { background: transparent; color: var(--accent); } }
+
+/* ---------- Липкое меню с самого верха: жёлтая линия едет под текущий раздел ---------- */
+.hor-nav {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: rgba(17,17,17,.88);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.hor-nav__in {
+  display: flex; align-items: center; gap: 14px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 16px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.hor-nav__in::-webkit-scrollbar { display: none; }
+.hor-nav__duet { margin-right: 4px; }
+/* На мобильном пункт «House of Rock» прячем — в начало ведут логотипы */
+.hor-nav__link.hor-nav__link--home { display: none; }
+.hor-nav__link {
+  position: relative;
+  flex: none;
+  display: flex; align-items: center;
+  height: 52px;
+  font-size: 12px;
+  letter-spacing: .05em;
+  color: var(--gray);
+  text-decoration: none;
+  transition: var(--ease);
+}
+.hor-nav__link::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: -1px;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 300ms ease;
+}
+.hor-nav__link:hover, .hor-nav__link.is-active { color: var(--text); }
+.hor-nav__link.is-active::after { transform: scaleX(1); }
+.hor-nav__link:focus-visible { outline-offset: -2px; }
 
 /* ---------- 1. Первый экран (мобильный: текст, под ним видео) ---------- */
-.hor-hero { --h1: clamp(72px, 10vw, 140px); padding-top: 48px; }
+.hor-hero { --h1: clamp(72px, 10vw, 140px); padding-top: 24px; padding-bottom: 8px; }
 .hor-hero__over {
   font-family: var(--cond);
   font-weight: 700;
@@ -192,66 +330,137 @@ body::before {
   border-top: 1px solid var(--line);
 }
 
-/* ---------- 3. Финал ---------- */
 .hor-rest { padding-bottom: 48px; }
-.hor-final { padding-top: 96px; }
-.hor-final__phrase {
+
+/* ---------- 3. Контакты: призыв + директора ---------- */
+.hor-contacts { padding: 96px 0; border-top: 1px solid var(--line); }
+
+.hor-head { margin-bottom: 40px; }
+.hor-head__kind { font-size: 13px; color: var(--gray); }
+.hor-head__title {
+  margin: 10px 0 0;
   font-family: var(--cond);
   font-style: italic;
   font-weight: 900;
-  font-size: clamp(52px, 9vw, 128px);
-  line-height: .86;
+  font-size: clamp(64px, 11vw, 168px);
+  line-height: .84;
   letter-spacing: -.02em;
   text-transform: uppercase;
 }
-/* Мобильный: кнопка прилипает к низу экрана, пока не доедет до своего места в финале */
-.hor-final__cta {
-  position: sticky;
-  bottom: 12px;
-  z-index: 2;
-  margin: 32px 16px 0;
-  box-shadow: 0 10px 32px rgba(0,0,0,.55);
+/* Призыв «Сделаем ваш вечер громким» — заголовок раздела контактов */
+.hor-head__title--phrase { font-size: clamp(52px, 9vw, 128px); line-height: .86; }
+.hor-head__rule {
+  display: block;
+  height: 1px;
+  margin-top: 28px;
+  background: rgba(244,244,242,.32);
+  transform-origin: left;
 }
+
+.hor-contacts__list { margin: 0; padding: 0; list-style: none; }
+.hor-contacts__row {
+  display: flex; flex-direction: column; gap: 6px;
+  padding: 20px 0;
+  border-top: 1px solid var(--line);
+}
+.hor-contacts__row:first-child { border-top: 0; padding-top: 0; }
+.hor-contacts__row:last-child { border-bottom: 1px solid var(--line); }
+.hor-contacts__label { font-size: 13px; color: var(--gray); }
+.hor-contacts__name {
+  font-family: var(--cond);
+  font-weight: 700;
+  font-size: clamp(22px, 2.4vw, 32px);
+  line-height: 1.1;
+  color: var(--gray);
+}
+.hor-contacts__value {
+  align-self: flex-start;
+  font-family: var(--cond);
+  font-weight: 700;
+  font-size: clamp(28px, 4vw, 52px);
+  line-height: 1.1;
+  color: var(--text);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: var(--ease);
+}
+.hor-contacts__value:hover { color: var(--accent); transform: translateY(-1px); }
+.hor-contacts__tg { margin-top: 10px; padding: 0 24px; }
+
+/* ---------- Подвал ---------- */
+.hor-foot { padding: 40px 0 48px; border-top: 1px solid var(--line); }
+.hor-foot__in { display: flex; flex-direction: column; gap: 18px; }
+.hor-foot__duet { --h: 44px; align-self: flex-start; }
+.hor-foot__info { font-size: 13px; color: var(--gray); }
+.hor-foot__info a { color: var(--text); }
+
+/* ---------- Появление при скролле (класс .js ставит main.js) ---------- */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 700ms ease, transform 700ms cubic-bezier(.2,.7,.2,1);
+}
+.js .reveal.is-in { opacity: 1; transform: none; }
+.js .hor-head__rule { transform: scaleX(0); transition: transform 1100ms cubic-bezier(.2,.7,.2,1) 200ms; }
+.js .hor-head.is-in .hor-head__rule { transform: scaleX(1); }
 
 @media (min-width: 640px) {
   .hor-wrap { padding-left: var(--pad); padding-right: var(--pad); }
-  .hor-hero__cta { display: inline-flex; padding: 0 40px; }
-  .hor-section, .hor-final { padding-top: 128px; }
-  .hor-rest { padding-bottom: 128px; }
-  .hor-final { text-align: center; }
-  .hor-final__cta {
-    position: static;
-    width: max-content;
-    margin: 40px auto 0;
-    padding: 0 48px;
-    box-shadow: none;
+  .hor-nav__more { font-size: 13px; letter-spacing: .22em; }
+  .hor-nav__long { display: inline; }
+  .hor-nav__short { display: none; }
+  .hor-nav__in { gap: 32px; padding: 0 var(--pad); }
+  .hor-nav__duet { --h: 32px; margin-right: 8px; }
+  .hor-nav__link.hor-nav__link--home { display: flex; }
+  .hor-nav__link { height: 64px; font-size: 14px; letter-spacing: .16em; }
+  .hor-contacts { padding: 128px 0; }
+  /* Подпись слева, имя над телефоном, кнопка Telegram справа */
+  .hor-contacts__row {
+    display: grid;
+    grid-template-columns: 220px 1fr auto;
+    grid-template-areas: "label name tg" "label value tg";
+    align-items: center;
+    gap: 4px 24px;
+    padding: 28px 0;
   }
+  .hor-contacts__label { grid-area: label; }
+  .hor-contacts__name { grid-area: name; }
+  .hor-contacts__value { grid-area: value; }
+  .hor-contacts__tg { grid-area: tg; margin-top: 0; }
+  .hor-contacts__row:first-child { padding-top: 0; }
+  .hor-foot__duet { --h: 52px; }
+  .hor-foot__in { flex-direction: row; align-items: center; justify-content: space-between; }
+  .hor-foot__info { text-align: right; }
+  .hor-hero__cta { display: inline-flex; padding: 0 40px; }
+  .hor-section { padding-top: 128px; }
+  .hor-rest { padding-bottom: 128px; }
 }
 
 /* Десктоп: постер-экран в две колонки, видео как телефон справа */
 @media (min-width: 900px) {
   .hor-hero {
+    --bar: 65px; /* высота липкого меню над первым экраном */
     display: grid;
     grid-template-columns: auto auto;
     justify-content: center;
     align-items: center;
     column-gap: clamp(40px, 4.5vw, 72px);
-    min-height: 100vh;
-    min-height: 100svh;
-    padding-top: 3vh;
+    min-height: calc(100vh - var(--bar));
+    min-height: calc(100svh - var(--bar));
+    padding-top: 1vh;
     padding-bottom: 3vh;
   }
-  /* Текст и видео — один центрированный блок, без пустоты между колонками */
+  /* Текст и видео — один центрированный блок, без пустоты между колонками.
+     Меню (--bar) входит в первый экран, поэтому видео на него ниже */
   .hor-hero__title { white-space: nowrap; }
   .hor-hero .hor-hero__media { margin-top: 0; }
-  .hor-hero__media .hor-player { height: min(calc(94svh - 34px), 85vh); }
+  .hor-hero__media .hor-player { height: min(calc(95svh - 34px - var(--bar)), calc(85vh - var(--bar))); }
   .hor-duo { grid-template-columns: 1fr 1fr; gap: clamp(32px, 4vw, 64px); }
 }
 
-/* ---------- Форма «Обсудить дату» в pop-up ---------- */
-.hor-booking { width: min(720px, calc(100% - 32px)); }
-.hor-booking::backdrop { background: rgba(17,17,17,.85); }
-.hor-booking__form { margin: 0; border: 0; background: none; }
-.hor-booking .form__head { padding-right: 52px; }
-.hor-booking .form__title { margin: 0; }
-.hor-booking .form__foot .note a { color: var(--text); }
+
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal { opacity: 1; transform: none; }
+  .js .hor-head__rule { transform: none; }
+  .hor-nav__arrow { animation: none; background: var(--accent); color: var(--bg); }
+}

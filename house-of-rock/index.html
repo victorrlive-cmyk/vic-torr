@@ -36,15 +36,30 @@
     Плеер: без JS работают нативные controls; main.js прячет их до первого Play.
   -->
 
+  <!-- Липкое меню с самого верха: логотип, разделы, справа нотификатор «Контакты» (подсветка раздела — main.js) -->
+  <nav class="hor-nav" aria-label="Разделы">
+    <div class="hor-nav__in">
+      <!-- Логотипы дуэта: Vic Torr × Prosvet (стили .hor-duet). На мобильном заменяют пункт «House of Rock» -->
+      <a class="hor-duet hor-nav__duet" href="#live">
+        <img class="hor-duet__vic" src="../images/logo-yellow.svg" alt="Vic Torr">
+        <span class="hor-duet__x" aria-hidden="true"></span>
+        <img class="hor-duet__prosvet" src="../images/logo-prosvet.svg" alt="Prosvet">
+      </a>
+      <a class="hor-nav__link hor-nav__link--home" href="#live">House of Rock</a>
+      <a class="hor-nav__link" href="#duo">Кто на сцене</a>
+      <a class="hor-nav__more" href="#contacts"><span class="hor-nav__long">Контакты директоров</span><span class="hor-nav__short">Контакты</span> <span class="hor-nav__arrow" aria-hidden="true">↓</span></a>
+    </div>
+  </nav>
+
   <!-- 1. Первый экран -->
-  <header class="hor-hero hor-wrap">
+  <header class="hor-hero hor-wrap" id="live">
     <div class="hor-hero__text">
       <p class="hor-hero__over">Vic Torr + Prosvet</p>
       <h1 class="hor-hero__title">House of<br>Rock</h1>
       <p class="hor-hero__sub">Мощный живой сет: <span class="hor-nobr"><em>рок</em>-хиты</span> в&nbsp;танцевальном <span class="hor-nobr"><em>house</em>-груве</span>.</p>
       <p class="hor-hero__note">Для открытия мероприятия и&nbsp;главной танцевальной части вечера.</p>
-      <!-- Открывает форму (dialog#booking). Без JS — обычное письмо на те же адреса -->
-      <a class="btn btn--yellow hor-hero__cta" href="mailto:vic.torr.live@gmail.com,guguchkin@gmail.com,Kichigin.kiril@yandex.ru" data-booking>Обсудить дату</a>
+      <!-- Ведёт к контактам директоров: заказчики звонят или пишут в Telegram -->
+      <a class="btn btn--yellow hor-hero__cta" href="#contacts">Обсудить дату</a>
     </div>
 
     <figure class="hor-video hor-hero__media">
@@ -61,7 +76,7 @@
 
   <div class="hor-rest">
     <!-- 2. Дуэт -->
-    <section class="hor-section hor-wrap">
+    <section class="hor-section hor-wrap" id="duo">
       <h2 class="hor-label">Кто на сцене</h2>
       <div class="hor-duo">
         <article class="hor-artist">
@@ -106,35 +121,44 @@
         </article>
       </div>
     </section>
-
-    <!-- 3. Финал. На мобильном эта же кнопка едет закреплённой внизу экрана (position: sticky) -->
-    <footer class="hor-final hor-wrap">
-      <p class="hor-final__phrase">Сделаем ваш вечер громким</p>
-    </footer>
-    <a class="btn btn--yellow hor-final__cta" href="mailto:vic.torr.live@gmail.com,guguchkin@gmail.com,Kichigin.kiril@yandex.ru" data-booking>Обсудить дату</a>
   </div>
 
-  <!-- Форма «Обсудить дату». Адресаты — BOOKING_EMAILS в main.js -->
-  <dialog class="privacy hor-booking" id="booking" aria-labelledby="booking-title">
-    <button type="button" class="privacy__close" data-close aria-label="Закрыть">×</button>
-    <form class="form hor-booking__form" id="booking-form" novalidate>
-      <div class="form__head">
-        <h2 class="form__title" id="booking-title">Обсудить дату</h2>
-        <p class="form__hint">Оставьте хотя бы один контакт. Заявка придёт Vic Torr и&nbsp;Дмитрию одновременно.</p>
+  <!-- 3. Контакты — директора обоих шоу -->
+  <section class="hor-contacts" id="contacts">
+    <div class="hor-wrap">
+      <div class="hor-head reveal">
+        <p class="hor-head__kind">Контакты · позвонить или написать</p>
+        <h2 class="hor-head__title hor-head__title--phrase">Сделаем ваш вечер громким</h2>
+        <span class="hor-head__rule" aria-hidden="true"></span>
       </div>
-      <div class="form__fields">
-        <label class="field"><span class="field__label">Телефон</span><input name="phone" type="tel" autocomplete="tel" placeholder="+7 900 000-00-00"></label>
-        <label class="field"><span class="field__label">Telegram</span><input name="telegram" type="text" autocomplete="off" placeholder="@username"></label>
-        <label class="field"><span class="field__label">Почта</span><input name="email" type="email" autocomplete="email" placeholder="name@mail.com"></label>
-      </div>
-      <label class="field"><span class="field__label">Сообщение</span><textarea name="message" rows="4" placeholder="Дата, город, площадка, формат мероприятия"></textarea></label>
-      <p class="form__error" role="alert" hidden></p>
-      <div class="form__foot">
-        <button type="submit" class="form__submit">Отправить заявку</button>
-        <span class="note">Отправляя заявку, вы соглашаетесь с&nbsp;<a href="#privacy" data-privacy>политикой обработки данных</a></span>
-      </div>
-    </form>
-  </dialog>
+
+      <ul class="hor-contacts__list reveal">
+        <li class="hor-contacts__row">
+          <span class="hor-contacts__label">Директор шоу Prosvet</span>
+          <span class="hor-contacts__name">Кирилл Кичигин</span>
+          <a class="hor-contacts__value" href="tel:+79999769774">+7&nbsp;(999)&nbsp;976-97-74</a>
+          <a class="btn btn--line hor-contacts__tg" href="https://t.me/PROSVET_st" target="_blank" rel="noopener">Написать в Telegram</a>
+        </li>
+        <li class="hor-contacts__row">
+          <span class="hor-contacts__label">Директор шоу Vic Torr</span>
+          <span class="hor-contacts__name">Дмитрий Гугучкин</span>
+          <a class="hor-contacts__value" href="tel:+79166952256">+7&nbsp;(916)&nbsp;695-22-56</a>
+          <a class="btn btn--line hor-contacts__tg" href="https://t.me/dgugu" target="_blank" rel="noopener">Написать в Telegram</a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <footer class="hor-foot">
+    <div class="hor-wrap hor-foot__in">
+      <a class="hor-duet hor-foot__duet" href="#live">
+        <img class="hor-duet__vic" src="../images/logo-yellow.svg" alt="Vic Torr">
+        <span class="hor-duet__x" aria-hidden="true"></span>
+        <img class="hor-duet__prosvet" src="../images/logo-prosvet.svg" alt="Prosvet">
+      </a>
+      <div class="hor-foot__info">© 2026 Vic Torr + Prosvet · <a href="../">vic-torr.com</a> · <a href="#privacy" data-privacy>политика обработки данных</a></div>
+    </div>
+  </footer>
 
   <!-- Политика обработки данных — копия dialog#privacy с главной (152-ФЗ: форма собирает контакты) -->
   <dialog class="privacy" id="privacy" aria-labelledby="privacy-title">

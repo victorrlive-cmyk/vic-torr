@@ -1,5 +1,37 @@
 // House of Rock — свой плеер: постер + жёлтая Play, нативные controls только после старта.
-// Без JS кнопки остаются скрытыми, а у <video> работают обычные controls.
+// Без JS кнопки остаются скрытыми, а у <video> работают обычные controls, всё видно сразу.
+
+document.documentElement.classList.add('js');
+
+if ('IntersectionObserver' in window) {
+  // Появление блоков при скролле
+  var revealer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-in');
+      revealer.unobserve(entry.target);
+    });
+  }, { rootMargin: '0px 0px -12% 0px' });
+  document.querySelectorAll('.reveal').forEach(function (el) { revealer.observe(el); });
+
+  // Липкое меню: подсвечиваем раздел, который сейчас посередине экрана
+  var links = {};
+  document.querySelectorAll('.hor-nav__link, .hor-nav__more').forEach(function (link) {
+    links[link.getAttribute('href').slice(1)] = link;
+  });
+  var spy = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      var link = links[entry.target.id];
+      if (link) link.classList.toggle('is-active', entry.isIntersecting);
+    });
+  }, { rootMargin: '-50% 0px -50% 0px' });
+  Object.keys(links).forEach(function (id) {
+    var section = document.getElementById(id);
+    if (section) spy.observe(section);
+  });
+} else {
+  document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('is-in'); });
+}
 
 var players = document.querySelectorAll('.hor-player');
 
@@ -27,32 +59,10 @@ players.forEach(function (player) {
   });
 });
 
-// Форма «Обсудить дату». Пока нет Worker'а (как и на главной, BOOKING_ENDPOINT в ../main.js пуст),
-// заявка уходит письмом через mailto — сразу всем адресатам из списка.
-// TODO: добавить почту Prosvet и поправить подсказку в форме (index.html, .form__hint)
-var BOOKING_EMAILS = ['vic.torr.live@gmail.com', 'guguchkin@gmail.com', 'Kichigin.kiril@yandex.ru'];
-
-var booking = document.getElementById('booking');
+// Политика обработки данных — pop-up, открывается ссылкой в подвале
 var privacy = document.getElementById('privacy');
 
-if (booking && booking.showModal) {
-  var form = document.getElementById('booking-form');
-  var error = form.querySelector('.form__error');
-
-  var showError = function (text) {
-    error.textContent = text;
-    error.hidden = !text;
-  };
-
-  document.querySelectorAll('[data-booking]').forEach(function (link) {
-    link.addEventListener('click', function (e) {
-      e.preventDefault();
-      showError('');
-      booking.showModal();
-      form.querySelector('input').focus();
-    });
-  });
-
+if (privacy && privacy.showModal) {
   document.querySelectorAll('[data-privacy]').forEach(function (link) {
     link.addEventListener('click', function (e) {
       e.preventDefault();
@@ -60,27 +70,7 @@ if (booking && booking.showModal) {
     });
   });
 
-  [booking, privacy].forEach(function (dialog) {
-    dialog.querySelector('[data-close]').addEventListener('click', function () { dialog.close(); });
-    // клик по затемнению вокруг окна
-    dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); });
-  });
-
-  form.addEventListener('input', function () { showError(''); });
-
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var data = {};
-    ['phone', 'telegram', 'email', 'message'].forEach(function (n) { data[n] = form.elements[n].value.trim(); });
-
-    if (!data.phone && !data.telegram && !data.email) {
-      showError('Укажите телефон, Telegram или почту.');
-      return;
-    }
-
-    var body = 'Телефон: ' + data.phone + '\nTelegram: ' + data.telegram + '\nПочта: ' + data.email + '\n\n' + data.message;
-    window.location.href = 'mailto:' + BOOKING_EMAILS.join(',') +
-      '?subject=' + encodeURIComponent('House of Rock — Vic Torr + Prosvet: обсудить дату') +
-      '&body=' + encodeURIComponent(body);
-  });
+  privacy.querySelector('[data-close]').addEventListener('click', function () { privacy.close(); });
+  // клик по затемнению вокруг окна
+  privacy.addEventListener('click', function (e) { if (e.target === privacy) privacy.close(); });
 }
