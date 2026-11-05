@@ -39,14 +39,14 @@
   <!-- Липкое меню с самого верха: логотип, разделы, справа нотификатор «Контакты» (подсветка раздела — main.js) -->
   <nav class="hor-nav" aria-label="Разделы">
     <div class="hor-nav__in">
-      <!-- Логотипы дуэта: Vic Torr × Prosvet (стили .hor-duet). На мобильном заменяют пункт «House of Rock» -->
+      <!-- Логотипы дуэта: Vic Torr × Prosvet (стили .hor-duet) — в начало страницы; «House of Rock» — к описанию программы -->
       <a class="hor-duet hor-nav__duet" href="#live">
         <img class="hor-duet__vic" src="../images/logo-yellow.svg" alt="Vic Torr">
         <span class="hor-duet__x" aria-hidden="true"></span>
         <img class="hor-duet__prosvet" src="../images/logo-prosvet.svg" alt="Prosvet">
       </a>
-      <a class="hor-nav__link hor-nav__link--home" href="#live">House of Rock</a>
-      <a class="hor-nav__link" href="#duo">Кто на сцене</a>
+      <a class="hor-nav__link" href="#program">House of Rock</a>
+      <a class="hor-nav__link" href="#duo"><span class="hor-nav__long">Кто на сцене</span><span class="hor-nav__short">Дуэт</span></a>
       <a class="hor-nav__more" href="#contacts"><span class="hor-nav__long">Контакты директоров</span><span class="hor-nav__short">Контакты</span> <span class="hor-nav__arrow" aria-hidden="true">↓</span></a>
     </div>
   </nav>
@@ -75,7 +75,39 @@
   </header>
 
   <div class="hor-rest">
-    <!-- 2. Дуэт -->
+    <!-- 2. Программа: что такое House of Rock + сет-лист (первое видео — трек 01) -->
+    <section class="hor-section hor-wrap" id="program">
+      <h2 class="hor-label">Программа</h2>
+      <div class="hor-program">
+        <div class="hor-program__intro reveal">
+          <p class="hor-program__title">Гимны 90-х<br>в&nbsp;ритме <em>house</em></p>
+          <p class="hor-program__lead">House of&nbsp;Rock&nbsp;— живая программа Vic Torr и&nbsp;Prosvet: самые громкие рок-хиты 90-х, пересобранные в&nbsp;современный танцевальный house. Seven Nation Army из&nbsp;видео выше&nbsp;— один из&nbsp;десяти треков сета.</p>
+          <ul class="hor-points">
+            <li><b>Узнают с&nbsp;первых нот.</b> Песни, которые зал подпевает с&nbsp;первой строчки.</li>
+            <li><b>Качают как сегодня.</b> Не&nbsp;ностальгия, а&nbsp;свежий house-грув&nbsp;— танцпол не&nbsp;остывает.</li>
+            <li><b>Играются вживую.</b> Голос, гитара, клавиши и&nbsp;электроника&nbsp;— всё на&nbsp;сцене.</li>
+          </ul>
+        </div>
+
+        <div class="hor-setlist reveal">
+          <p class="hor-setlist__head">Сет-лист · 10&nbsp;треков</p>
+          <ol class="hor-setlist__list">
+            <li><span class="hor-setlist__song">Seven Nation Army</span> <a class="hor-setlist__tag" href="#live">В видео ↑</a></li>
+            <li><span class="hor-setlist__song">Rock and Roll Queen</span></li>
+            <li><span class="hor-setlist__song">Song 2</span></li>
+            <li><span class="hor-setlist__song">Rolling in the Deep</span></li>
+            <li><span class="hor-setlist__song">Rape Me</span></li>
+            <li><span class="hor-setlist__song">Wicked Game</span></li>
+            <li><span class="hor-setlist__song">Come as You Are</span> <span class="hor-setlist__mix">× Вечно молодой</span></li>
+            <li><span class="hor-setlist__song">Zombie</span></li>
+            <li><span class="hor-setlist__song">Sweet Dreams</span> <span class="hor-setlist__mix">× Тебе повезло&nbsp;— ты&nbsp;не&nbsp;такой, как все</span></li>
+            <li><span class="hor-setlist__song">Smells Like Teen Spirit</span></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Дуэт -->
     <section class="hor-section hor-wrap" id="duo">
       <h2 class="hor-label">Кто на сцене</h2>
       <div class="hor-duo">
@@ -123,7 +155,7 @@
     </section>
   </div>
 
-  <!-- 3. Контакты — директора обоих шоу -->
+  <!-- 4. Контакты — директора обоих шоу -->
   <section class="hor-contacts" id="contacts">
     <div class="hor-wrap">
       <div class="hor-head reveal">
