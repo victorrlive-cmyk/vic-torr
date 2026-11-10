@@ -125,8 +125,6 @@ document.addEventListener('click', (e) => {
   const release = el.dataset.listen || el.dataset.releaseLink;
   if (release) goal('listen_click', { release });
 
-  if (href.includes('link.1mp.ru/potr')) goal('presave_click', { release: 'poteryat' });
-
   // Площадка в pop-up #pick — конкретный трек; в блоке #platforms — страница артиста
   if (el.classList.contains('platform')) {
     const group = el.closest('#pick [data-release]');
