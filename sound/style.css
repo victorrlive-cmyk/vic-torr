@@ -93,32 +93,50 @@
 }
 .snd-board__note { font-size: 15px; line-height: 1.4; color: var(--gray); }
 
-/* ---------- Стена регалий ---------- */
-.snd-wall { padding-bottom: 72px; }
-.snd-wall__list {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0 20px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-.snd-wall__item {
-  display: flex; flex-direction: column; gap: 6px;
-  min-width: 0;
-  padding: 20px 0;
-  border-top: 1px solid var(--line);
-}
-.snd-wall__fact {
+/* ---------- Профиль: опыт и образование (как резюме) ---------- */
+.snd-cv { padding-top: 24px; padding-bottom: 80px; }
+.snd-cv__title {
+  margin: 0 0 28px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(244,244,242,.32);
   font-family: var(--cond);
+  font-style: italic;
   font-weight: 900;
-  font-size: clamp(24px, 2.6vw, 34px);
-  line-height: .95;
+  font-size: clamp(40px, 5vw, 64px);
+  line-height: .9;
   letter-spacing: -.01em;
   text-transform: uppercase;
-  text-wrap: balance;
 }
-.snd-wall__note { font-size: 13px; line-height: 1.4; color: var(--gray); text-wrap: pretty; }
+.snd-cv__cols { display: grid; grid-template-columns: minmax(0, 1fr); gap: 40px; }
+.snd-cv__head {
+  padding-bottom: 12px;
+  font-family: var(--cond);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--gray);
+}
+.snd-cv__head--gap { margin-top: 40px; }
+.snd-cv__list { margin: 0; }
+.snd-cv__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 4px;
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+}
+.snd-cv__row:last-child { border-bottom: 1px solid var(--line); }
+.snd-cv__row dt {
+  font-family: var(--cond);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--gray);
+}
+.snd-cv__row dd { margin: 0; font-size: 17px; line-height: 1.4; color: var(--gray); text-wrap: pretty; }
+.snd-cv__row b { font-family: var(--cond); font-weight: 700; font-size: 1.18em; letter-spacing: .01em; color: var(--text); }
 
 /* ---------- Подводка главы ---------- */
 .snd-lead {
@@ -211,6 +229,26 @@
   transition: var(--ease);
 }
 .snd-soon:hover { color: var(--text); transform: translateY(-1px); border-color: rgba(244,244,242,.32); }
+/* Обложка: кадр эфира под затемнением снизу, к цвету — при наведении */
+.snd-soon__img {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: saturate(.85) brightness(.8);
+  transition: filter 600ms cubic-bezier(.2,.7,.2,1), transform 600ms cubic-bezier(.2,.7,.2,1);
+}
+.snd-soon:has(.snd-soon__img) { isolation: isolate; background: #000; }
+.snd-soon:has(.snd-soon__img)::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(17,17,17,0) 30%, rgba(17,17,17,.85) 100%);
+}
+.snd-soon:hover .snd-soon__img { filter: saturate(1) brightness(.9); transform: scale(1.02); }
+.snd-soon .corp-player__tag { z-index: 1; }
 .snd-soon__title {
   font-family: var(--cond);
   font-style: italic;
@@ -281,8 +319,8 @@
   .snd-hero { padding-top: 64px; padding-bottom: 64px; }
   .snd-hero__roles { font-size: 13px; letter-spacing: .22em; }
   .snd-hero__actions .btn--yellow { flex: 0 1 auto; }
-  .snd-wall { padding-bottom: 96px; }
-  .snd-wall__list { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0 28px; }
+  .snd-cv { padding-bottom: 112px; }
+  .snd-cv__row { grid-template-columns: 200px minmax(0, 1fr); gap: 20px; align-items: baseline; }
   .snd-photos { grid-template-columns: 1fr 1fr 1fr; align-items: end; }
   .snd-photos__note { grid-column: auto; padding: 0 0 8px 12px; }
   .snd-logos { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
@@ -296,6 +334,8 @@
   .snd-hero { grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: clamp(40px, 5vw, 96px); align-items: center; min-height: min(calc(100svh - 120px), 760px); }
   .snd-hero__title { font-size: clamp(64px, 7vw, 112px); }
   .snd-board__row { padding-top: 22px; padding-bottom: 22px; }
+  .snd-cv__cols { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(40px, 5vw, 96px); }
+  .snd-cv__col:last-child .snd-cv__row { grid-template-columns: minmax(0, 1fr); gap: 4px; }
   .snd-works { grid-template-columns: 1fr 1fr; gap: clamp(32px, 4vw, 56px); }
   .snd-logo__title { font-size: 28px; }
   .snd-gap { margin-top: 112px; }
