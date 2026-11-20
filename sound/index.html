@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vic Torr — звук для брендов и ТВ</title>
+  <meta name="description" content="Vic Torr — саунд-дизайнер, музыкальный продюсер и специалист по саунд-брендингу: музыка и звук для брендов, телевидения и событий. Награды «Медиабренд-2025».">
+  <meta name="theme-color" content="#111111">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.vic-torr.com/sound/">
+  <meta property="og:site_name" content="Vic Torr">
+  <meta property="og:title" content="Vic Torr — звук для брендов и ТВ">
+  <meta property="og:description" content="Саунд-брендинг, музыка для ТВ и промо, музыка под событие. Награды «Медиабренд-2025».">
+  <meta property="og:image" content="https://www.vic-torr.com/sound/images/mediabrand-2025-trio.jpg">
+  <meta property="og:locale" content="ru_RU">
+
+  <link rel="icon" href="/favicon/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="/favicon/favicon-32.png">
+  <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
+  <link rel="manifest" href="/favicon/site.webmanifest">
+
+  <link rel="preload" href="../fonts/fira-sans-extra-condensed-900i-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/fira-sans-400-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+  <!-- База сайта (шрифты, токены, .btn, .privacy, .mark) + общие блоки corp/ (главы, плеер, меню, контакты, подвал) + своё -->
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../corp/style.css">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Яндекс Метрика — тот же счётчик, что на главной и corp/ -->
+  <script>
+    window.YM_ID = 113827995;
+    if (window.YM_ID) {
+      (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+      m[i].l=1*new Date();
+      for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+      k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+      (window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=' + window.YM_ID, 'ym');
+      ym(window.YM_ID, 'init', { ssr: true, webvisor: true, clickmap: true, trackLinks: true, accurateTrackBounce: true });
+    }
+  </script>
+</head>
+<body>
+
+  <!--
+    Видео:
+      Обезьяна            — media/viju-obezyana.mp4 (эта папка)
+      viju как ты растёшь — media/viju-kak-ty-rastesh.mp4
+      Звуковые логотипы   — media/viju-tv1000-action|russkoe|novella.mp4 (15 с)
+      Цветок и Цунами     — ../corp/media/tsvetok-i-tsunami.mp4 (не дублируем)
+      Телевершина         — пока ссылка на YouTube; после выгрузки исходника: media/televershina.mp4
+    Новую работу добавлять карточкой .snd-work (или .snd-logo для звуковых логотипов) в нужную главу.
+  -->
+
+  <!-- Липкое меню с самого верха (как в house-of-rock/): логотип, разделы, справа «Контакты» -->
+  <nav class="corp-nav snd-nav" aria-label="Разделы">
+    <div class="corp-nav__in">
+      <a class="snd-nav__logo" href="#top"><img src="../images/logo-yellow.svg" alt="Vic Torr" width="120" height="40"></a>
+      <a class="corp-nav__link" href="#awards">Награды</a>
+      <a class="corp-nav__link" href="#branding"><span class="snd-long">Саунд-брендинг</span><span class="snd-short">Логотипы</span></a>
+      <a class="corp-nav__link" href="#events">Сцены</a>
+      <a class="corp-nav__link snd-nav__wide" href="#services">Что делаю</a>
+      <a class="corp-nav__link corp-nav__link--contacts snd-nav__contacts" href="#contacts" aria-label="Контакты">
+        <svg class="corp-nav__icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z" fill="currentColor"/></svg>
+        <span class="corp-nav__text">Контакты</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- 1. Первый экран: кто я + доска главных вех (каждая ведёт к своей главе) -->
+  <header class="snd-hero corp-wrap" id="top">
+    <div class="snd-hero__text">
+      <p class="snd-hero__roles"><span class="mark"></span>Саунд-дизайн · Музыкальный продакшн · Саунд-брендинг</p>
+      <h1 class="snd-hero__title">Звук, который работает на&nbsp;бренд</h1>
+      <p class="snd-hero__lead">Музыка и&nbsp;звук для брендов, телевидения и&nbsp;больших событий&nbsp;— от&nbsp;идеи и&nbsp;концепции до&nbsp;финального мастера. Совмещаю опыт музыканта и&nbsp;продюсера с&nbsp;образованием в&nbsp;PR и&nbsp;рекламе: звук здесь&nbsp;— часть коммуникации, а&nbsp;не&nbsp;фон.</p>
+      <div class="corp-actions snd-hero__actions">
+        <a class="btn btn--yellow" href="#contacts">Обсудить проект</a>
+      </div>
+    </div>
+
+    <nav class="snd-board" aria-label="Главные работы">
+      <p class="snd-board__head">Главные работы</p>
+      <a class="snd-board__row" href="#awards">
+        <span class="snd-board__name">Медиабренд-2025</span>
+        <span class="snd-board__note">1 и&nbsp;3 место · промо viju для Viasat Global</span>
+      </a>
+      <a class="snd-board__row" href="#branding">
+        <span class="snd-board__name">viju TV1000</span>
+        <span class="snd-board__note">звуковые логотипы и&nbsp;музыка 15&nbsp;каналов viju+</span>
+      </a>
+      <a class="snd-board__row" href="#sber">
+        <span class="snd-board__name">СберПрайм</span>
+        <span class="snd-board__note">увертюра «Цветок и&nbsp;Цунами» — музыка под событие</span>
+      </a>
+      <a class="snd-board__row" href="#televershina">
+        <span class="snd-board__name">Телевершина</span>
+        <span class="snd-board__note">музыкальное оформление и&nbsp;live главной ТВ-премии Беларуси</span>
+      </a>
+    </nav>
+  </header>
+
+  <!-- Регалии: всё с главной и corp/ — сцена, премии, образование -->
+  <section class="snd-wall corp-wrap" aria-label="Регалии">
+    <ul class="snd-wall__list">
+      <li class="snd-wall__item"><span class="snd-wall__fact">ЧМ по&nbsp;хоккею</span><span class="snd-wall__note">часовое живое выступление Vic Torr + ROSTANY</span></li>
+      <li class="snd-wall__item"><span class="snd-wall__fact">50 городов</span><span class="snd-wall__note">тур по&nbsp;Китаю, разогрев R3hab</span></li>
+      <li class="snd-wall__item"><span class="snd-wall__fact">UK</span><span class="snd-wall__note">Эдинбург · Глазго · Данди</span></li>
+      <li class="snd-wall__item"><span class="snd-wall__fact">ADE</span><span class="snd-wall__note">Amsterdam Dance Event</span></li>
+      <li class="snd-wall__item"><span class="snd-wall__fact">Прорыв года</span><span class="snd-wall__note">премия «Песня года»</span></li>
+      <li class="snd-wall__item"><span class="snd-wall__fact">Финалист</span><span class="snd-wall__note">LIRA · Must Be the Music · нацотбор Евровидения</span></li>
+      <li class="snd-wall__item"><span class="snd-wall__fact">Wargaming</span><span class="snd-wall__note">open air World of&nbsp;Tanks (День Танкиста), Plarium party</span></li>
+      <li class="snd-wall__item"><span class="snd-wall__fact">МГЛУ</span><span class="snd-wall__note">PR и&nbsp;реклама — второе высшее, Минск</span></li>
+    </ul>
+  </section>
+
+  <main>
+    <!-- 2. Медиабренд-2025: «Обезьяна» первой — серьёзное кино, затем viju -->
+    <section id="awards" class="corp-show">
+      <div class="corp-wrap">
+        <div class="corp-head reveal">
+          <span class="corp-head__num" aria-hidden="true">01</span>
+          <p class="corp-head__kind">Viasat Global · viju</p>
+          <h2 class="corp-head__title">Медиабренд-2025</h2>
+          <span class="corp-head__rule" aria-hidden="true"></span>
+        </div>
+
+        <p class="snd-lead reveal">Два промо-ролика viju с&nbsp;моей музыкой и&nbsp;звуком отмечены XIII&nbsp;индустриальной премией «Медиабренд», которая отмечает лучшие проекты в&nbsp;сфере контентного промо. В&nbsp;финале было около 280&nbsp;проектов от&nbsp;56&nbsp;компаний.</p>
+
+        <div class="snd-works">
+          <article class="snd-work reveal">
+            <div class="corp-player">
+              <video controls playsinline preload="none" poster="media/viju-obezyana-poster.jpg">
+                <source src="media/viju-obezyana.mp4" type="video/mp4">
+              </video>
+              <span class="corp-player__tag" aria-hidden="true"><span class="mark"></span>3 место</span>
+              <button class="corp-player__play" type="button" aria-label="Смотреть: Обезьяна — трейлер для viju+ Premiere" hidden></button>
+            </div>
+            <p class="snd-work__place">3 место · viju+ Premiere</p>
+            <h3 class="snd-work__title">Обезьяна</h3>
+            <p class="snd-work__nom">«Лучший проморолик фильма/сериала иностранного производства»</p>
+            <p class="snd-work__text">Трейлер хоррора по&nbsp;рассказу Стивена Кинга: напряжение на&nbsp;деталях, ритме и&nbsp;звуке. Музыка и&nbsp;звук&nbsp;— Vic&nbsp;Torr.</p>
+          </article>
+
+          <article class="snd-work reveal">
+            <div class="corp-player">
+              <video controls playsinline preload="none" poster="media/viju-kak-ty-rastesh-poster.jpg">
+                <source src="media/viju-kak-ty-rastesh.mp4" type="video/mp4">
+              </video>
+              <span class="corp-player__tag" aria-hidden="true"><span class="mark"></span>1 место</span>
+              <button class="corp-player__play" type="button" aria-label="Смотреть: viju как ты растёшь — проморолик" hidden></button>
+            </div>
+            <p class="snd-work__place">1 место · золото</p>
+            <h3 class="snd-work__title">viju как ты&nbsp;растёшь</h3>
+            <p class="snd-work__nom">«Лучший проморолик познавательной/образовательной программы»</p>
+            <p class="snd-work__text">Детское шоу собственного производства viju с&nbsp;пончиками Ви и&nbsp;Жу. Музыка и&nbsp;звук&nbsp;— Vic&nbsp;Torr.</p>
+          </article>
+        </div>
+
+        <div class="snd-photos">
+          <figure class="snd-photo reveal">
+            <img src="images/mediabrand-2025-trio.jpg" alt="Vic Torr и коллеги с наградами «Медиабренд»" width="960" height="1280" loading="lazy">
+          </figure>
+          <figure class="snd-photo reveal">
+            <img src="images/mediabrand-2025-team.jpg" alt="Команда на церемонии «Медиабренд-2025»" width="960" height="1280" loading="lazy">
+          </figure>
+          <div class="snd-photos__note reveal">
+            <p class="corp-text__accent">Церемония XIII премии «Медиабренд», РЭУ им.&nbsp;Г.&nbsp;В.&nbsp;Плеханова, 2025.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Саунд-брендинг: звуковые логотипы. Сюда же добавлять новые -->
+    <section id="branding" class="corp-show">
+      <div class="corp-wrap">
+        <div class="corp-head reveal">
+          <span class="corp-head__num" aria-hidden="true">02</span>
+          <p class="corp-head__kind">Звуковые логотипы · viju TV1000</p>
+          <h2 class="corp-head__title">Саунд-брендинг</h2>
+          <span class="corp-head__rule" aria-hidden="true"></span>
+        </div>
+
+        <p class="snd-lead reveal">Пятнадцать секунд, за&nbsp;которые канал узнают с&nbsp;закрытыми глазами. Звуковые логотипы и&nbsp;музыка оформления&nbsp;— часть большой работы: вся музыка и&nbsp;саунд-дизайн 15&nbsp;каналов viju+.</p>
+
+        <div class="snd-logos">
+          <article class="snd-logo reveal">
+            <div class="corp-player">
+              <video controls playsinline preload="none" poster="media/viju-tv1000-action-poster.jpg">
+                <source src="media/viju-tv1000-action.mp4" type="video/mp4">
+              </video>
+              <button class="corp-player__play" type="button" aria-label="Смотреть: viju TV1000 action — звуковой логотип" hidden></button>
+            </div>
+            <h3 class="snd-logo__title">viju TV1000 action</h3>
+            <p class="snd-logo__text">Звуковой логотип · 15&nbsp;с</p>
+          </article>
+          <article class="snd-logo reveal">
+            <div class="corp-player">
+              <video controls playsinline preload="none" poster="media/viju-tv1000-russkoe-poster.jpg">
+                <source src="media/viju-tv1000-russkoe.mp4" type="video/mp4">
+              </video>
+              <button class="corp-player__play" type="button" aria-label="Смотреть: viju TV1000 русское — звуковой логотип" hidden></button>
+            </div>
+            <h3 class="snd-logo__title">viju TV1000 русское</h3>
+            <p class="snd-logo__text">Звуковой логотип · 15&nbsp;с</p>
+          </article>
+          <article class="snd-logo reveal">
+            <div class="corp-player">
+              <video controls playsinline preload="none" poster="media/viju-tv1000-novella-poster.jpg">
+                <source src="media/viju-tv1000-novella.mp4" type="video/mp4">
+              </video>
+              <button class="corp-player__play" type="button" aria-label="Смотреть: viju TV1000 новелла — звуковой логотип" hidden></button>
+            </div>
+            <h3 class="snd-logo__title">viju TV1000 новелла</h3>
+            <p class="snd-logo__text">Звуковой логотип · 15&nbsp;с</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Большие сцены: СберПрайм + Телевершина -->
+    <section id="events" class="corp-show">
+      <div class="corp-wrap">
+        <div class="corp-head reveal">
+          <span class="corp-head__num" aria-hidden="true">03</span>
+          <p class="corp-head__kind">Музыка под событие</p>
+          <h2 class="corp-head__title">Большие сцены</h2>
+          <span class="corp-head__rule" aria-hidden="true"></span>
+        </div>
+
+        <div class="corp-grid" id="sber">
+          <figure class="corp-video reveal">
+            <div class="corp-player">
+              <video controls playsinline preload="none" poster="../corp/media/tsvetok-i-tsunami-poster.jpg">
+                <source src="../corp/media/tsvetok-i-tsunami.mp4" type="video/mp4">
+              </video>
+              <span class="corp-player__tag" aria-hidden="true"><span class="mark"></span>СберПрайм</span>
+              <button class="corp-player__play" type="button" aria-label="Смотреть: Цветок и Цунами — увертюра для СберПрайм" hidden></button>
+            </div>
+            <figcaption>Vic Torr — «Цветок и&nbsp;Цунами», увертюра для СберПрайм</figcaption>
+          </figure>
+
+          <div class="corp-text reveal">
+            <p class="snd-work__place">Сбер · СберПрайм</p>
+            <p class="corp-text__big">Увертюра «Цветок и&nbsp;Цунами»</p>
+            <p>Оригинальная композиция, написанная под событие СберПрайм: музыка, которая открывает вечер и&nbsp;задаёт ему драматургию.</p>
+          </div>
+        </div>
+
+        <!-- Телевершина: пока ссылка на YouTube (6:52 — до конца песни).
+             Когда будет файл: bash tools/make-web-video.sh <исходник> televershina → перенести в sound/media/
+             и заменить .snd-soon на .corp-player с <video>, как у СберПрайм -->
+        <div class="corp-grid corp-grid--flip snd-gap" id="televershina">
+          <figure class="corp-video reveal">
+            <a class="snd-soon" href="https://www.youtube.com/watch?v=y-VtMSkkiIM&amp;t=412s" target="_blank" rel="noopener">
+              <span class="corp-player__tag"><span class="mark"></span>Live · ТВ</span>
+              <span class="snd-soon__title">Телевершина</span>
+              <span class="snd-soon__go">Смотреть фрагмент</span>
+            </a>
+            <figcaption>Церемония «Телевершина» — фрагмент с&nbsp;6:52</figcaption>
+          </figure>
+
+          <div class="corp-text reveal">
+            <p class="snd-work__place">Беларусь · телеэфир</p>
+            <p class="corp-text__big">Телевершина</p>
+            <p>Музыкальное оформление и&nbsp;живое выступление на&nbsp;церемонии главной телевизионной премии Беларуси.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Что делаю -->
+    <section id="services" class="corp-personal">
+      <div class="corp-wrap">
+        <div class="corp-head reveal">
+          <span class="corp-head__num" aria-hidden="true">04</span>
+          <p class="corp-head__kind">Компетенции</p>
+          <h2 class="corp-head__title">Что я&nbsp;делаю</h2>
+          <span class="corp-head__rule" aria-hidden="true"></span>
+        </div>
+
+        <p class="corp-personal__lead reveal">Пиарщик, бренд-специалист и&nbsp;музыкант в&nbsp;одном человеке.</p>
+
+        <ol class="corp-parts snd-parts">
+          <li class="corp-part reveal">
+            <span class="corp-part__num">01</span>
+            <h3 class="corp-part__title">Саунд-брендинг</h3>
+            <p>Звуковая айдентика бренда и&nbsp;канала: аудиологотип, музыкальная платформа, правила звучания. Вся музыка и&nbsp;саунд-дизайн 15&nbsp;каналов viju+.</p>
+          </li>
+          <li class="corp-part reveal">
+            <span class="corp-part__num">02</span>
+            <h3 class="corp-part__title">ТВ и&nbsp;промо</h3>
+            <p>Музыка и&nbsp;звук для трейлеров, промо-роликов и&nbsp;оформления эфира. Награды «Медиабренд-2025».</p>
+          </li>
+          <li class="corp-part reveal">
+            <span class="corp-part__num">03</span>
+            <h3 class="corp-part__title">Музыка под событие</h3>
+            <p>Увертюры, открытия и&nbsp;музыкальное оформление церемоний&nbsp;— в&nbsp;записи и&nbsp;вживую на&nbsp;сцене.</p>
+          </li>
+          <li class="corp-part reveal">
+            <span class="corp-part__num">04</span>
+            <h3 class="corp-part__title">Продакшн и&nbsp;мастеринг</h3>
+            <p>Сонграйтинг, аранжировка, живые инструменты, сведение и&nbsp;мастеринг&nbsp;— полный цикл в&nbsp;одних руках.</p>
+          </li>
+        </ol>
+
+        <!-- Как идёт работа -->
+        <ol class="snd-steps">
+          <li class="snd-step reveal">
+            <span class="snd-step__num">01</span>
+            <h3 class="snd-step__title">Бриф</h3>
+            <p>Задача бренда, аудитория, каналы и&nbsp;сроки.</p>
+          </li>
+          <li class="snd-step reveal">
+            <span class="snd-step__num">02</span>
+            <h3 class="snd-step__title">Концепция</h3>
+            <p>Как бренд должен звучать и&nbsp;что слушатель должен почувствовать.</p>
+          </li>
+          <li class="snd-step reveal">
+            <span class="snd-step__num">03</span>
+            <h3 class="snd-step__title">Продакшн</h3>
+            <p>Музыка, саунд-дизайн, сведение и&nbsp;мастеринг под эфир и&nbsp;digital.</p>
+          </li>
+          <li class="snd-step reveal">
+            <span class="snd-step__num">04</span>
+            <h3 class="snd-step__title">Адаптации</h3>
+            <p>Версии и&nbsp;хронометражи под все носители и&nbsp;площадки.</p>
+          </li>
+        </ol>
+
+        <div class="corp-final reveal">
+          <p class="corp-final__phrase">Найдём, как звучит ваш бренд</p>
+          <a class="btn btn--yellow corp-final__cta" href="https://t.me/vicvillian" target="_blank" rel="noopener">Написать в&nbsp;Telegram</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Контакты Vic напрямую -->
+    <section id="contacts" class="corp-show corp-contacts">
+      <div class="corp-wrap">
+        <div class="corp-head reveal">
+          <span class="corp-head__num" aria-hidden="true">05</span>
+          <p class="corp-head__kind">Написать или позвонить</p>
+          <h2 class="corp-head__title">Контакты</h2>
+          <span class="corp-head__rule" aria-hidden="true"></span>
+        </div>
+
+        <ul class="corp-contacts__list reveal">
+          <li class="corp-contacts__row">
+            <span class="corp-contacts__label">Telegram</span>
+            <a class="corp-contacts__value" href="https://t.me/vicvillian" target="_blank" rel="noopener">@vicvillian</a>
+          </li>
+          <li class="corp-contacts__row">
+            <span class="corp-contacts__label">Телефон</span>
+            <a class="corp-contacts__value" href="tel:+79858520121">+7&nbsp;(985)&nbsp;852-01-21</a>
+          </li>
+          <li class="corp-contacts__row">
+            <span class="corp-contacts__label">Почта</span>
+            <a class="corp-contacts__value" href="mailto:vic.torr.live@gmail.com">vic.torr.live@gmail.com</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="corp-foot">
+    <div class="corp-wrap corp-foot__in">
+      <img class="corp-foot__logo" src="../images/logo-yellow.svg" alt="Vic Torr">
+      <div class="corp-foot__info">
+        <div>Звук и&nbsp;музыка: <a href="https://t.me/vicvillian" target="_blank" rel="noopener">Telegram</a> · <a href="tel:+79858520121">+7&nbsp;(985)&nbsp;852-01-21</a> · <a href="mailto:vic.torr.live@gmail.com">vic.torr.live@gmail.com</a></div>
+        <div>© 2026 Vic Torr · <a href="../">vic-torr.com</a> · <a href="#privacy" data-privacy>политика обработки данных</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Политика обработки данных — копия dialog#privacy с главной (на странице работает Метрика) -->
+  <dialog class="privacy" id="privacy" aria-labelledby="privacy-title">
+    <div class="privacy__body">
+      <button type="button" class="privacy__close" data-close aria-label="Закрыть">×</button>
+      <h2 class="h2 privacy__title" id="privacy-title">Политика обработки данных</h2>
+      <p>Сайт использует счётчик Яндекс Метрики (ООО «Яндекс»): он собирает обезличенную статистику посещений и переходов — страницы, источник перехода, тип устройства, примерное местоположение — и для этого использует cookies. Для улучшения сайта счётчик также обезличенно записывает действия на странице — прокрутку, движения и клики (вебвизор); текст, который вы вводите в поля формы, не записывается. Отключить cookies можно в настройках браузера — сайт продолжит работать.</p>
+      <p>Персональные данные — телефон, имя пользователя Telegram, адрес электронной почты и текст сообщения — обрабатываются только в том случае, если вы сами отправляете заявку через форму BOOKING или пишете нам напрямую.</p>
+      <p>Данные используются исключительно для того, чтобы связаться с вами и обсудить концерт или сотрудничество. Мы не продаём, не публикуем и не передаём их третьим лицам, за исключением случаев, предусмотренных законодательством. Для доставки заявки используются Telegram и электронная почта.</p>
+      <p>Отправляя форму, вы соглашаетесь на обработку указанных данных для этой цели. Данные хранятся не дольше, чем это необходимо для ответа и дальнейшего общения по заявке.</p>
+      <p>Подписка на Telegram-канал происходит на стороне Telegram — сайт не получает и не хранит данные подписчиков.</p>
+      <p>Чтобы уточнить, изменить или удалить свои данные, напишите на <a href="mailto:vic.torr.live@gmail.com">vic.torr.live@gmail.com</a>.</p>
+    </div>
+  </dialog>
+
+  <script src="main.js"></script>
+</body>
+</html>

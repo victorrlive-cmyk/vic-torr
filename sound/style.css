@@ -1,0 +1,305 @@
+/* Звук для брендов — vic-torr.com/sound/.
+   База — ../style.css, общие блоки (главы, плеер, меню, контакты, подвал, .reveal) — ../corp/style.css.
+   Здесь только своё: меню с логотипом, первый экран с доской вех, стена регалий, карточки работ, логотипы, этапы. */
+
+.snd-long { display: none; }
+.snd-short { display: inline; }
+
+/* ---------- Липкое меню с самого верха: логотип слева, «Контакты» справа ---------- */
+.snd-nav .corp-nav__in { align-items: center; gap: 18px; }
+.snd-nav__logo { flex: none; display: flex; align-items: center; margin-right: auto; transition: var(--ease); }
+.snd-nav__logo:hover { transform: translateY(-1px); }
+.snd-nav__logo img { display: block; height: 30px; width: auto; }
+.snd-nav__wide { display: none; }
+.snd-nav__contacts { margin-left: 4px; color: var(--text); }
+
+/* ---------- 1. Первый экран ---------- */
+.snd-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 44px;
+  padding-top: 40px;
+  padding-bottom: 48px;
+}
+.snd-hero__text { display: flex; flex-direction: column; gap: 22px; }
+.snd-hero__roles {
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--cond);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--gray);
+}
+.snd-hero__roles .mark { flex: none; width: 8px; height: 8px; }
+.snd-hero__title {
+  margin: 0;
+  font-family: var(--cond);
+  font-style: italic;
+  font-weight: 900;
+  font-size: clamp(56px, 8.4vw, 128px);
+  line-height: .86;
+  letter-spacing: -.02em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.snd-hero__lead { max-width: 42ch; font-size: 18px; line-height: 1.5; color: var(--gray); text-wrap: pretty; }
+.snd-hero__actions { margin-top: 4px; }
+
+/* Доска главных вех: крупное имя заказчика/премии + подпись, строка ведёт к главе */
+.snd-board { display: flex; flex-direction: column; }
+.snd-board__head {
+  padding-bottom: 14px;
+  font-family: var(--cond);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--gray);
+}
+.snd-board__row {
+  position: relative;
+  display: flex; flex-direction: column; gap: 6px;
+  padding: 18px 44px 18px 0;
+  border-top: 1px solid rgba(244,244,242,.2);
+  color: var(--text);
+  text-decoration: none;
+  transition: var(--ease);
+}
+.snd-board__row:last-child { border-bottom: 1px solid rgba(244,244,242,.2); }
+.snd-board__row::after {
+  content: '→';
+  position: absolute;
+  right: 4px; top: 50%;
+  margin-top: -.6em;
+  font-family: var(--cond);
+  font-weight: 900;
+  font-size: 22px;
+  line-height: 1.2;
+  color: var(--gray-3);
+  transition: var(--ease);
+}
+.snd-board__row:hover { color: var(--text); padding-left: 6px; }
+.snd-board__row:hover::after { color: var(--text); transform: translateX(3px); }
+.snd-board__row:focus-visible { outline-offset: -2px; }
+.snd-board__name {
+  font-family: var(--cond);
+  font-style: italic;
+  font-weight: 900;
+  font-size: clamp(30px, 3.4vw, 46px);
+  line-height: .92;
+  letter-spacing: -.01em;
+  text-transform: uppercase;
+}
+.snd-board__note { font-size: 15px; line-height: 1.4; color: var(--gray); }
+
+/* ---------- Стена регалий ---------- */
+.snd-wall { padding-bottom: 72px; }
+.snd-wall__list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.snd-wall__item {
+  display: flex; flex-direction: column; gap: 6px;
+  min-width: 0;
+  padding: 20px 0;
+  border-top: 1px solid var(--line);
+}
+.snd-wall__fact {
+  font-family: var(--cond);
+  font-weight: 900;
+  font-size: clamp(24px, 2.6vw, 34px);
+  line-height: .95;
+  letter-spacing: -.01em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.snd-wall__note { font-size: 13px; line-height: 1.4; color: var(--gray); text-wrap: pretty; }
+
+/* ---------- Подводка главы ---------- */
+.snd-lead {
+  max-width: 34ch;
+  margin-bottom: 48px;
+  font-family: var(--cond);
+  font-weight: 700;
+  font-size: clamp(24px, 2.8vw, 36px);
+  line-height: 1.1;
+  text-wrap: pretty;
+}
+
+/* ---------- Карточки работ ---------- */
+.snd-works { display: grid; grid-template-columns: minmax(0, 1fr); gap: 48px; }
+.snd-work { display: flex; flex-direction: column; }
+.snd-work .corp-player { margin-bottom: 18px; }
+.snd-work__place {
+  font-family: var(--cond);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--gray);
+}
+.snd-work__title {
+  margin: 8px 0 0;
+  font-family: var(--cond);
+  font-style: italic;
+  font-weight: 900;
+  font-size: clamp(36px, 4vw, 52px);
+  line-height: .9;
+  letter-spacing: -.01em;
+  text-transform: uppercase;
+}
+.snd-work__nom {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  font-family: var(--cond);
+  font-weight: 700;
+  font-size: 19px;
+  line-height: 1.2;
+}
+.snd-work__text { margin-top: 10px; font-size: 15px; line-height: 1.5; color: var(--gray); }
+
+/* Фото с церемонии */
+.snd-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 64px; }
+.snd-photo { margin: 0; overflow: hidden; border: 1px solid rgba(244,244,242,.16); border-radius: 16px; }
+.snd-photo img {
+  display: block;
+  width: 100%; height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  transition: transform 600ms cubic-bezier(.2,.7,.2,1);
+}
+.snd-photo:hover img { transform: scale(1.03); }
+.snd-photos__note { grid-column: 1 / -1; padding-top: 8px; }
+
+/* ---------- Звуковые логотипы ---------- */
+.snd-logos { display: grid; grid-template-columns: minmax(0, 1fr); gap: 36px; }
+.snd-logo .corp-player { margin-bottom: 14px; }
+.snd-logo__title {
+  margin: 0;
+  font-family: var(--cond);
+  font-style: italic;
+  font-weight: 900;
+  font-size: 28px;
+  line-height: .95;
+  text-transform: uppercase;
+}
+.snd-logo__text { margin-top: 6px; font-size: 14px; color: var(--gray); }
+
+/* ---------- События ---------- */
+.snd-gap { margin-top: 72px; }
+
+/* Заглушка видео до выгрузки файла: та же рамка, что у плеера */
+.snd-soon {
+  position: relative;
+  display: flex; flex-direction: column; justify-content: flex-end; gap: 10px;
+  aspect-ratio: 16 / 9;
+  padding: 22px;
+  border: 1px solid rgba(244,244,242,.16);
+  border-radius: 16px;
+  background:
+    radial-gradient(120% 90% at 85% 10%, rgba(244,244,242,.08) 0%, rgba(244,244,242,0) 60%),
+    var(--surface-2);
+  color: var(--text);
+  text-decoration: none;
+  overflow: hidden;
+  transition: var(--ease);
+}
+.snd-soon:hover { color: var(--text); transform: translateY(-1px); border-color: rgba(244,244,242,.32); }
+.snd-soon__title {
+  font-family: var(--cond);
+  font-style: italic;
+  font-weight: 900;
+  font-size: clamp(40px, 6vw, 72px);
+  line-height: .86;
+  text-transform: uppercase;
+}
+.snd-soon__go {
+  display: flex; align-items: center; gap: 12px;
+  font-family: var(--cond);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--gray);
+  transition: var(--ease);
+}
+.snd-soon__go::after { content: ''; width: 28px; height: 2px; background: currentColor; transition: width 300ms ease; }
+.snd-soon:hover .snd-soon__go { color: var(--text); }
+.snd-soon:hover .snd-soon__go::after { width: 56px; }
+
+/* ---------- Этапы работы ---------- */
+.snd-steps {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  margin: 64px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.snd-step {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  column-gap: 12px;
+  padding: 20px 0;
+  border-top: 1px solid var(--line);
+}
+.snd-step:last-child { border-bottom: 1px solid var(--line); }
+.snd-step__num {
+  grid-row: span 2;
+  font-family: var(--cond);
+  font-style: italic;
+  font-weight: 900;
+  font-size: 22px;
+  color: var(--gray-3);
+}
+.snd-step__title {
+  margin: 0;
+  font-family: var(--cond);
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.1;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.snd-step p { margin-top: 6px; font-size: 15px; line-height: 1.5; color: var(--gray); }
+
+.js .snd-step:nth-child(2), .js .snd-work:nth-child(2), .js .snd-photo:nth-child(2), .js .snd-logo:nth-child(2) { transition-delay: 80ms; }
+.js .snd-step:nth-child(3), .js .snd-logo:nth-child(3) { transition-delay: 160ms; }
+.js .snd-step:nth-child(4) { transition-delay: 240ms; }
+
+@media (min-width: 640px) {
+  .snd-long { display: inline; }
+  .snd-short { display: none; }
+  .snd-nav .corp-nav__in { gap: 28px; }
+  .snd-nav__logo img { height: 34px; }
+  .snd-nav__wide { display: flex; }
+  .snd-hero { padding-top: 64px; padding-bottom: 64px; }
+  .snd-hero__roles { font-size: 13px; letter-spacing: .22em; }
+  .snd-hero__actions .btn--yellow { flex: 0 1 auto; }
+  .snd-wall { padding-bottom: 96px; }
+  .snd-wall__list { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0 28px; }
+  .snd-photos { grid-template-columns: 1fr 1fr 1fr; align-items: end; }
+  .snd-photos__note { grid-column: auto; padding: 0 0 8px 12px; }
+  .snd-logos { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+  .snd-logo__title { font-size: 24px; }
+  .snd-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 32px; }
+  .snd-step:nth-last-child(2) { border-bottom: 1px solid var(--line); }
+  .snd-soon { padding: 32px; }
+}
+
+@media (min-width: 900px) {
+  .snd-hero { grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: clamp(40px, 5vw, 96px); align-items: center; min-height: min(calc(100svh - 120px), 760px); }
+  .snd-hero__title { font-size: clamp(64px, 7vw, 112px); }
+  .snd-board__row { padding-top: 22px; padding-bottom: 22px; }
+  .snd-works { grid-template-columns: 1fr 1fr; gap: clamp(32px, 4vw, 56px); }
+  .snd-logo__title { font-size: 28px; }
+  .snd-gap { margin-top: 112px; }
+  .snd-steps { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .snd-step { grid-template-columns: minmax(0, 1fr); padding: 24px 0 26px; border-bottom: 1px solid var(--line); }
+  .snd-step__num { grid-row: auto; margin-bottom: 14px; }
+}
