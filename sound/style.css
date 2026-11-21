@@ -416,9 +416,37 @@
   text-decoration: none;
   transition: var(--ease);
 }
-.snd-task__go::after { content: '→'; font-size: 16px; letter-spacing: 0; transition: var(--ease); }
+.snd-task__arrow { font-size: 16px; letter-spacing: 0; transition: var(--ease); }
 .snd-task__go:hover { color: var(--text); }
-.snd-task__go:hover::after { transform: translateX(3px); }
+.snd-task__go:hover .snd-task__arrow { transform: translateX(3px); }
+/* «решение» допечатывается при появлении карточки (main.js); жёлтый курсор мигает всегда */
+.snd-task__ans {
+  display: inline-flex; align-items: center;
+  font-family: var(--cond);
+  font-style: italic;
+  font-weight: 900;
+  font-size: 22px;
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+.snd-task__cur {
+  display: inline-block;
+  width: .5em; height: .82em;
+  margin-left: .08em;
+  background: var(--accent);
+  animation: snd-blink 1.06s steps(1, end) infinite;
+}
+/* При наведении под «решением» слева направо прочерчивается жёлтая линия, курсор замирает */
+.snd-task__word {
+  padding-bottom: 4px;
+  background: linear-gradient(var(--accent), var(--accent)) 0 100% / 0 3px no-repeat;
+  transition: background-size 300ms cubic-bezier(.2,.7,.2,1);
+}
+.snd-task__go:hover .snd-task__word, .snd-task__go:focus-visible .snd-task__word { background-size: 100% 3px; }
+.snd-task__go:hover .snd-task__cur, .snd-task__go:focus-visible .snd-task__cur { animation: none; }
+@keyframes snd-blink { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .snd-task__cur { animation: none; } }
 
 /* ---------- Промежуточный CTA после работ ---------- */
 .snd-ask {

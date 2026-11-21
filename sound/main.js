@@ -118,6 +118,34 @@ if (typer) {
   typer.addEventListener('click', function () { goal('hero_task_click', { phrase: out.textContent }); });
 }
 
+// «→ решение» в карточках задач: слово допечатывается, когда карточка появилась на экране
+var answers = document.querySelectorAll('.snd-task__word');
+if (answers.length && !reduceMotion && 'IntersectionObserver' in window) {
+  var typeWord = function (el, delay) {
+    var word = el.getAttribute('data-word');
+    var i = 0;
+    setTimeout(function tick() {
+      i++;
+      el.textContent = word.slice(0, i);
+      if (i < word.length) setTimeout(tick, 70 + Math.random() * 50);
+    }, delay);
+  };
+  var answerWatch = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      var el = entry.target;
+      answerWatch.unobserve(el);
+      var order = Array.prototype.indexOf.call(answers, el) % 2;
+      typeWord(el, 500 + order * 350);
+    });
+  }, { rootMargin: '0px 0px -15% 0px' });
+  answers.forEach(function (el) {
+    el.setAttribute('data-word', el.textContent);
+    el.textContent = '';
+    answerWatch.observe(el);
+  });
+}
+
 // Цели Яндекс Метрики с page: 'sound'. Метрика заблокирована — молча ничего.
 function goal(name, params) {
   params.page = 'sound';
