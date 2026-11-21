@@ -83,6 +83,41 @@ if (!reduceMotion && nums.length) {
   drift();
 }
 
+// «Ваша задача» на первом экране: фраза печатается, стирается, печатается следующая.
+// Без JS видна первая фраза; при reduced motion фразы просто сменяются.
+var typer = document.querySelector('.snd-type');
+if (typer) {
+  var phrases = (typer.getAttribute('data-phrases') || '').split('|').map(function (t) {
+    return t.replace(/&nbsp;/g, '\u00a0');
+  });
+  var out = typer.querySelector('.snd-type__text');
+  var idx = 0, pos = phrases[0].length, del = true;
+  var step = function () {
+    var phrase = phrases[idx];
+    if (reduceMotion) {
+      idx = (idx + 1) % phrases.length;
+      out.textContent = phrases[idx];
+      return setTimeout(step, 3200);
+    }
+    if (del) {
+      pos--;
+      out.textContent = phrase.slice(0, pos);
+      if (pos > 0) return setTimeout(step, 28);
+      del = false;
+      idx = (idx + 1) % phrases.length;
+      return setTimeout(step, 320);
+    }
+    phrase = phrases[idx];
+    pos++;
+    out.textContent = phrase.slice(0, pos);
+    if (pos < phrase.length) return setTimeout(step, 55 + Math.random() * 45);
+    del = true;
+    setTimeout(step, 2600);
+  };
+  if (phrases.length > 1) setTimeout(step, 2800);
+  typer.addEventListener('click', function () { goal('hero_task_click', { phrase: out.textContent }); });
+}
+
 // Цели Яндекс Метрики с page: 'sound'. Метрика заблокирована — молча ничего.
 function goal(name, params) {
   params.page = 'sound';

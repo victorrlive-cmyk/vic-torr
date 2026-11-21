@@ -56,9 +56,10 @@
   <nav class="corp-nav snd-nav" aria-label="Разделы">
     <div class="corp-nav__in">
       <a class="snd-nav__logo" href="#top"><img src="../images/logo-yellow.svg" alt="Vic Torr" width="120" height="40"></a>
+      <a class="corp-nav__link snd-nav__wide" href="#tasks">Задачи</a>
       <a class="corp-nav__link" href="#awards">Награды</a>
-      <a class="corp-nav__link" href="#branding"><span class="snd-long">Саунд-брендинг</span><span class="snd-short">Логотипы</span></a>
-      <a class="corp-nav__link" href="#events">Сцены</a>
+      <a class="corp-nav__link" href="#branding"><span class="snd-long">Саунд-брендинг</span><span class="snd-short">Брендинг</span></a>
+      <a class="corp-nav__link" href="#events">Ивенты</a>
       <a class="corp-nav__link snd-nav__wide" href="#services">Что делаю</a>
       <a class="corp-nav__link corp-nav__link--contacts snd-nav__contacts" href="#contacts" aria-label="Контакты">
         <svg class="corp-nav__icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z" fill="currentColor"/></svg>
@@ -67,19 +68,42 @@
     </div>
   </nav>
 
-  <!-- 1. Первый экран: кто я + доска главных вех (каждая ведёт к своей главе) -->
-  <header class="snd-hero corp-wrap" id="top">
-    <div class="snd-hero__text">
-      <p class="snd-hero__roles"><span class="mark"></span>Саунд-дизайн · Музыкальный продакшн · Саунд-брендинг</p>
-      <h1 class="snd-hero__title">Звук, который работает на&nbsp;бренд</h1>
-      <p class="snd-hero__lead">Музыка и&nbsp;звук для брендов, телевидения и&nbsp;больших событий&nbsp;— от&nbsp;идеи и&nbsp;концепции до&nbsp;финального мастера. Совмещаю опыт композитора и&nbsp;продюсера с&nbsp;образованием в&nbsp;PR и&nbsp;рекламе: звук здесь&nbsp;— часть коммуникации, а&nbsp;не&nbsp;фон.</p>
-      <div class="corp-actions snd-hero__actions">
-        <a class="btn btn--yellow" href="#contacts">Обсудить проект</a>
-      </div>
-    </div>
+  <!-- 1. Первый экран: фото в студии + обещание + CTA.
+       Фото — sound/images/vic-studio-*.jpg (ч/б, из «Vic Torr - Sound Design 03»):
+       до 640px вертикальный кадр полосой сверху, с 640px — широкий справа, текст слева на тёмной части -->
+  <header class="snd-hero" id="top">
+    <picture class="snd-hero__photo">
+      <source media="(min-width: 640px)" srcset="images/vic-studio-wide.jpg" width="1424" height="1068">
+      <img src="images/vic-studio-tall.jpg" alt="Vic Torr в своей студии за клавишными" width="720" height="890" fetchpriority="high">
+    </picture>
+    <span class="snd-hero__shade" aria-hidden="true"></span>
 
-    <nav class="snd-board" aria-label="Главные работы">
-      <p class="snd-board__head">Главные работы</p>
+    <div class="corp-wrap snd-hero__in">
+      <div class="snd-hero__text">
+        <p class="snd-hero__roles"><span class="mark"></span>Саунд-дизайн · Музыкальный продакшн · Саунд-брендинг</p>
+        <h1 class="snd-hero__title">Звук, который работает на&nbsp;бренд</h1>
+        <p class="snd-hero__lead">Музыка и&nbsp;звук, по&nbsp;которым бренд узнают с&nbsp;первых секунд,&nbsp;— для телеканалов, рекламы и&nbsp;больших событий. Совмещаю опыт композитора и&nbsp;продюсера с&nbsp;образованием в&nbsp;PR и&nbsp;рекламе: звук здесь&nbsp;— часть коммуникации, а&nbsp;не&nbsp;фон.</p>
+        <div class="corp-actions snd-hero__actions">
+          <a class="btn btn--yellow" href="#contacts">Обсудить проект</a>
+          <a class="btn btn--line" href="#awards">Смотреть работы</a>
+        </div>
+        <p class="snd-hero__proof"><b>Медиабренд-2025</b> · 1&nbsp;и&nbsp;3&nbsp;место среди ~280&nbsp;проектов финала</p>
+      </div>
+
+      <!-- Динамика первого экрана: «печатается» боль клиента, жёлтый DOS-курсор мигает (как стрелка на corp/).
+           Клик ведёт в «С чем приходят ко мне». Фразы — в data-phrases через «|», без JS видна первая -->
+      <a class="snd-type" href="#tasks" data-phrases="Бренд не&nbsp;узнают на&nbsp;слух?|Промо теряется в&nbsp;эфире?|Событию не&nbsp;хватает момента?|Звучим как все?">
+        <span class="snd-type__over">На&nbsp;что жалуетесь?</span>
+        <span class="snd-type__line"><span class="snd-type__text">Бренд не&nbsp;узнают на&nbsp;слух?</span><span class="snd-type__cursor" aria-hidden="true"></span></span>
+        <span class="snd-type__go">Есть решение</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Полоса доказательств: доска главных вех (каждая ведёт к своей главе) + кто доверял звук -->
+  <section class="snd-proof corp-wrap" aria-label="Главные работы и заказчики">
+    <nav class="snd-board" aria-label="Мои работы">
+      <p class="snd-board__head">Мои работы</p>
       <a class="snd-board__row" href="#awards">
         <span class="snd-board__name">Медиабренд-2025</span>
         <span class="snd-board__note">1 и&nbsp;3 место · промо viju для Viasat Global</span>
@@ -97,72 +121,55 @@
         <span class="snd-board__note">музыкальное оформление и&nbsp;live главной ТВ-премии Беларуси</span>
       </a>
     </nav>
-  </header>
 
-  <!-- Профиль: опыт и образование — как резюме. Концертную деятельность здесь не показываем -->
-  <section class="snd-cv corp-wrap" aria-labelledby="cv-title">
-    <h2 class="snd-cv__title" id="cv-title">Профиль</h2>
-
-    <div class="snd-cv__cols">
-      <div class="snd-cv__col">
-        <p class="snd-cv__head">Опыт</p>
-        <dl class="snd-cv__list">
-          <div class="snd-cv__row">
-            <dt>Sound design, звук</dt>
-            <dd><b>ТНТ</b> · <b>Viasat Global</b> (viju) — музыка и&nbsp;саунд-дизайн 15&nbsp;каналов viju+</dd>
-          </div>
-          <div class="snd-cv__row">
-            <dt>Songwriting, music production</dt>
-            <dd><b>DALI</b> · <b>ROSTANY</b></dd>
-          </div>
-          <div class="snd-cv__row">
-            <dt>Музыка для брендов</dt>
-            <dd><b>Wargaming</b> — специальные треки World of&nbsp;Tanks для официальных мероприятий</dd>
-          </div>
-          <div class="snd-cv__row">
-            <dt>Саунд-дизайн для игр</dt>
-            <dd>Игры для <b>macOS</b> и&nbsp;приложения для <b>Android</b></dd>
-          </div>
-          <div class="snd-cv__row">
-            <dt>Международные проекты</dt>
-            <dd>Сотрудничество с&nbsp;<b>V.MAKE Culture</b> — проект на&nbsp;50&nbsp;городов Китая</dd>
-          </div>
-          <div class="snd-cv__row">
-            <dt>Спортивные события</dt>
-            <dd><b>Чемпионат мира по&nbsp;хоккею</b>, Минск, 2014 — ROSTANY</dd>
-          </div>
-          <div class="snd-cv__row">
-            <dt>PR</dt>
-            <dd><b>IBA</b></dd>
-          </div>
-        </dl>
-      </div>
-
-      <div class="snd-cv__col">
-        <p class="snd-cv__head">Образование</p>
-        <dl class="snd-cv__list">
-          <div class="snd-cv__row">
-            <dt>Языковед</dt>
-            <dd><b>ВГУ</b></dd>
-          </div>
-          <div class="snd-cv__row">
-            <dt>PR и&nbsp;реклама</dt>
-            <dd><b>МГЛУ</b>, Минск</dd>
-          </div>
-        </dl>
-
-        <p class="snd-cv__head snd-cv__head--gap">Общественная деятельность</p>
-        <dl class="snd-cv__list">
-          <div class="snd-cv__row">
-            <dt>European Youth Parliament</dt>
-            <dd>Европейский молодёжный парламент</dd>
-          </div>
-        </dl>
-      </div>
+    <div class="snd-clients">
+      <p class="snd-board__head">Свой звук мне доверили</p>
+      <ul class="snd-clients__list">
+        <li>Viasat Global · viju</li>
+        <li>ТНТ</li>
+        <li>Сбер</li>
+        <li>Wargaming</li>
+        <li>Беларусь&nbsp;1</li>
+        <li>V.MAKE Culture</li>
+      </ul>
     </div>
   </section>
 
   <main>
+    <!-- Задача → решение: клиент узнаёт свою проблему и видит, где на странице доказательство -->
+    <section id="tasks" class="corp-show snd-tasks">
+      <div class="corp-wrap">
+        <div class="corp-head reveal">
+          <p class="corp-head__kind">Задача → решение</p>
+          <h2 class="corp-head__title">С&nbsp;чем приходят ко&nbsp;мне</h2>
+          <span class="corp-head__rule" aria-hidden="true"></span>
+        </div>
+
+        <ul class="snd-tasks__list">
+          <li class="snd-task reveal">
+            <p class="snd-task__pain">«Бренд не&nbsp;узнают на&nbsp;слух»</p>
+            <p class="snd-task__fix">Звуковой логотип и&nbsp;музыкальная платформа: пятнадцать секунд&nbsp;— и&nbsp;канал узнают с&nbsp;закрытыми глазами.</p>
+            <a class="snd-task__go" href="#branding">Саунд-брендинг viju</a>
+          </li>
+          <li class="snd-task reveal">
+            <p class="snd-task__pain">«Промо теряется в&nbsp;эфире»</p>
+            <p class="snd-task__fix">Музыка и&nbsp;звук, которые держат внимание до&nbsp;последнего кадра. Два таких ролика взяли «Медиабренд-2025».</p>
+            <a class="snd-task__go" href="#awards">Ролики-призёры</a>
+          </li>
+          <li class="snd-task reveal">
+            <p class="snd-task__pain">«Событию не&nbsp;хватает момента»</p>
+            <p class="snd-task__fix">Оригинальная увертюра или открытие, которые задают вечеру драматургию&nbsp;— как для СберПрайм.</p>
+            <a class="snd-task__go" href="#events">Большие сцены</a>
+          </li>
+          <li class="snd-task reveal">
+            <p class="snd-task__pain">«Звучим как все»</p>
+            <p class="snd-task__fix">Музыка пишется с&nbsp;нуля под ваш бренд, а&nbsp;не&nbsp;подбирается из&nbsp;стоков. Один автор на&nbsp;весь цикл&nbsp;— от&nbsp;концепции до&nbsp;мастера и&nbsp;адаптаций.</p>
+            <a class="snd-task__go" href="#services">Что я&nbsp;делаю</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
     <!-- 2. Медиабренд-2025: «Обезьяна» первой — серьёзное кино, затем viju -->
     <section id="awards" class="corp-show">
       <div class="corp-wrap">
@@ -205,16 +212,22 @@
           </article>
         </div>
 
-        <div class="snd-photos">
-          <figure class="snd-photo reveal">
-            <img src="images/mediabrand-2025-trio.jpg" alt="Vic Torr и коллеги с наградами «Медиабренд»" width="960" height="1280" loading="lazy">
-          </figure>
-          <figure class="snd-photo reveal">
-            <img src="images/mediabrand-2025-team.jpg" alt="Команда на церемонии «Медиабренд-2025»" width="960" height="1280" loading="lazy">
-          </figure>
-          <div class="snd-photos__note reveal">
-            <p class="corp-text__accent">Церемония XIII премии «Медиабренд», РЭУ им.&nbsp;Г.&nbsp;В.&nbsp;Плеханова, 2025.</p>
+        <!-- Церемония: слева итог крупно, справа два фото со сдвигом. Фото в ч/б (как шапка), цвет — при наведении -->
+        <div class="snd-stage">
+          <div class="snd-stage__text reveal">
+            <p class="snd-work__place">Церемония · 2025</p>
+            <p class="snd-stage__big">1&nbsp;и&nbsp;3 <span>место</span></p>
+            <p class="snd-stage__note">среди около 280&nbsp;проектов от&nbsp;56&nbsp;компаний</p>
+            <p class="snd-stage__cap">Церемония XIII премии «Медиабренд», РЭУ им.&nbsp;Г.&nbsp;В.&nbsp;Плеханова, 2025.</p>
           </div>
+          <figure class="snd-photo snd-photo--a reveal">
+            <img src="images/mediabrand-2025-trio.jpg" alt="Vic Torr и коллеги с наградами «Медиабренд»" width="960" height="1280" loading="lazy">
+            <figcaption class="corp-player__tag"><span class="mark"></span>С&nbsp;наградами</figcaption>
+          </figure>
+          <figure class="snd-photo snd-photo--b reveal">
+            <img src="images/mediabrand-2025-team.jpg" alt="Команда на церемонии «Медиабренд-2025»" width="960" height="1280" loading="lazy">
+            <figcaption class="corp-player__tag">Команда viju</figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -315,6 +328,100 @@
             <p>Музыкальное оформление и&nbsp;живое выступление на&nbsp;церемонии главной телевизионной премии Беларуси.</p>
           </div>
         </div>
+
+        <!-- Промежуточный CTA: после работ, пока впечатление свежее -->
+        <div class="snd-ask reveal">
+          <p class="snd-ask__text">Нужен звук такого уровня для вашего бренда, канала или события?</p>
+          <a class="btn btn--line snd-ask__btn" href="#contacts">Обсудить задачу</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Профиль: опыт и образование — как резюме. После работ: сначала результат, потом «почему я». Концертную деятельность здесь не показываем -->
+    <section class="snd-cv corp-wrap" aria-labelledby="cv-title">
+      <!-- Почему со мной: что получает компания. Только факты со страницы -->
+      <p class="snd-board__head">Почему со&nbsp;мной</p>
+      <ul class="snd-why">
+        <li class="snd-why__item reveal">
+          <span class="snd-why__num">01</span>
+          <p class="snd-why__title">Награды индустрии</p>
+          <p>1&nbsp;и&nbsp;3&nbsp;место «Медиабренд-2025» среди около 280&nbsp;проектов от&nbsp;56&nbsp;компаний.</p>
+        </li>
+        <li class="snd-why__item reveal">
+          <span class="snd-why__num">02</span>
+          <p class="snd-why__title">Масштаб телесети</p>
+          <p>Вся музыка и&nbsp;саунд-дизайн 15&nbsp;каналов viju+&nbsp;— единая звуковая система, а&nbsp;не&nbsp;разовый трек.</p>
+        </li>
+        <li class="snd-why__item reveal">
+          <span class="snd-why__num">03</span>
+          <p class="snd-why__title">Говорю на&nbsp;языке маркетинга</p>
+          <p>Образование в&nbsp;PR и&nbsp;рекламе: понимаю бриф, аудиторию и&nbsp;KPI&nbsp;— и&nbsp;перевожу их&nbsp;в&nbsp;звук.</p>
+        </li>
+        <li class="snd-why__item reveal">
+          <span class="snd-why__num">04</span>
+          <p class="snd-why__title">Напрямую с&nbsp;автором</p>
+          <p>Без посредников: композитор, саунд-дизайнер и&nbsp;продюсер в&nbsp;одном лице ведёт проект от&nbsp;идеи до&nbsp;мастера.</p>
+        </li>
+      </ul>
+
+      <h2 class="snd-cv__title" id="cv-title">Профиль</h2>
+
+      <div class="snd-cv__cols">
+        <div class="snd-cv__col">
+          <p class="snd-cv__head">Опыт</p>
+          <dl class="snd-cv__list">
+            <div class="snd-cv__row">
+              <dt>Sound design, звук</dt>
+              <dd><b>ТНТ</b> · <b>Viasat Global</b> (viju) — музыка и&nbsp;саунд-дизайн 15&nbsp;каналов viju+</dd>
+            </div>
+            <div class="snd-cv__row">
+              <dt>Songwriting, music production</dt>
+              <dd><b>DALI</b> · <b>ROSTANY</b></dd>
+            </div>
+            <div class="snd-cv__row">
+              <dt>Музыка для брендов</dt>
+              <dd><b>Wargaming</b> — специальные треки World of&nbsp;Tanks для официальных мероприятий</dd>
+            </div>
+            <div class="snd-cv__row">
+              <dt>Саунд-дизайн для игр</dt>
+              <dd>Игры для <b>macOS</b> и&nbsp;приложения для <b>Android</b></dd>
+            </div>
+            <div class="snd-cv__row">
+              <dt>Международные проекты</dt>
+              <dd>Сотрудничество с&nbsp;<b>V.MAKE Culture</b> — проект на&nbsp;50&nbsp;городов Китая</dd>
+            </div>
+            <div class="snd-cv__row">
+              <dt>Спортивные события</dt>
+              <dd><b>Чемпионат мира по&nbsp;хоккею</b>, Минск, 2014 — ROSTANY</dd>
+            </div>
+            <div class="snd-cv__row">
+              <dt>PR</dt>
+              <dd><b>IBA</b></dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="snd-cv__col">
+          <p class="snd-cv__head">Образование</p>
+          <dl class="snd-cv__list">
+            <div class="snd-cv__row">
+              <dt>Языковед</dt>
+              <dd><b>ВГУ</b></dd>
+            </div>
+            <div class="snd-cv__row">
+              <dt>PR и&nbsp;реклама</dt>
+              <dd><b>МГЛУ</b>, Минск</dd>
+            </div>
+          </dl>
+
+          <p class="snd-cv__head snd-cv__head--gap">Общественная деятельность</p>
+          <dl class="snd-cv__list">
+            <div class="snd-cv__row">
+              <dt>Европейский молодёжный парламент</dt>
+              <dd><b>European Youth Parliament</b></dd>
+            </div>
+          </dl>
+        </div>
       </div>
     </section>
 
@@ -379,6 +486,7 @@
 
         <div class="corp-final reveal">
           <p class="corp-final__phrase">Найдём, как звучит ваш бренд</p>
+          <p class="snd-final__note">Опишите задачу в&nbsp;двух словах&nbsp;— отвечу лично и&nbsp;предложу, с&nbsp;чего начать.</p>
           <a class="btn btn--yellow corp-final__cta" href="https://t.me/vicvillian" target="_blank" rel="noopener">Написать в&nbsp;Telegram</a>
         </div>
       </div>
